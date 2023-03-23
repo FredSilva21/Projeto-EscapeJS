@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@700&display=swap');
+
+*{
+    font-family:"Source Code Pro";
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+header svg{
+    width: 250px;
+    height: 100px;
+    padding-left: 1%;
+}
+
+header nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header nav button{
+    background-color:#CFEC1E;
+    margin: 0 10px;
+    padding: 5px;
+    transition: background-color 0.3s ease-in-out;
+    width: 140px;
+    border-radius:10px;
+    border-color:#CFEC1E;
+    font-size: larger
+}
