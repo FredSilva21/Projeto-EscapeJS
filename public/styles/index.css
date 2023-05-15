@@ -1,31 +1,31 @@
-header{
+header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px;
 }
 
-header svg{
+header svg {
   width: 250px;
   height: 100px;
   padding-left: 1%;
 }
 
-header nav{
+header nav {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-header nav button{
-  background-color:#CFEC1E;
+header nav button {
+  background-color: #faff00;
   margin: 0 10px;
   padding: 5px;
   transition: background-color 0.3s ease-in-out;
   width: 140px;
-  border-radius:10px;
-  border-color:#CFEC1E;
-  font-size: larger
+  border-radius: 10px;
+  border-color: #faff00;
+  font-size: larger;
 }
 
 /*Primeiro Container*/
@@ -193,4 +193,3 @@ header nav button{
   transform: rotate(180deg);
   color: #7b7b7b;
 }
-

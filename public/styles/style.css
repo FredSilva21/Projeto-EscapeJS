@@ -43,37 +43,36 @@ img {
 
 /*Footer*/
 footer {
-    height: 300px;
-    background-color: black;
-  }
-  
-  footer ul {
-    list-style: none;
-    margin: 0 auto;
-    width: 100%;
-    max-width: 900px;
-    text-align: center;
-    padding: 2rem 0;
-  }
-  
-  footer ul li {
-    display: inline;
-    padding: 0 1rem;
-  }
-  
-  footer li a {
-    text-decoration: none;
-    color: white;
-  }
-  
-  footer li a:hover {
-    text-decoration: underline;
-  }
-  
-  /*
+  height: 300px;
+  background-color: black;
+}
+
+footer ul {
+  list-style: none;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 900px;
+  text-align: center;
+  padding: 2rem 0;
+}
+
+footer ul li {
+  display: inline;
+  padding: 0 1rem;
+}
+
+footer li a {
+  text-decoration: none;
+  color: white;
+}
+
+footer li a:hover {
+  text-decoration: underline;
+}
+
+/*
   .social{
       display: flex;
       flex-direction: row;
   }
   */
-  
