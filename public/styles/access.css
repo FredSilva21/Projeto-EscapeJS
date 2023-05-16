@@ -1,0 +1,80 @@
+@import url("https://fonts.googleapis.com/css2?family=Urbanist&display=swap");
+
+* {
+  font-family: "Urbanist" Bold;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+h1 {
+  font-weight: bold;
+  text-align: center;
+  font-size: 64px;
+  padding: 1rem;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+
+form {
+  width: 600px;
+  max-width: 600px;
+  margin: 1rem;
+  padding: 2rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+.form-input {
+  margin-bottom: 1rem;
+}
+
+.form-input label {
+  display: block;
+}
+
+.form-input input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+.form-input button {
+  padding: 10px 20px;
+  color: black;
+  border-radius: 10px;
+  background-color: #faff00;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.form-input button:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+.has_account a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  padding: 1rem;
+}
+
+.has_account a:hover {
+  text-decoration: underline;
+}
