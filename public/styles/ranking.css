@@ -1,0 +1,12 @@
+.ranking-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #FFFA7E;
+    max-width: 800px;
+}
+
+.ranking-container p{
+    font-size: xx-large;
+}

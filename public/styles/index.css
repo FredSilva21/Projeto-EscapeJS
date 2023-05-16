@@ -17,17 +17,6 @@ header nav {
   align-items: center;
 }
 
-header nav button {
-  background-color: #faff00;
-  margin: 0 10px;
-  padding: 5px;
-  transition: background-color 0.3s ease-in-out;
-  width: 140px;
-  border-radius: 10px;
-  border-color: #faff00;
-  font-size: larger;
-}
-
 /*Primeiro Container*/
 .first-container {
   display: flex;
@@ -192,4 +181,74 @@ header nav button {
 .third-container #arrow1 {
   transform: rotate(180deg);
   color: #7b7b7b;
+}
+
+/*Footer*/
+footer{
+  height: 300px;
+  background-color: black;
+}
+
+footer nav{
+  display: flex;
+  justify-content: space-between;
+  gap: 90px;
+  margin: 35px;
+}
+
+.social{
+  display: flex;
+  flex-direction: row;
+}
+
+.social li{
+  list-style-type: none;
+  padding:5px;
+  margin-top: 25px;
+}
+
+.social li a{
+  text-decoration: none;
+}
+
+.social li a img{
+  border-radius: 35px;
+}
+
+.text{
+  color:white;
+  margin: 20px;
+  font-size: larger;
+}
+
+footer div{
+  display: flex;
+  align-self: baseline;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.copyrigth{
+  color:#7E7E7E;
+  margin: 10px;
+}
+
+.terms{
+  display: flex;
+  flex-direction: row;
+}
+
+.terms li{
+  list-style-type: none;
+  padding:10px;
+}
+
+.terms li a{
+  text-decoration: none;
+  color: black;
+}
+
+.terms li a:hover{
+  text-decoration:underline;
+  color: white;
 }

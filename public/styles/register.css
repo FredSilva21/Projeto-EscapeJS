@@ -29,8 +29,8 @@ h1 {
 
 
 form {
-  width: 600px;
-  max-width: 600px;
+  width: 500px;
+  max-width: 500px;
   margin: 1rem;
   padding: 2rem;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
@@ -42,19 +42,15 @@ form {
   margin-bottom: 1rem;
 }
 
-.form-input label {
-  display: block;
-}
-
 .form-input input {
-  width: 70%;
+  width: 90%;
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 10px;
 }
 
 select {
-  width: 70%;
+  width: 100%;
   padding: 8px;
   border-radius: 10px;
   margin-bottom: 5px;
@@ -78,7 +74,7 @@ select {
   text-decoration: none;
   color: black;
   font-weight: bold;
-  padding: 1rem;
+  padding: 0.25rem;
 }
 
 .has_account a:hover {
