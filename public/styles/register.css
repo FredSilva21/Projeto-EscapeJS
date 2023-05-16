@@ -17,6 +17,7 @@ h1 {
   font-weight: bold;
   text-align: center;
   font-size: 64px;
+  padding: 1rem;
 }
 
 .container {
@@ -47,14 +48,14 @@ form {
 }
 
 .form-input input {
-  width: 70%;
+  width: 100%;
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 10px;
 }
 
 select {
-  width: 70%;
+  width: 100%;
   padding: 8px;
   border-radius: 10px;
   margin-bottom: 5px;
