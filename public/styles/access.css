@@ -29,16 +29,15 @@ h1 {
 }
 
 
-
 form {
-  width: 500px;
-  max-width: 500px;
+  width: 600px;
+  max-width: 600px;
+  margin: 1rem;
   padding: 2rem;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
   border-radius: 20px;
   font-weight: bold;
 }
-
 
 .form-input {
   margin-bottom: 1rem;
@@ -49,17 +48,10 @@ form {
 }
 
 .form-input input {
-  width: 90%;
+  width: 100%;
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 10px;
-}
-
-select {
-  width: 90%;
-  padding: 8px;
-  border-radius: 10px;
-  margin-bottom: 5px;
 }
 
 .form-input button {
@@ -69,7 +61,6 @@ select {
   background-color: #faff00;
   cursor: pointer;
   transition: 0.5s;
-  width: 90%;
 }
 
 .form-input button:hover {
@@ -77,16 +68,11 @@ select {
   cursor: pointer;
 }
 
-.has_account{
-  width: 80%;
-  margin-top: 1rem auto;
-}
-
 .has_account a {
   text-decoration: none;
   color: black;
   font-weight: bold;
-  padding: 0.25rem;
+  padding: 1rem;
 }
 
 .has_account a:hover {
