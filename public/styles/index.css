@@ -185,20 +185,24 @@ header nav {
 
 /*Footer*/
 footer{
-  height: 300px;
+  height:500px;
   background-color: black;
+  display: flex;
+  align-self: baseline;
+  flex-direction: column;
 }
 
 footer nav{
   display: flex;
   justify-content: space-between;
-  gap: 90px;
+  gap: 100px;
   margin: 35px;
 }
 
 .social{
   display: flex;
   flex-direction: row;
+  margin-bottom: 10px;
 }
 
 .social li{
@@ -221,11 +225,10 @@ footer nav{
   font-size: larger;
 }
 
-footer div{
+.bottom{
   display: flex;
-  align-self: baseline;
-  flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
+  align-items: end;
 }
 
 .copyrigth{
