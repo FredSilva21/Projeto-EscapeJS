@@ -49,12 +49,20 @@ form {
   text-align: center;
 }
 
+.form-input input:hover{
+  box-shadow: 0 5px 10px rgba(0,0,0,0.4);
+}
+
 select {
   width: 80%;
   padding: 8px;
   border-radius: 10px;
   margin-bottom: 5px;
   text-align: center
+}
+
+select:hover {
+  box-shadow: 0 5px 10px rgba(0,0,0,0.4);
 }
 
 .form-input:last-child{
