@@ -1,3 +1,5 @@
+import * as user from "../../models/user"
+
 const form = document.querySelector("form");
 
 const submit = form.querySelector('button[type="submit"]');
