@@ -26,8 +26,10 @@ export function init() {
       ];
 }
 
+//Array UserDoc
 export let userDoc = [];
 
+//Generate Id
 export function generateId(id) {
   id = userDoc.length + 1;
   return id;
@@ -39,6 +41,7 @@ export function createUser(id, name, email, age, gender, password) {
   localStorage.userDoc = JSON.stringify(userDoc);
 }
 
+//Calculate age
 export function calculateAge(dateOfBirth) {
   const currentDate = new Date();
   const birthDate = new Date(dateOfBirth);
