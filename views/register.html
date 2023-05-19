@@ -15,7 +15,7 @@
   </head>
   <body>
     <div class="container">
-      <form action="" method="post">
+      <form action="" method="get">
         <h1>Sign Up</h1>
         <div class="form-input">
           <input
@@ -79,13 +79,13 @@
         <div class="form-input">
           <button type="submit">Sign Up</button>
           <span class="has_account">
-              Already have an account?<a href="./access.html">Sign In</a>
+              Already have an account?<a href="./register.html">Sign In</a>
           </span>
           </span>
         </div>
       </form>
     </div>
-
-    <script src="../public/js/register.js"></script>
+    <script type="module" src="../models/user.js"></script>
+    <script type="module" src="../public/js/register.js"></script>
   </body>
 </html>

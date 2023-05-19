@@ -71,7 +71,7 @@ select:hover {
   align-items: center;
 }
 
-.form-input button {
+.form-input button,.has_account button {
   padding: 10px 20px;
   color: black;
   border-radius: 10px;
@@ -81,13 +81,13 @@ select:hover {
   width: 80%;
 }
 
-.form-input button:hover {
+.form-input button:hover,.has_account button:hover {
   transform: scale(1.2);
   cursor: pointer;
 }
 
 .has_account{
-  width: 80%;
+  width: 100%;
   margin: 1rem auto;
 }
 
