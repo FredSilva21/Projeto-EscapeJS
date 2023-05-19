@@ -57,10 +57,21 @@ if(submit.textContent=="Sign Up"){
   
     const name = document.getElementById("username").value;
     const pwd = document.getElementById("password").value;
+    const modal=document.getElementById("modal")
+    const prg=document.querySelector(".modal-content p")
+    const close=document.getElementsByClassName('close')[0]
+    close.addEventListener("click",function(){
+      modal.style.display="none"
+    })
   
-    if(user.userDoc.find(item=>item.name==name && item.email==email)){
-      
+    if (user.userDoc.find(item=>item.name==name)){
+      if(user.userDoc.find(item=>item.pwd!=pwd)){
+
+      }
     }
+
+
+   
   
     user.createUser(user.generateId(), name, email, user.calculateAge(age), gender, pwd)
   
