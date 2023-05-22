@@ -61,6 +61,7 @@ img {
 /*Footer*/
 footer {
   height: 600px;
+  width: 100%;
   margin: 0;
   background-color: black;
 }
