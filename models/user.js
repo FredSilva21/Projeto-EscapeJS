@@ -86,8 +86,6 @@ export function inSession() {
 }
 
 // Return the user that's authenticated
-export function userAuth(){
+export function userAuth() {
   return JSON.parse(sessionStorage.userInSession);
 }
-
-
