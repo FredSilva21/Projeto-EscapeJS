@@ -4,13 +4,13 @@
   font-family: "Urbanist" Bold;
 }
 
-
 /*Header*/
-header {
+
+body {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  padding: 10px;
 }
 
 header svg {
@@ -19,15 +19,13 @@ header svg {
   padding-left: 1%;
 }
 
-header nav {
+nav {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-nav {
-  display: flex;
-  justify-content: space-between;
+  width: 100%;
+  max-width: 1144px;
+  padding: 0 1rem;
 }
 
 img {
@@ -36,26 +34,24 @@ img {
 
 .menu {
   display: flex;
-  justify-content: space-around;
-  gap: 90px;
-  margin: 35px;
-}
-
-.menu li {
   list-style: none;
+  justify-content: center;
+  align-items: center;
 }
 
-.menu li a {
+.menu a {
   color: #7e7e7e;
+  margin: 0 1rem;
   text-decoration: none;
-  font-size: larger;
   cursor: pointer;
+  font-weight: bold;
 }
 
 .profile {
   border: 1px solid black;
-  padding: 5px 10px;
+  padding: 0.5rem 1rem;
   border-radius: 35px;
+  margin: 0;
 }
 
 .menu li a:hover {
