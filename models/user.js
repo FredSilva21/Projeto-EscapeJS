@@ -75,7 +75,19 @@ export function login(name, password) {
   return false;
 }
 
+// Logout
+export function logout() {
+  sessionStorage.removeItem("userInSession");
+}
+
 // Check if there's and user which is already logged in.
 export function inSession() {
   return sessionStorage.userInSession ? true : false;
 }
+
+// Return the user that's authenticated
+export function userAuth(){
+  return JSON.parse(sessionStorage.userInSession);
+}
+
+
