@@ -1,3 +1,4 @@
+// Class of User Model
 export class User {
   constructor(id, name, email, dateOfBirth, gender, password) {
     this.id = 1;
@@ -9,8 +10,10 @@ export class User {
   }
 }
 
-// Admin ROOT Account
+// Load users info from local storage
+export let userDoc;
 
+// Load Admin ROOT Account
 export function init() {
   userDoc = localStorage.userDoc
     ? JSON.parse(localStorage.userDoc)
@@ -26,8 +29,7 @@ export function init() {
       ];
 }
 
-export let userDoc = [];
-
+// Generate next ID
 export function generateId(id) {
   id = userDoc.length + 1;
   return id;
@@ -39,6 +41,7 @@ export function createUser(id, name, email, age, gender, password) {
   localStorage.userDoc = JSON.stringify(userDoc);
 }
 
+// Calculate the Age
 export function calculateAge(dateOfBirth) {
   const currentDate = new Date();
   const birthDate = new Date(dateOfBirth);
@@ -58,4 +61,21 @@ export function calculateAge(dateOfBirth) {
   }
 
   return age;
+}
+
+// Login
+export function login(name, password) {
+  let username = userDoc.find(
+    (username) => username.name === name && username.password === password
+  );
+  if (username) {
+    sessionStorage.userInSession = JSON.stringify(username);
+    return true;
+  }
+  return false;
+}
+
+// Check if there's and user which is already logged in.
+export function inSession() {
+  return sessionStorage.userInSession ? true : false;
 }
