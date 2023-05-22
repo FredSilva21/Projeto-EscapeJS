@@ -1,6 +1,7 @@
 import * as user from "../../models/user.js"
 
 renderForm()
+user.init()
 
 
 const form = document.querySelector("form");

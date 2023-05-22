@@ -1,0 +1,66 @@
+@import url("https://fonts.googleapis.com/css2?family=Urbanist&display=swap");
+
+body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  background-color: #ccc;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border-radius: 30px;
+}
+
+.profile-avatar {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.container-1,
+.container-2,
+.container-3 {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.name,
+.email,
+.age,
+.gender,
+.levels,
+.score {
+  flex-basis: 48%;
+}
+
+.editProfile {
+  align-self: flex-end;
+  padding: 10px 20px;
+  color: black;
+  border-radius: 10px;
+  background-color: #faff00;
+  cursor: pointer;
+  transition: 0.5s;
+  width: 10%;
+}
+
+.editProfile:hover{
+    transform: scale(1.2);
+    cursor: pointer;
+}
