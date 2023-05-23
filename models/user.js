@@ -58,38 +58,6 @@ export class User {
   }
 
   calculateScore(score) {}
-
-  deleteUser(name) {
-    const position = userDoc.findIndex((user) => user.name === name);
-    if (position !== -1) {
-      userDoc.splice(position, 1);
-      localStorage.userDoc = JSON.stringify(userDoc);
-    } else {
-      return new Error(`${name}: is not present in the database`);
-    }
-  }
-
-  // Calculate the Age
-  getAge(dateOfBirth) {
-    const currentDate = new Date();
-    const birthDate = new Date(dateOfBirth);
-
-    let age = currentDate.getFullYear() - birthDate.getFullYear();
-
-    const currentMonth = currentDate.getMonth();
-    const birthMonth = birthDate.getMonth();
-    const currentDay = currentDate.getDate();
-    const birthDay = birthDate.getDate();
-
-    if (
-      currentMonth < birthMonth ||
-      (currentMonth === birthMonth && currentDay < birthDay)
-    ) {
-      age--;
-    }
-
-    return age;
-  }
 }
 
 // Load users info from local storage
@@ -143,6 +111,38 @@ export function login(name, password) {
 // Logout
 export function logout() {
   sessionStorage.removeItem("userInSession");
+}
+
+export function deleteUser(name) {
+  const position = userDoc.findIndex((user) => user.name === name);
+  if (position !== -1) {
+    userDoc.splice(position, 1);
+    localStorage.userDoc = JSON.stringify(userDoc);
+  } else {
+    return new Error(`${name}: is not present in the database`);
+  }
+}
+
+// Calculate the Age
+export function getAge(dateOfBirth) {
+  const currentDate = new Date();
+  const birthDate = new Date(dateOfBirth);
+
+  let age = currentDate.getFullYear() - birthDate.getFullYear();
+
+  const currentMonth = currentDate.getMonth();
+  const birthMonth = birthDate.getMonth();
+  const currentDay = currentDate.getDate();
+  const birthDay = birthDate.getDate();
+
+  if (
+    currentMonth < birthMonth ||
+    (currentMonth === birthMonth && currentDay < birthDay)
+  ) {
+    age--;
+  }
+
+  return age;
 }
 
 // Check if there's and user which is already logged in.
