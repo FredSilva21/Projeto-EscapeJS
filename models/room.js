@@ -1,9 +1,8 @@
-// Import questoes
-
-export class Room{
-    constructor(name,photo,levels) {
-        this.name=name
-        this.photo=photo
-        this.levels=levels
-    }
+export class Room {
+  constructor(id, name, photo, levels) {
+    this.id = id;
+    this.name = name;
+    this.photo = photo;
+    this.levels = levels;
+  }
 }
