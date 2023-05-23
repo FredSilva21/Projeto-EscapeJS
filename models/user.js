@@ -1,12 +1,94 @@
 // Class of User Model
 export class User {
+  id = 0;
+  name = "";
+  email = "";
+  dateOfBirth = "";
+  gender = "";
+  password = "";
+  type = "";
+  avatar = "";
+  questions = [];
+  rooms = [];
+  score = 0;
+
   constructor(id, name, email, dateOfBirth, gender, password) {
-    this.id = 1;
+    this.id = id;
     this.name = name;
     this.email = email;
     this.dateOfBirth = dateOfBirth;
     this.gender = gender;
     this.password = password;
+    this.type = "user";
+    this.avatar = "../public/images/user.png";
+    this.questions = [];
+    this.rooms = [];
+    this.score = 0;
+  }
+
+  // Methods
+  addRoom(room) {
+    this.rooms.push(room);
+  }
+
+  deleteRoom(room) {
+    this.rooms.pop(room);
+  }
+
+  addQuestion(questions) {
+    this.questions.push(questions);
+  }
+
+  deleteQuestion(question) {
+    this.questions.pop(question);
+  }
+
+  updateScore(score, questions) {
+    //! Need to implement the time variable
+    //? Precisamos de perceber como será a atribuição de pontos deixei uma ideia
+    /*
+    const answerCorrect = 10;
+    const balance = correct answers *answer correct 
+    this.score += balance
+    */
+  }
+
+  changePassword(password) {
+    this.oldPassword = password;
+  }
+
+  calculateScore(score) {}
+
+  deleteUser(name) {
+    const position = userDoc.findIndex((user) => user.name === name);
+    if (position !== -1) {
+      userDoc.splice(position, 1);
+      localStorage.userDoc = JSON.stringify(userDoc);
+    } else {
+      return new Error(`${name}: is not present in the database`);
+    }
+  }
+
+  // Calculate the Age
+  getAge(dateOfBirth) {
+    const currentDate = new Date();
+    const birthDate = new Date(dateOfBirth);
+
+    let age = currentDate.getFullYear() - birthDate.getFullYear();
+
+    const currentMonth = currentDate.getMonth();
+    const birthMonth = birthDate.getMonth();
+    const currentDay = currentDate.getDate();
+    const birthDay = birthDate.getDate();
+
+    if (
+      currentMonth < birthMonth ||
+      (currentMonth === birthMonth && currentDay < birthDay)
+    ) {
+      age--;
+    }
+
+    return age;
   }
 }
 
@@ -25,6 +107,11 @@ export function init() {
           dateOfBirth: "01-01-2000",
           gender: "Other",
           password: "admin123",
+          type: "admin",
+          avatar: "../public/images/user.png",
+          questions: [],
+          rooms: [],
+          score: 10000,
         },
       ];
 }
@@ -39,28 +126,6 @@ export function generateId(id) {
 export function createUser(id, name, email, age, gender, password) {
   userDoc.push(new User(generateId(id), name, email, age, gender, password));
   localStorage.userDoc = JSON.stringify(userDoc);
-}
-
-// Calculate the Age
-export function calculateAge(dateOfBirth) {
-  const currentDate = new Date();
-  const birthDate = new Date(dateOfBirth);
-
-  let age = currentDate.getFullYear() - birthDate.getFullYear();
-
-  const currentMonth = currentDate.getMonth();
-  const birthMonth = birthDate.getMonth();
-  const currentDay = currentDate.getDate();
-  const birthDay = birthDate.getDate();
-
-  if (
-    currentMonth < birthMonth ||
-    (currentMonth === birthMonth && currentDay < birthDay)
-  ) {
-    age--;
-  }
-
-  return age;
 }
 
 // Login
