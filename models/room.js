@@ -1,3 +1,5 @@
+// Import questoes
+
 export class Room{
     constructor(name,photo,levels) {
         this.name=name
