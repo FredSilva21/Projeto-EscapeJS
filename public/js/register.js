@@ -69,19 +69,14 @@ if (submit.textContent == "Sign Up") {
 
     if (user.userDoc.find((item) => item.name == name)) {
       if (user.userDoc.find((item) => item.pwd != pwd)) {
+        modal.style.display="flex"
+        prg.innerHTML="Wrong password.Try again!"
       }
     }
 
-    user.createUser(
-      user.generateId(),
-      name,
-      email,
-      user.calculateAge(age),
-      gender,
-      pwd
-    );
-
-    renderLoginForm();
+    if(user.login(name,pwd)){
+      window.location.href="../index.html"
+    }
   });
 }
 
@@ -124,75 +119,9 @@ function renderForm() {
   } else if (anc.textContent == "Sign Up") {
     anc.addEventListener("click", (e) => {
       e.preventDefault();
-      form.innerHTML = `<h1>Sign Up</h1>
-        <div class="form-input">
-          <input
-            type="text"
-            name="username"
-            id="username"
-            placeholder="Name"
-            required
-          />
-        </div>
-
-        <div class="form-input">
-          <input
-            type="email"
-            name="email"
-            id="email"
-            placeholder="Email"
-            required
-          />
-        </div>
-
-        <div class="form-input">
-          <input
-            type="date"
-            name="dateOfBirth"
-            id="dateOfBirth"
-            placeholder="Date of Birth"
-            required
-          />
-        </div>
-
-        <div class="form-input">
-          <select name="gender" id="gender" required>
-            <option value="">Select Gender</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-            <option value="other">Other</option>
-          </select>
-        </div>
-
-        <div class="form-input">
-          <input
-            type="password"
-            name="password"
-            id="password"
-            placeholder="Password"
-            required
-          />
-        </div>
-
-        <div class="form-input">
-          <input
-            type="password"
-            name="confirm-password"
-            id="confirm-password"
-            placeholder="Confirm Password"
-            required
-          />
-        </div>
-
-        <div class="form-input">
-          <button type="submit">Sign Up</button>
-          <span class="has_account">
-              Already have an account?<a href="./register.html">Sign In</a>
-          </span>
-          </span>
-        </div>`;
-    });
-  }
+      renderLoginForm()
+    }
+  )}
 }
 
 //Function to render login form after registed
@@ -230,5 +159,5 @@ function renderLoginForm() {
 
 // Redirect User to Home after login
 function renderAfterLogin() {
-  window.location.href = "index.html";
+  window.location.href = "../../index.html";
 }
