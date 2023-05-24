@@ -1,82 +1,87 @@
-import * as user from "../../models/user.js"
+import * as user from "../../models/user.js";
 
-renderForm()
-user.init()
-
+renderForm();
+user.init();
 
 const form = document.querySelector("form");
 
 const submit = form.querySelector('button[type="submit"]');
 
-if(submit.textContent=="Sign Up"){
+if (submit.textContent == "Sign Up") {
   submit.addEventListener("click", (e) => {
     e.preventDefault();
-  
+
     const name = document.getElementById("username").value;
     const email = document.getElementById("email").value;
     const age = document.getElementById("dateOfBirth").value;
     const gender = document.getElementById("gender").value;
     const pwd = document.getElementById("password").value;
     const confirmPwd = document.getElementById("confirm-password").value;
-    
-    const modal=document.getElementById("modal")
-    const prg=document.querySelector(".modal-content p")
-    const close=document.getElementsByClassName('close')[0]
-    close.addEventListener("click",function(){
-      modal.style.display="none"
-    })
 
+    const modal = document.getElementById("modal");
+    const prg = document.querySelector(".modal-content p");
+    const close = document.getElementsByClassName("close")[0];
+    close.addEventListener("click", function () {
+      modal.style.display = "none";
+    });
 
     if (pwd !== confirmPwd) {
-      modal.style.display="flex";
-      prg.innerHTML="Passwords must be equal!"
-      return
+      modal.style.display = "flex";
+      prg.innerHTML = "Passwords must be equal!";
+      return;
     }
 
+    if (user.userDoc.find((user) => user.name === name)) {
+      modal.style.display = "flex";
+      prg.innerHTML = "Already have an account with the same username!";
+      return;
+    }
 
-    if (user.userDoc.find(user => user.name === name)) {
-      modal.style.display="flex";
-      prg.innerHTML="Already have an account with the same username!"
-      return
-    };
-  
-    if (user.userDoc.find(user => user.email === email)) {
-      modal.style.display="flex";
-      prg.innerHTML="Already have an account with the same email!"
-      return
-    };
-  
-    user.createUser(user.generateId(), name, email, user.calculateAge(age), gender, pwd)
-  
-    renderLoginForm()
+    if (user.userDoc.find((user) => user.email === email)) {
+      modal.style.display = "flex";
+      prg.innerHTML = "Already have an account with the same email!";
+      return;
+    }
+
+    user.createUser(
+      user.generateId(),
+      name,
+      email,
+      user.getAge(age),
+      gender,
+      pwd
+    );
+
+    renderLoginForm();
   });
-  
-  
-}else{
+} else {
   submit.addEventListener("click", (e) => {
     e.preventDefault();
-  
+
     const name = document.getElementById("username").value;
     const pwd = document.getElementById("password").value;
-    const modal=document.getElementById("modal")
-    const prg=document.querySelector(".modal-content p")
-    const close=document.getElementsByClassName('close')[0]
-    close.addEventListener("click",function(){
-      modal.style.display="none"
-    })
-  
-    if (user.userDoc.find(item=>item.name==name)){
-      if(user.userDoc.find(item=>item.pwd!=pwd)){
+    const modal = document.getElementById("modal");
+    const prg = document.querySelector(".modal-content p");
+    const close = document.getElementsByClassName("close")[0];
+    close.addEventListener("click", function () {
+      modal.style.display = "none";
+    });
 
+    if (user.userDoc.find((item) => item.name == name)) {
+      if (user.userDoc.find((item) => item.pwd != pwd)) {
       }
     }
 
+    user.createUser(
+      user.generateId(),
+      name,
+      email,
+      user.calculateAge(age),
+      gender,
+      pwd
+    );
 
-   
-  
-    user.createUser(user.generateId(), name, email, user.calculateAge(age), gender, pwd)
-  
-    renderLoginForm()
+    renderLoginForm();
   });
 }
 
@@ -220,4 +225,10 @@ function renderLoginForm() {
         Don't have an account? <a href="./register.html">Sign Up</a>
       </span>
     </div>`;
+  renderAfterLogin();
+}
+
+// Redirect User to Home after login
+function renderAfterLogin() {
+  window.location.href = "index.html";
 }
