@@ -2,21 +2,22 @@ export class Room {
   id=0;
   name="";
   photo="";
-  levels=[]
+  questions=[]
 
-  constructor(id, name, photo, levels) {
+  constructor(id, name, photo, questions) {
     this.id = id;
     this.name = name;
     this.photo = photo;
-    this.levels = levels;
+    this.questions = questions;
   }
 }
 
-let rooms=[]
+// Load Rooms from local storage
+export let roomDoc
 
 export function init() {
-  if(rooms.length==0){
-    rooms=[
+  if(roomDoc.length==0){
+    roomDoc=[
       {
         id: 1,
         name: "Chapter 1:The Beggining",
