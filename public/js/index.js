@@ -1,3 +1,1 @@
-import * as user from "../../models/user.js"
-
-const 
+import * as user from "../../models/user.js";
