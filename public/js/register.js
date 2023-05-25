@@ -51,6 +51,9 @@ if (submit.textContent == "Sign Up") {
       gender,
       pwd
     );
+    
+    modal.style.display = "flex";
+    prg.innerHTML = "Registed successfully!";
 
     renderLoginForm();
   });
