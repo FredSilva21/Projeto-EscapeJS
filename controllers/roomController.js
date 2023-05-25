@@ -1,5 +1,0 @@
-class RoomController {
-    static createLevel() {
-        
-    }
-}
