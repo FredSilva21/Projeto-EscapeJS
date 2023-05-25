@@ -118,12 +118,11 @@ function renderForm() {
           </span>
         </div>`;
     });
-  } else if (anc.textContent == "Sign Up") {
+  } /*else if (anc.textContent == "Sign Up") {
     anc.addEventListener("click", (e) => {
       e.preventDefault();
-      renderLoginForm()
-    }
-  )}
+      renderLoginForm(name,pwd)
+      )}*/
 }
 
 //Function to render login form after registed
@@ -156,6 +155,12 @@ function renderLoginForm() {
         Don't have an account? <a href="./register.html">Sign Up</a>
       </span>
     </div>`;
+    form.addEventListener("submit",function(){
+      if(user.login()){
+        renderAfterLogin();
+      }
+    })
+  
 }
 
 // Redirect User to Home after login

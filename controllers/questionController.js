@@ -1,5 +1,0 @@
-class QuestionController {
-    static createQuestion() {
-        
-    }
-}
