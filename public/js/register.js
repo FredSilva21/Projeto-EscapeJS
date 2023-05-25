@@ -74,9 +74,11 @@ if (submit.textContent == "Sign Up") {
       }
     }
 
+    /*
     if(user.login(name,pwd)){
       window.location.href="../index.html"
     }
+    */
   });
 }
 
@@ -154,7 +156,6 @@ function renderLoginForm() {
         Don't have an account? <a href="./register.html">Sign Up</a>
       </span>
     </div>`;
-  renderAfterLogin();
 }
 
 // Redirect User to Home after login

@@ -44,10 +44,8 @@ export class User {
   }
 
   updateScore(score, questions) {
-    //! Need to implement the time variable
-    //? Precisamos de perceber como será a atribuição de pontos deixei uma ideia
     /*
-    const answerCorrect = 10;
+    const answerCorrect = 25;
     const balance = correct answers *answer correct 
     this.score += balance
     */
@@ -154,3 +152,5 @@ export function inSession() {
 export function userAuth() {
   return JSON.parse(sessionStorage.userInSession);
 }
+
+export function exportAllUsers() {}
