@@ -1,26 +1,28 @@
 export class Room {
-  id = 0;
-  title = "";
-  photo = "";
-  levels = [];
-  constructor(id, title, photo, levels) {
+  id=0;
+  name="";
+  photo="";
+  levels=[]
+
+  constructor(id, name, photo, levels) {
     this.id = id;
-    this.title = title;
+    this.name = name;
     this.photo = photo;
     this.levels = levels;
   }
 }
 
-// Load the rooms from LocalStorage
-export let roomDoc;
+let rooms=[]
 
 export function init() {
-  roomDoc = localStorage.roomDoc ? JSON.parse(localStorage.roomDoc) : [];
-}
-
-// Add new Room
-export function addRoom(title, photo, levels) {
-  if (roomDoc.some((room) => room.title === title)) {
-    throw Error(`Room ${title} already exists, try another.`);
+  if(rooms.length==0){
+    rooms=[
+      {
+        id: 1,
+        name: "Chapter 1:The Beggining",
+        photo:"../public/images/room1",
+        levels:[]
+      },
+    ];
   }
 }
