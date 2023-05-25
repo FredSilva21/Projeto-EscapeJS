@@ -10,7 +10,9 @@
   align-items: center;
   flex-direction: column;
   background-color: #fffa7e;
-  max-width: 800px;
+  max-width: 1800px;
+  width: 800px;
+  border-radius: 1rem;
 }
 
 .ranking-container h1 {
@@ -30,30 +32,36 @@
 .buttons .btnRank {
   display: flex;
   align-items: center;
-  background-color: #8C8945;
+  background-color: #8c8945;
   border-radius: 35px;
   color: white;
+  margin: 1rem;
 }
 
 .buttons .btnRank img {
-    width: 30px;
-    height: 30px;
-    margin-right: 5px;
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
 }
 
 .buttons .btnRank:hover {
-    background-color: black;
-    transform: scale(1.2);
-    cursor: pointer;
+  background-color: black;
+  transform: scale(1.2);
+  cursor: pointer;
 }
 
-.rankingTable{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.rankingTable {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1rem;
 }
 
-th img{
-    width: 23px;
-    height: 23px;
+th img {
+  width: 23px;
+  height: 23px;
+}
+
+tr th {
+  margin: 1rem;
 }
