@@ -48,7 +48,7 @@ if (submit.textContent == "Sign Up") {
       prg.innerHTML = "Already have an account with the same email!";
       return;
     }
-
+    
     user.createUser(
       user.generateId(),
       name,
@@ -61,7 +61,7 @@ if (submit.textContent == "Sign Up") {
       modal.style.display = "flex";
       h2.innerHTML="Success"
       prg.innerHTML = "Registed successfully!";
-    },2000)
+    })
 
     renderLoginForm();
   });
