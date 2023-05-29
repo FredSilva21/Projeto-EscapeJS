@@ -95,9 +95,9 @@ export function createUser(id, name, email, age, gender, password) {
 }
 
 // Login
-export function login(name, password) {
+export function login(email, password) {
   let username = userDoc.find(
-    (username) => username.name === name && username.password === password
+    (username) => username.email === email && username.password === password
   );
   if (username) {
     sessionStorage.userInSession = JSON.stringify(username);
