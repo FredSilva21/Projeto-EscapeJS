@@ -153,4 +153,6 @@ export function userAuth() {
   return JSON.parse(sessionStorage.userInSession);
 }
 
-export function exportAllUsers() {}
+export function exportAllUsers() {
+  return userDoc;
+}
