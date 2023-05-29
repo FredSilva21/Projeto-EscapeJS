@@ -2,7 +2,7 @@ export class Room {
   id=0;
   name="";
   photo="";
-  questions=[]
+  levels=[]
 
   constructor(id, name, photo, questions) {
     this.id = id;
