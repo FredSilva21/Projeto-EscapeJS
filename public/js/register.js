@@ -11,14 +11,17 @@ if (submit.textContent == "Sign Up") {
   submit.addEventListener("click", (e) => {
     e.preventDefault();
 
+    //Form
     const name = document.getElementById("username").value;
     const email = document.getElementById("email").value;
     const age = document.getElementById("dateOfBirth").value;
     const gender = document.getElementById("gender").value;
     const pwd = document.getElementById("password").value;
     const confirmPwd = document.getElementById("confirm-password").value;
-
+    
+    //Modal 
     const modal = document.getElementById("modal");
+    const h2=document.querySelector(".modal-content h2")
     const prg = document.querySelector(".modal-content p");
     const close = document.getElementsByClassName("close")[0];
     close.addEventListener("click", function () {
@@ -27,18 +30,21 @@ if (submit.textContent == "Sign Up") {
 
     if (pwd !== confirmPwd) {
       modal.style.display = "flex";
+      h2.innerHTML="Error"
       prg.innerHTML = "Passwords must be equal!";
       return;
     }
 
     if (user.userDoc.find((user) => user.name === name)) {
       modal.style.display = "flex";
+      h2.innerHTML="Error"
       prg.innerHTML = "Already have an account with the same username!";
       return;
     }
 
     if (user.userDoc.find((user) => user.email === email)) {
       modal.style.display = "flex";
+      h2.innerHTML="Error"
       prg.innerHTML = "Already have an account with the same email!";
       return;
     }
@@ -51,13 +57,15 @@ if (submit.textContent == "Sign Up") {
       gender,
       pwd
     );
-    
-    modal.style.display = "flex";
-    prg.innerHTML = "Registed successfully!";
+    setTimeout(function(){
+      modal.style.display = "flex";
+      h2.innerHTML="Success"
+      prg.innerHTML = "Registed successfully!";
+    },2000)
 
     renderLoginForm();
   });
-} else {
+} else if(submit.textContent=="Sign In"){
   submit.addEventListener("click", (e) => {
     e.preventDefault();
 

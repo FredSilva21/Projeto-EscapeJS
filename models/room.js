@@ -24,6 +24,18 @@ export function init() {
         photo:"../public/images/room1",
         levels:[]
       },
+      {
+        id:2,
+        name:"Chapter 2:Working Hard",
+        photo:"../public/images/room2",
+        levels:[]
+      },
+      {
+        id:3,
+        name:"Chapter 3:Final Bosses",
+        photo:"../public/images/room3",
+        levels:[]
+      }
     ];
   }
 }
