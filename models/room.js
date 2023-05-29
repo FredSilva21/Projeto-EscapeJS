@@ -1,14 +1,16 @@
+import { generateId } from "./user";
+
 export class Room {
   id=0;
   name="";
   photo="";
   levels=[]
 
-  constructor(id, name, photo, questions) {
+  constructor(id, name, photo, levels) {
     this.id = id;
     this.name = name;
     this.photo = photo;
-    this.questions = questions;
+    this.levels = levels;
   }
 }
 
@@ -38,4 +40,16 @@ export function init() {
       }
     ];
   }
+}
+
+export function addRoom(name,photo,levels){
+  const newRoom=new Room(
+    {
+      id:generateId(),
+      name:name,
+      photo:photo,
+      levels:levels
+    }
+  )
+  roomDoc.push(newRoom)
 }
