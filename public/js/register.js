@@ -18,10 +18,10 @@ if (submit.textContent == "Sign Up") {
     const gender = document.getElementById("gender").value;
     const pwd = document.getElementById("password").value;
     const confirmPwd = document.getElementById("confirm-password").value;
-    
-    //Modal 
+
+    //Modal
     const modal = document.getElementById("modal");
-    const h2=document.querySelector(".modal-content h2")
+    const h2 = document.querySelector(".modal-content h2");
     const prg = document.querySelector(".modal-content p");
     const close = document.getElementsByClassName("close")[0];
     close.addEventListener("click", function () {
@@ -30,25 +30,25 @@ if (submit.textContent == "Sign Up") {
 
     if (pwd !== confirmPwd) {
       modal.style.display = "flex";
-      h2.innerHTML="Error"
+      h2.innerHTML = "Error";
       prg.innerHTML = "Passwords must be equal!";
       return;
     }
 
     if (user.userDoc.find((user) => user.name === name)) {
       modal.style.display = "flex";
-      h2.innerHTML="Error"
+      h2.innerHTML = "Error";
       prg.innerHTML = "Already have an account with the same username!";
       return;
     }
 
     if (user.userDoc.find((user) => user.email === email)) {
       modal.style.display = "flex";
-      h2.innerHTML="Error"
+      h2.innerHTML = "Error";
       prg.innerHTML = "Already have an account with the same email!";
       return;
     }
-    
+
     user.createUser(
       user.generateId(),
       name,
@@ -57,15 +57,15 @@ if (submit.textContent == "Sign Up") {
       gender,
       pwd
     );
-    setTimeout(function(){
+    setTimeout(function () {
       modal.style.display = "flex";
-      h2.innerHTML="Success"
+      h2.innerHTML = "Success";
       prg.innerHTML = "Registed successfully!";
-    })
+    });
 
     renderLoginForm();
   });
-} else if(submit.textContent=="Sign In"){
+} else if (submit.textContent == "Sign In") {
   submit.addEventListener("click", (e) => {
     e.preventDefault();
 
@@ -79,15 +79,16 @@ if (submit.textContent == "Sign Up") {
     });
 
     if (user.userDoc.find((item) => item.name == name)) {
-      if (user.userDoc.find((item) => item.pwd != pwd)) {
-        modal.style.display="flex"
-        prg.innerHTML="Wrong password.Try again!"
+      if (user.userDoc.find((item) => item.pwd == pwd)) {
+        window.location.href = "http://127.0.0.1:5500/index.html";
+      } else {
+        modal.style.display = "flex";
+        prg.innerHTML = "Wrong password.Try again!";
       }
     }
 
     /*
     if(user.login(name,pwd)){
-      window.location.href="../index.html"
     }
     */
   });
@@ -166,12 +167,11 @@ function renderLoginForm() {
         Don't have an account? <a href="./register.html">Sign Up</a>
       </span>
     </div>`;
-    form.addEventListener("submit",function(){
-      if(user.login()){
-        renderAfterLogin();
-      }
-    })
-  
+  form.addEventListener("submit", function () {
+    if (user.login()) {
+      renderAfterLogin();
+    }
+  });
 }
 
 // Redirect User to Home after login
