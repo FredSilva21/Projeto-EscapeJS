@@ -149,3 +149,8 @@ select:hover {
   text-decoration: none;
   cursor: pointer;
 }
+
+
+#login{
+  display: none;
+}

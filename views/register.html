@@ -15,7 +15,7 @@
   </head>
   <body>
     <div class="container">
-      <form action="" method="post">
+      <form id="register" action="" method="post">
         <h1>Sign Up</h1>
         <div class="form-input">
           <input
@@ -79,8 +79,37 @@
         <div class="form-input">
           <button type="submit">Sign Up</button>
           <span class="has_account">
-              Already have an account?<a href="./register.html">Sign In</a>
+              Already have an account?<a id="changeLogin">Sign In</a>
           </span>
+          </span>
+        </div>
+      </form>
+      <form id="login" action="" method="post">
+        <h1>Sign In</h1>
+        <div class="form-input">
+          <input
+            type="text"
+            name="usernameLogin"
+            id="usernameLogin"
+            placeholder="Name"
+            required
+          />
+        </div>
+
+        <div class="form-input">
+          <input
+            type="password"
+            name="passwordLogin"
+            id="passwordLogin"
+            placeholder="Password"
+            required
+          />
+        </div>
+
+        <div class="form-input">
+          <button type="submit">Sign In</button>
+          <span class="has_account">
+            Don't have an account? <a id="changeRegister">Sign Up</a>
           </span>
         </div>
       </form>
