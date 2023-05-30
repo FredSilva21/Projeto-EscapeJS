@@ -52,11 +52,9 @@ function register() {
     pwd
   );
 
-  setTimeout(function () {
-    modal.style.display = "flex";
-    h2.innerHTML = "Success";
-    prg.innerHTML = "Registered successfully!";
-  });
+  modal.style.display = "flex";
+  h2.innerHTML = "Success";
+  prg.innerHTML = "Registered successfully!";
 }
 
 // Quando clicamos no butão Sign Up chama a função de registo
@@ -67,7 +65,7 @@ document
     register();
   });
 
-// Quando clicamos no butão de Sign In iremos fazer o login do utilizador
+// Quando clicamos no botão de Sign In iremos fazer o login do utilizador
 document.getElementById("login").addEventListener("submit", function (event) {
   event.preventDefault(event);
   const email = document.getElementById("emailLogin").value;
