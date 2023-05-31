@@ -68,3 +68,13 @@ export function addRoom(name, photo, levels) {
     localStorage.roomDoc = JSON.stringify(roomDoc);
   }
 }
+
+export function deleteRoom(name) {
+  const position = roomDoc.findIndex((user) => user.name === name);
+  if (position !== -1) {
+    roomDoc.splice(position, 1);
+    localStorage.roomDoc = JSON.stringify(roomDoc);
+  } else {
+    return new Error(`${name}: is not present in the database`);
+  }
+}
