@@ -1,4 +1,4 @@
-import { generateId } from "./user";
+import { generateId } from "./user.js";
 
 export class Room {
   id = 0;
@@ -34,8 +34,9 @@ export class Room {
 export let roomDoc;
 
 export function init() {
-  if (roomDoc.length == 0) {
-    roomDoc = [
+  roomDoc = localStorage.roomDoc
+    ? JSON.parse(localStorage.roomDoc)
+    : [
       {
         id: 1,
         name: "Chapter 1:The Beggining",
@@ -53,9 +54,10 @@ export function init() {
         name: "Chapter 3:Final Bosses",
         photo: "../public/images/room3",
         levels: [],
-      },
-    ];
-  }
+      }, 
+      ];
+
+    localStorage.setItem("roomDoc", JSON.stringify(roomDoc));
 }
 
 export function addRoom(name, photo, levels) {

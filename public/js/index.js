@@ -1,10 +1,5 @@
 import * as user from "../../models/user.js";
+import * as room from "../../models/room.js"
 
-user.init(); 
-
-const profile=document.querySelector("#profile")
-console.log(profile)
-if(user.userDoc.find((item)=>item.isLogged==true)){
-    profile.href="./profile.html"
-    profile.textContent="Profile"
-}
+user.init()
+room.init()
