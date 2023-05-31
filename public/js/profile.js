@@ -16,22 +16,23 @@ const age=document.getElementById("age")
 const gender=document.getElementById("gender")
 const levels=document.getElementById("levels")
 const score=document.getElementById("score")
+const avatar=document.getElementById("avatar")
 
 //call user init
 user.init();
 injectProfile()
 
-
 //If found an user logged in session storage
 function injectProfile(){
     if(loggedUser){
-        name.innerHTML+=user.userAuth().name
-        email.innerHTML+=user.userAuth().email
-        age.innerHTML+=user.userAuth().dateOfBirth
-        gender.innerHTML+=user.userAuth().gender
-        levels.innerHTML+=user.userAuth().rooms.length
-        score.innerHTML+=user.userAuth().score
+        name.innerHTML="Name:",user.userAuth().name
+        email.innerHTML="Email:",user.userAuth().email
+        age.innerHTML="Age:",user.userAuth().dateOfBirth
+        gender.innerHTML="Gender:",user.userAuth().gender
+        levels.innerHTML="Levels",user.userAuth().rooms.length
+        score.innerHTML="Score",user.userAuth().score
     }
+    avatar.src=user.userAuth().avatar
 }
 
 
@@ -99,5 +100,30 @@ editProfile.addEventListener("click",function(){
     const close=document.querySelector(".modal-content span")
     close.addEventListener("click", function () {
         modal.style.display = "none";
-      });
+    });
+
+    const save=document.querySelector(".form-input button")
+    save.addEventListener("click",function(event){
+        event.preventDefault()
+        const name = document.getElementById("username").value;
+        const email = document.getElementById("email").value;
+        const age = document.getElementById("dateOfBirth").value;
+        const gender = document.getElementById("gender").value
+        const photo=document.getElementById("profilePhoto").value
+        
+        let account=user.userDoc.find((username) => username.id === user.userAuth().id)
+    
+        if(account){
+            account.name=name
+            account.email=email
+            account.dateOfBirth=user.getAge(age)
+            account.gender=gender
+            //account.avatar=photo
+        }
+        console.log(account)
+        localStorage.setItem("userDoc", JSON.stringify(user.userDoc));
+        sessionStorage.setItem("userInSession", JSON.stringify(account));
+        injectProfile()
+        console.log(user.userAuth())
+    })
 })

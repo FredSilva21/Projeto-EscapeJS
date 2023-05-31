@@ -131,7 +131,7 @@ form {
 .modal-content form .form-input {
   margin-bottom: 1rem;
   text-align: center;
-  width: 80%;
+  width: 100%;
 }
 
 .modal-content form .form-input input {
