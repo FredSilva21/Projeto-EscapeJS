@@ -101,7 +101,7 @@ export function login(email, password) {
   let username = userDoc.find(
     (username) => username.email === email && username.password === password
   );
-  if (username) {
+  if (username.length != 0) {
     sessionStorage.userInSession = JSON.stringify(username);
     username.isLogged=true
     return true;
