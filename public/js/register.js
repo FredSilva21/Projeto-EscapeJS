@@ -52,7 +52,7 @@ function register() {
     pwd
   );
 
-  setTimeout(function () {
+  setTimeout(() => {
     modal.style.display = "flex";
     h2.innerHTML = "Success";
     prg.innerHTML = "Registered successfully!";
