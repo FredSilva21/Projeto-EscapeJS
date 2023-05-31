@@ -11,6 +11,7 @@ export class User {
   questions = [];
   rooms = [];
   score = 0;
+  isLogged=false
 
   constructor(id, name, email, dateOfBirth, gender, password) {
     this.id = id;
@@ -24,6 +25,7 @@ export class User {
     this.questions = [];
     this.rooms = [];
     this.score = 0;
+    this.isLogged=login()
   }
 
   // Methods
@@ -101,6 +103,7 @@ export function login(email, password) {
   );
   if (username) {
     sessionStorage.userInSession = JSON.stringify(username);
+    username.isLogged=true
     return true;
   }
   return false;

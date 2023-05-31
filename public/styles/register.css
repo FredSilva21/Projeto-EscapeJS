@@ -96,10 +96,12 @@ select:hover {
   color: black;
   font-weight: bold;
   padding: 0.25rem;
+  color:#898989
 }
 
 .has_account a:hover {
   text-decoration: underline;
+  color:black
 }
 
 /*Modals*/
