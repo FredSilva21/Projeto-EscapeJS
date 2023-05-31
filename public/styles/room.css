@@ -1,0 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Urbanist&display=swap");
+
+* {
+  font-family: "Urbanist" !important;
+  font-weight: bold !important;
+}
+
+.btn.btn-custom {
+  background-color: #faff00;
+  padding: 10px 20px;
+  color: black;
+  border-radius: 10px;
+  width: 30%;
+  opacity: 70%;
+  transition: 0.5s
+}
+
+.btn.btn-custom:hover {
+    background-color: #faff00;
+    opacity: 100%;
+    color: black;
+}
