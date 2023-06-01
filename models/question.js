@@ -7,7 +7,7 @@ export class question {
   solved = 0;
 
   constructor(id, name, options, solution, solved, creator_id) {
-    this.id = generateId(id);
+    this.id = id;
     this.name = name;
     this.options = options;
     this.solution = solution;
