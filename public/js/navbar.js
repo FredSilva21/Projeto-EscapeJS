@@ -4,37 +4,25 @@ user.init();
 navBar();
 
 function navBar() {
-  let result = `<img src="./public/images/logo.svg" width="250px" height="100px">
-    <ul class="menu">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="./views/catalog.html">Rooms</a></li>
-      <li><a href="./views/ranking.html">Ranking</a></li>
-      <li><a href="./views/about.html">About</a></li>
-      <li><a href="./views/register.html">Sign In</a></li>
-      <li><a href="./views/profile.html" class="profile">Profile</a></li>
-    </ul>`;
+  let result = `<a href="./views/register.html">Sign Up</a>`;
 
   if (user.inSession()) {
-    result = `<img src="./public/images/logo.svg" width="250px" height="100px">
-      <ul class="menu">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="./views/catalog.html">Rooms</a></li>
-        <li><a href="./views/ranking.html">Ranking</a></li>
-        <li><a href="./views/about.html">About</a></li>
-        <li><a href="#" id="logout">Log Out</a></li>
-        <li><a href="./views/profile.html" id="profile">Profile</a></li>
-      </ul>`;
+    result = `<a href="#" id="logOut">Log Out</a>`;
   }
 
-  const nav = document.querySelector("nav");
-  nav.innerHTML = result;
+  const li = document.querySelector("li:nth-child(5)");
+  
+  li.innerHTML=result
 
-  const logoutLink = document.getElementById("logout");
-  if (logoutLink) {
-    logoutLink.addEventListener("click",function(){
-        user.logout()
-        navBar()
+  const logout = document.querySelector("#logOut");
+  if (logout) {
+    logout.addEventListener("click", function (event) {
+      event.preventDefault();
+      console.log("TESTE")
+      user.logout()
+      navBar()
     });
   }
 }
+
 

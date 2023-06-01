@@ -1,38 +1,33 @@
 import * as user from "../../models/user.js";
 
-// const adminBtn=document.querySelector(".adminButton")
-const modal=document.querySelector("#modal")
-const modalContent=document.querySelector(".modal-content")
-// adminBtn.addEventListener("click",(e)=>{
-//     e.preventDefault()
-//     modal.style.display="flex"
-// })
-
+const modal = document.querySelector("#modal");
+const modalContent = document.querySelector(".modal-content");
 const loggedUser = user.inSession();
-//Get h3
-const name=document.getElementById("name")
-const email=document.getElementById("email")
-const age=document.getElementById("age")
-const gender=document.getElementById("gender")
-const levels=document.getElementById("levels")
-const score=document.getElementById("score")
-const avatar=document.getElementById("avatar")
 
-//call user init
+// Get h3 elements
+const name = document.getElementById("name");
+const email = document.getElementById("email");
+const age = document.getElementById("age");
+const gender = document.getElementById("gender");
+const levels = document.getElementById("levels");
+const score = document.getElementById("score");
+const avatar = document.getElementById("avatar");
+
+// Call user init
 user.init();
-injectProfile()
+injectProfile(name, email, age, gender, levels, score, avatar);
 
-//If found an user logged in session storage
-function injectProfile(){
-    if(loggedUser){
-        name.innerHTML="Name:",user.userAuth().name
-        email.innerHTML="Email:",user.userAuth().email
-        age.innerHTML="Age:",user.userAuth().dateOfBirth
-        gender.innerHTML="Gender:",user.userAuth().gender
-        levels.innerHTML="Levels",user.userAuth().rooms.length
-        score.innerHTML="Score",user.userAuth().score
-    }
-    avatar.src=user.userAuth().avatar
+// If user is found in session storage, inject the profile information
+function injectProfile(nameElem, emailElem, ageElem, genderElem, levelsElem, scoreElem, avatarElem) {
+  if (loggedUser) {
+    const userProfile = user.userAuth();
+    nameElem.innerHTML = "Name: " + userProfile.name;
+    emailElem.innerHTML = "Email: " + userProfile.email;
+    ageElem.innerHTML = "Age: " + userProfile.dateOfBirth;
+    genderElem.innerHTML = "Gender: " + userProfile.gender;
+    levelsElem.innerHTML = "Levels: " + userProfile.rooms.length;
+    scoreElem.innerHTML = "Score: " + userProfile.score;
+  }
 }
 
 
@@ -98,32 +93,28 @@ editProfile.addEventListener("click",function(){
     modal.style.display="flex"
 
     const close=document.querySelector(".modal-content span")
-    close.addEventListener("click", function () {
-        modal.style.display = "none";
-    });
+    close.addEventListener("click", () => modal.style.display = "none");
 
-    const save=document.querySelector(".form-input button")
-    save.addEventListener("click",function(event){
-        event.preventDefault()
-        const name = document.getElementById("username").value;
-        const email = document.getElementById("email").value;
-        const age = document.getElementById("dateOfBirth").value;
-        const gender = document.getElementById("gender").value
-        const photo=document.getElementById("profilePhoto").value
-        
-        let account=user.userDoc.find((username) => username.id === user.userAuth().id)
-    
-        if(account){
-            account.name=name
-            account.email=email
-            account.dateOfBirth=user.getAge(age)
-            account.gender=gender
-            //account.avatar=photo
-        }
-        console.log(account)
-        localStorage.setItem("userDoc", JSON.stringify(user.userDoc));
-        sessionStorage.setItem("userInSession", JSON.stringify(account));
-        injectProfile()
-        console.log(user.userAuth())
-    })
+    const save = document.querySelector(".form-input button");
+    save.addEventListener("click", (event) => {
+      event.preventDefault(); // Prevent form submission and page refresh
+      const newName = document.getElementById("username").value;
+      const newEmail = document.getElementById("email").value;
+      const newAge = document.getElementById("dateOfBirth").value;
+      const newGender = document.getElementById("gender").value;
+      const newPhoto = document.getElementById("profilePhoto").value;
+
+      let account = user.userDoc.find((username) => username.id === user.userAuth().id);
+
+      if (account) {
+        account.name = newName;
+        account.email = newEmail;
+        account.dateOfBirth = user.getAge(newAge);
+        account.gender = newGender;
+        //account.avatar=photo
+      }
+      localStorage.setItem("userDoc", JSON.stringify(user.userDoc));
+      sessionStorage.setItem("userInSession", JSON.stringify(account));
+      injectProfile();
+    });
 })
