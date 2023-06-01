@@ -4,12 +4,14 @@ export class Room {
   id = 0;
   name = "";
   photo = "";
+  icon=""
   levels = [];
 
-  constructor(id, name, photo, levels) {
+  constructor(id, name, photo, icon, levels) {
     this.id = id;
     this.name = name;
     this.photo = photo;
+    this.icon=icon
     this.levels = levels;
   }
 
@@ -41,18 +43,21 @@ export function init() {
         id: 1,
         name: "Chapter 1:The Beggining",
         photo: "../public/images/room1",
+        icon:"../public/images/room1 icon",
         levels: [],
       },
       {
         id: 2,
         name: "Chapter 2:Working Hard",
         photo: "../public/images/room2",
+        icon:"../public/images/room2 icon",
         levels: [],
       },
       {
         id: 3,
         name: "Chapter 3:Final Bosses",
         photo: "../public/images/room3",
+        icon:"../public/images/room3 icon",
         levels: [],
       }, 
       ];
