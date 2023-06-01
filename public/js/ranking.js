@@ -11,6 +11,7 @@ function renderTable() {
       <th>Position</th>
       <th>Name</th>
       <th>Score</th>
+      <th>Type</th>
     </tr>`;
 
   const userData = user.exportAllUsers();
@@ -22,6 +23,7 @@ function renderTable() {
         <td>${position}º</td>
         <td>${player.name}</td>
         <td>${player.score}</td>
+        <td>${player.type}</td>
       </tr>`;
 
     position++;
