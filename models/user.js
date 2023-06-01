@@ -65,10 +65,21 @@ export let userDoc;
 export function init() {
   userDoc = localStorage.userDoc
     ? JSON.parse(localStorage.userDoc)
-    : []
-
-    localStorage.setItem('userDoc', JSON.stringify(userDoc));
-      
+    : [
+        {
+          id: 1,
+          name: "admin",
+          email: "admin@email.com",
+          dateOfBirth: "01-01-2000",
+          gender: "Other",
+          password: "admin123",
+          type: "admin",
+          avatar: "../public/images/user.png",
+          questions: [],
+          rooms: [],
+          score: 10000,
+        },
+      ];
 }
 
 
