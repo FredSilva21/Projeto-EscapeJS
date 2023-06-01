@@ -32,8 +32,21 @@ function renderTable() {
   
       position++;
     }
-  
-    table.innerHTML = template;
-}
-  
 
+    table.innerHTML = template;
+
+    const show=document.getElementById("showBtn")
+    show.addEventListener("click",function(){
+        for (const player of sortedData) {
+            template += `
+              <tr>
+                <td>${position}º</td>
+                <td>${player.name}</td>
+                <td>${player.score}</td>
+                <td>${player.type}</td>
+              </tr>`;
+        
+            position++;
+          }
+    })
+}
