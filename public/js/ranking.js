@@ -1,22 +1,32 @@
-import * as user from "../../models/user.js"
+import * as user from "../../models/user.js";
 
-user.init()
-renderTable()
-function renderTable(){
-    const table=document.querySelector(".rankingTable")
-    let template=`<tr>
-    <th>Position</th>
-    <th>Name</th>
-    <th>Score</th>
-    </tr>`
-    /*
-    for(const player of user.User){
-        template+=`<tr>
+user.init();
+renderTable();
+
+function renderTable() {
+  const table = document.querySelector(".rankingTable");
+  let position = 1;
+  let template = `
+    <tr>
+      <th>Position</th>
+      <th>Name</th>
+      <th>Score</th>
+    </tr>`;
+
+  const userData = user.exportAllUsers();
+  const sortedData = userData.sort((a, b) => b.score - a.score); // Sort by score in descending order
+
+  for (const player of sortedData) {
+    template += `
+      <tr>
+        <td>${position}º</td>
         <td>${player.name}</td>
-        
-        <th>Time <img src="../public/images/cronometro.png"></th>
-        </tr>`
-    }*/
+        <td>${player.score}</td>
+      </tr>`;
 
-    table.innerHTML=template
+    position++;
+  }
+
+  table.innerHTML = template;
 }
+
