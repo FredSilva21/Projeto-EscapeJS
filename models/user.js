@@ -11,7 +11,6 @@ export class User {
   questions = [];
   rooms = [];
   score = 0;
-  isLogged = false;
 
   constructor(id, name, email, dateOfBirth, gender, password) {
     this.id = id;
@@ -25,7 +24,6 @@ export class User {
     this.questions = [];
     this.rooms = [];
     this.score = 0;
-    this.isLogged = login();
   }
 
   // Methods
@@ -67,22 +65,14 @@ export let userDoc;
 export function init() {
   userDoc = localStorage.userDoc
     ? JSON.parse(localStorage.userDoc)
-    : [
-        {
-          id: 1,
-          name: "admin",
-          email: "admin@email.com",
-          dateOfBirth: "01-01-2000",
-          gender: "Other",
-          password: "admin123",
-          type: "admin",
-          avatar: "../public/images/user.png",
-          questions: [],
-          rooms: [],
-          score: 10000,
-        },
-      ];
+    : []
+
+    localStorage.setItem('userDoc', JSON.stringify(userDoc));
+      
 }
+
+
+
 
 // Generate next ID
 export function generateId(id) {
@@ -103,7 +93,6 @@ export function login(email, password) {
   );
   if (username) {
     sessionStorage.userInSession = JSON.stringify(username);
-    username.isLogged = true;
     return true;
   }
   return false;
