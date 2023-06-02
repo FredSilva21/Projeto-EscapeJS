@@ -6,14 +6,16 @@ export class Room {
   description="";
   photo = "";
   icon="";
+  targets=[]
   levels = [];
 
-  constructor(id, name, description, photo, icon, levels) {
+  constructor(id, name, description, photo, icon, targets,levels) {
     this.id = id;
     this.name = name;
     this.description=description
     this.photo = photo;
-    this.icon=icon
+    this.icon=icon,
+    this.targets=targets
     this.levels = levels;
   }
 
@@ -47,6 +49,7 @@ export function init() {
         description:"First Room, will you make it to the end?",
         photo: "../public/images/room1.png",
         icon:"../public/images/room1 icon.png",
+        targets:[],
         levels: [],
       },
       {
@@ -55,6 +58,7 @@ export function init() {
         description:"First Room, will you make it to the end?",
         photo: "../public/images/room2.png",
         icon:"../public/images/room2 icon.png",
+        targets:[],
         levels: [],
       },
       {
@@ -63,6 +67,7 @@ export function init() {
         description:"First Room, will you make it to the end?",
         photo: "../public/images/room3.png",
         icon:"../public/images/room3 icon.png",
+        targets:[],
         levels: [],
       }, 
       ];
