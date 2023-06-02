@@ -5,7 +5,7 @@ export class Room {
   name = "";
   description="";
   photo = "";
-  icon=""
+  icon="";
   levels = [];
 
   constructor(id, name, description, photo, icon, levels) {

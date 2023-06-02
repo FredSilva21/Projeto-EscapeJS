@@ -26,6 +26,11 @@
 
 .cta a {
   text-decoration: none;
+  color: #7e7e7e;
+}
+
+.cta a :hover{
+  text-decoration: none;
   color: white;
 }
 
@@ -75,7 +80,7 @@
   flex-direction: row;
 }
 
-.second-text .second-button-par button {
+.second-text .second-button-par button{
   background-color: black;
   border-radius: 35px;
   color: #7e7e7e;
@@ -87,6 +92,16 @@
   border-radius: 35px;
   color: #efefef;
   cursor: pointer;
+}
+
+.second-text .second-button-par button a{
+  text-decoration: none;
+  color: #7e7e7e;
+}
+
+.second-text .second-button-par button a:hover{
+  text-decoration: none;
+  color:white
 }
 
 .second-text .second-button-par p {
