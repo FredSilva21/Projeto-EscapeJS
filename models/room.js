@@ -3,13 +3,15 @@ import { generateId } from "./user.js";
 export class Room {
   id = 0;
   name = "";
+  description="";
   photo = "";
   icon=""
   levels = [];
 
-  constructor(id, name, photo, icon, levels) {
+  constructor(id, name, description, photo, icon, levels) {
     this.id = id;
     this.name = name;
+    this.description=description
     this.photo = photo;
     this.icon=icon
     this.levels = levels;
@@ -42,22 +44,25 @@ export function init() {
       {
         id: 1,
         name: "Chapter 1:The Beggining",
-        photo: "../public/images/room1",
-        icon:"../public/images/room1 icon",
+        description:"First Room, will you make it to the end?",
+        photo: "../public/images/room1.png",
+        icon:"../public/images/room1 icon.png",
         levels: [],
       },
       {
         id: 2,
         name: "Chapter 2:Working Hard",
-        photo: "../public/images/room2",
-        icon:"../public/images/room2 icon",
+        description:"First Room, will you make it to the end?",
+        photo: "../public/images/room2.png",
+        icon:"../public/images/room2 icon.png",
         levels: [],
       },
       {
         id: 3,
         name: "Chapter 3:Final Bosses",
-        photo: "../public/images/room3",
-        icon:"../public/images/room3 icon",
+        description:"First Room, will you make it to the end?",
+        photo: "../public/images/room3.png",
+        icon:"../public/images/room3 icon.png",
         levels: [],
       }, 
       ];
