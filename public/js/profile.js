@@ -127,7 +127,46 @@ editProfile.addEventListener("click",function(){
 })
 
 //Button Admin
-const admin=document.querySelector(".adminButton")
-admin.addEventListener("click",function(){
-    
-})
+const admin = document.querySelector(".adminButton");
+admin.addEventListener("click", function() {
+  const adminCont = document.querySelector(".admin-container");
+  adminCont.innerHTML = `
+    <div class="adminFunctions">
+      <button type="button" id="users">Manage Users</button>
+      <button type="button" id="rooms">Manage Rooms</button>
+      <button type="button" id="questions">Manage Questions</button>
+      <button type="button" id="score&time">Manage Score & Time</button>
+    </div>
+    <table id="table" border="1"></table>
+  `;
+
+  const userManage = document.getElementById("users");
+  userManage.addEventListener("click", renderUsersTable);
+});
+
+function renderUsersTable() {
+  const table = document.querySelector("#table");
+  let template = `<tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Age</th>
+    <th>Gender</th>
+    <th>Score</th>
+    <th>Type</th>
+    <th>Actions</th>
+  </tr>`;
+
+  user.exportAllUsers().forEach(user => {
+    template += `<tr>
+    <td>${user.name}</td>
+    <td>${user.email}</td>
+    <td>${user.dateOfBirth}</td>
+    <td>${user.gender}</td>
+    <td>${user.score}</td>
+    <td>${user.type}</td>
+    <td><button type="button" id="rem">Remover</button></td>
+    </tr>`;
+  });
+
+  table.innerHTML = template;
+}
