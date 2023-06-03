@@ -50,7 +50,7 @@ export function init() {
         photo: "../public/images/room1.png",
         icon:"../public/images/room1 icon.png",
         targets:[],
-        levels: [],
+        levels: [{id:1,questions:[]}],
       },
       {
         id: 2,
