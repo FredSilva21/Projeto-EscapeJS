@@ -7,7 +7,7 @@
   border-radius: 35px;
   margin: 15px 15px;
   height: 600px;
-  width: 90%;
+  width: 70%;
 }
 
 .first-text {
@@ -15,14 +15,20 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  row-gap: 30px;
   color: #7e7e7e;
+  width: 50%;
 }
 
 .first-text .first-button-par {
   display: flex;
   flex-direction: row;
 }
+
+/* .entry-img {
+  border-radius: 35px;
+  width: 35%;
+  height: auto;
+} */
 
 .cta a {
   text-decoration: none;
@@ -37,12 +43,12 @@
 .first-text .first-button-par button {
   background-color: black;
   border-radius: 35px;
-  color: #7e7e7e;
+  color: #9b9a9a;
   width: 120px;
 }
 
 .first-text .first-button-par button:hover {
-  background-color: black;
+  background-color: rgb(49, 49, 49);
   border-radius: 35px;
   color: #efefef;
   cursor: pointer;
@@ -64,6 +70,8 @@
 /*Segundo Container*/
 .second-image {
   align-self: center;
+  margin: 2rem;
+  padding: 2rem;
 }
 
 .second-text {
@@ -71,7 +79,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  row-gap: 30px;
   color: #7e7e7e;
 }
 
