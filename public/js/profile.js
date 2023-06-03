@@ -27,9 +27,16 @@ function injectProfile(nameElem, emailElem, ageElem, genderElem, levelsElem, sco
     genderElem.innerHTML = "Gender: " + userProfile.gender;
     levelsElem.innerHTML = "Levels: " + userProfile.rooms.length;
     scoreElem.innerHTML = "Score: " + userProfile.score;
+    avatarElem.src=userProfile.avatar
   }
 }
 
+function verifyAdmin(){
+  if(user.userAuth().type=="user"){
+    admin.style.display="none"
+  }
+  admin.style.display="relative"
+}
 
 //Button to edit profile
 const editProfile=document.querySelector(".editProfile")
@@ -111,10 +118,16 @@ editProfile.addEventListener("click",function(){
         account.email = newEmail;
         account.dateOfBirth = user.getAge(newAge);
         account.gender = newGender;
-        //account.avatar=photo
+        account.avatar=newPhoto
       }
       localStorage.setItem("userDoc", JSON.stringify(user.userDoc));
       sessionStorage.setItem("userInSession", JSON.stringify(account));
       injectProfile();
     });
+})
+
+//Button Admin
+const admin=document.querySelector(".adminButton")
+admin.addEventListener("click",function(){
+    
 })
