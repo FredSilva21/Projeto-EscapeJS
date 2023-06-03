@@ -24,11 +24,11 @@
   flex-direction: row;
 }
 
-/* .entry-img {
-  border-radius: 35px;
-  width: 35%;
-  height: auto;
-} */
+.entry-img {
+  border-radius: 0 35px 35px 0;
+  width: 450px;
+  height: 600px;
+}
 
 .cta a {
   text-decoration: none;
