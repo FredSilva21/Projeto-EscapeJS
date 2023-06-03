@@ -55,7 +55,7 @@ export function init() {
       {
         id: 2,
         name: "Chapter 2:Working Hard",
-        description:"First Room, will you make it to the end?",
+        description:"Second Room, this next will not be that easy!",
         photo: "../public/images/room2.png",
         icon:"../public/images/room2 icon.png",
         targets:[],
@@ -64,7 +64,7 @@ export function init() {
       {
         id: 3,
         name: "Chapter 3:Final Bosses",
-        description:"First Room, will you make it to the end?",
+        description:"You're not ready for this.",
         photo: "../public/images/room3.png",
         icon:"../public/images/room3 icon.png",
         targets:[],
