@@ -5,22 +5,12 @@
   font-weight: bold !important;
 }
 
-.btn.btn-custom {
-  background-color: #faff00;
-  padding: 10px 20px;
-  color: black;
-  border-radius: 10px;
-  width: 30%;
-  opacity: 70%;
-  transition: 0.5s
+.room-container{
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  height: 100vh;
 }
-
-.btn.btn-custom:hover {
-    background-color: #faff00;
-    opacity: 100%;
-    color: black;
-}
-
 /*
 .col-md-4 {
   display: flex;

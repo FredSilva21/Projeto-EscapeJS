@@ -20,7 +20,7 @@ function renderCards(){
                         <div class="card-body">
                             <h5 class="card-title">${room.name}</h5>
                             <p class="card-text">${room.description}</p>
-                            <a href="./room.html" class="btn btn-primary btn-custom">Play</a>
+                            <a href="./room.html?id=${room.id}" class="btn btn-primary btn-custom">Play</a>
                         </div>
                     </div>
                 </div>

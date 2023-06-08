@@ -49,7 +49,7 @@ export function init() {
         description:"First Room, will you make it to the end?",
         photo: "../public/images/room1.png",
         icon:"../public/images/room1 icon.png",
-        targets:[],
+        targets:["1112,475,1181,517","470,250,500,275","255,290,282,343","823,354,899,400"],
         levels: [{id:1,questions:[]}],
       },
       {
