@@ -20,7 +20,7 @@ export class User {
     this.gender = gender;
     this.password = password;
     this.type = "user";
-    this.avatar = "../public/images/user.png";
+    this.avatar = "https://www.nicepng.com/png/detail/933-9332131_profile-picture-default-png.png"
     this.questions = [];
     this.rooms = [];
     this.score = 0;

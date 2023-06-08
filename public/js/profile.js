@@ -15,19 +15,19 @@ const avatar = document.getElementById("avatar");
 
 // Call user init
 user.init();
-injectProfile(name, email, age, gender, levels, score, avatar);
+injectProfile();
 
 // If user is found in session storage, inject the profile information
-function injectProfile(nameElem, emailElem, ageElem, genderElem, levelsElem, scoreElem, avatarElem) {
+function injectProfile() {
   if (loggedUser) {
     const userProfile = user.userAuth();
-    nameElem.innerHTML = "Name: " + userProfile.name;
-    emailElem.innerHTML = "Email: " + userProfile.email;
-    ageElem.innerHTML = "Age: " + userProfile.dateOfBirth;
-    genderElem.innerHTML = "Gender: " + userProfile.gender;
-    levelsElem.innerHTML = "Levels: " + userProfile.rooms.length;
-    scoreElem.innerHTML = "Score: " + userProfile.score;
-    avatarElem.src=userProfile.avatar
+    name.innerHTML = "Name: " + userProfile.name;
+    email.innerHTML = "Email: " + userProfile.email;
+    age.innerHTML = "Age: " + userProfile.dateOfBirth;
+    gender.innerHTML = "Gender: " + userProfile.gender;
+    levels.innerHTML = "Levels: " + userProfile.rooms.length;
+    score.innerHTML = "Score: " + userProfile.score;
+    avatar.src=userProfile.avatar
   }
 }
 
@@ -58,7 +58,7 @@ editProfile.addEventListener("click",function(){
       <input
         type="email"
         name="email"
-        id="email"
+        id="editEmail"
         placeholder="Email"
         value="${user.userAuth().email}"
         required
@@ -75,7 +75,7 @@ editProfile.addEventListener("click",function(){
     </div>
 
     <div class="form-input">
-      <select name="gender" id="gender" >
+      <select name="gender" id="editGender" >
         <option value="#" disabled selected>Select Gender</option>
         <option value="male">Male</option>
         <option value="female">Female</option>
@@ -85,11 +85,11 @@ editProfile.addEventListener("click",function(){
 
     <div class="form-input">
       <input
-        type="file"
+        type="text"
         name="profilePhoto"
         id="profilePhoto"
-        placeholder="Choose File"
-        accept=".jpg, .png"
+        placeholder="Image Url"
+        value="${user.userAuth().avatar}"
         required
       />
     </div>
@@ -106,9 +106,9 @@ editProfile.addEventListener("click",function(){
     save.addEventListener("click", (event) => {
       event.preventDefault(); // Prevent form submission and page refresh
       const newName = document.getElementById("username").value;
-      const newEmail = document.getElementById("email").value;
+      const newEmail = document.getElementById("editEmail").value;
       const newAge = document.getElementById("dateOfBirth").value;
-      const newGender = document.getElementById("gender").value;
+      const newGender = document.getElementById("editGender").value;
       const newPhoto = document.getElementById("profilePhoto").value;
 
       let account = user.userDoc.find((username) => username.id === user.userAuth().id);
@@ -119,10 +119,17 @@ editProfile.addEventListener("click",function(){
         account.dateOfBirth = user.getAge(newAge);
         account.gender = newGender;
         account.avatar=newPhoto
+        console.log(newPhoto)
       }
       localStorage.setItem("userDoc", JSON.stringify(user.userDoc));
       sessionStorage.setItem("userInSession", JSON.stringify(account));
-      injectProfile();
+      
+      name.innerHTML = "Name: " + newName;
+      email.innerHTML = "Email: " + newEmail;
+      age.innerHTML = "Age: " + user.getAge(newAge);
+      gender.innerHTML = "Gender: " + newGender;
+      avatar.src=newPhoto
+      modal.style.display = "none"
     });
 })
 

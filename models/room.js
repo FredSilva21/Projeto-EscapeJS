@@ -7,7 +7,7 @@ export class Room {
   photo = "";
   icon="";
   targets=[]
-  levels = [];
+  levels = [{id:1,questions:[]}];
 
   constructor(id, name, description, photo, icon, targets,levels) {
     this.id = id;
