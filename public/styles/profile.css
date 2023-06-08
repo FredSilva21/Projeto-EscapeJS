@@ -84,6 +84,79 @@ body {
   cursor: pointer;
 }
 
+/*Admin Container*/
+.admin-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.admin-functions{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#users,#rooms,#questions,#scoreTime{
+  padding: 10px 20px;
+  color: black;
+  border-radius: 10px;
+  background-color: #faff00;
+  cursor: pointer;
+  transition: 0.5s;
+  width: 35%;
+  margin: 1rem;
+}
+
+#users:hover{
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+/*Tabela*/
+#table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  min-width: 400px;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.content-table thead tr {
+  background-color:black;
+  color:#fffa7e;
+  text-align: center;
+  font-weight: bold;
+}
+
+.content-table th,
+.content-table td {
+  padding: 12px 15px;
+}
+
+.content-table tbody tr {
+  border-bottom: 1px solid black;
+}
+
+.content-table tbody tr{
+  background-color: #fffa7e;
+}
+
+.content-table tbody tr:last-of-type {
+  border-bottom: 2px solid #faff00;
+}
+
+#rem,#add{
+  color:#fffa7e;
+  border-radius: 10px;
+  background-color: black;
+  cursor: pointer;
+}
+
 /*Modal edit profile*/
 .modal {
   display: flex;

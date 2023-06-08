@@ -135,9 +135,9 @@ admin.addEventListener("click", function() {
       <button type="button" id="users">Manage Users</button>
       <button type="button" id="rooms">Manage Rooms</button>
       <button type="button" id="questions">Manage Questions</button>
-      <button type="button" id="score&time">Manage Score & Time</button>
+      <button type="button" id="scoreTime">Manage Score & Time</button>
     </div>
-    <table id="table" border="1"></table>
+    <table class="content-table"></table>
   `;
 
   const userManage = document.getElementById("users");
@@ -145,8 +145,8 @@ admin.addEventListener("click", function() {
 });
 
 function renderUsersTable() {
-  const table = document.querySelector("#table");
-  let template = `<tr>
+  const table = document.querySelector(".content-table");
+  let template = `<thead><tr>
     <th>Name</th>
     <th>Email</th>
     <th>Age</th>
@@ -154,7 +154,7 @@ function renderUsersTable() {
     <th>Score</th>
     <th>Type</th>
     <th>Actions</th>
-  </tr>`;
+  </tr></thead><tbody>`;
 
   user.exportAllUsers().forEach(user => {
     template += `<tr>
@@ -164,9 +164,17 @@ function renderUsersTable() {
     <td>${user.gender}</td>
     <td>${user.score}</td>
     <td>${user.type}</td>
-    <td><button type="button" id="rem">Remover</button></td>
+    <td><button type="button" id="rem">Remove</button></td>
     </tr>`;
   });
+
+  template += `
+    <tr>
+      <td colspan="7">
+        <button type="button" id="add" style="width: 100%;">Add</button>
+      </td>
+    </tr>
+  </tbody>`;
 
   table.innerHTML = template;
 }
