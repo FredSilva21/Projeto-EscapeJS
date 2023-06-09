@@ -6,8 +6,7 @@ export class Room {
   description="";
   photo = "";
   icon="";
-  targets=[]
-  levels = [{id:1,questions:[]}];
+  levels = [];
 
   constructor(id, name, description, photo, icon, targets,levels) {
     this.id = id;
@@ -15,7 +14,6 @@ export class Room {
     this.description=description
     this.photo = photo;
     this.icon=icon,
-    this.targets=targets
     this.levels = levels;
   }
 
@@ -49,8 +47,7 @@ export function init() {
         description:"First Room, will you make it to the end?",
         photo: "../public/images/room1.png",
         icon:"../public/images/room1 icon.png",
-        targets:["1112,475,1181,517","470,250,500,275","255,290,282,343","823,354,899,400"],
-        levels: [{id:1,questions:[]}],
+        levels: [{id:1,questions:[],coord:"1112,475,1181,517"},{id:2,questions:[],coord:"255,290,282,343"},{id:3,questions:[],coord:"470,250,495,276"},{id:4,questions:[],coord:"820,350,900,400"}],
       },
       {
         id: 2,
@@ -58,7 +55,6 @@ export function init() {
         description:"Second Room, this next will not be that easy!",
         photo: "../public/images/room2.png",
         icon:"../public/images/room2 icon.png",
-        targets:[],
         levels: [],
       },
       {
@@ -67,7 +63,6 @@ export function init() {
         description:"You're not ready for this.",
         photo: "../public/images/room3.png",
         icon:"../public/images/room3 icon.png",
-        targets:[],
         levels: [],
       }, 
       ];
@@ -92,4 +87,8 @@ export function deleteRoom(name) {
   } else {
     return new Error(`${name}: is not present in the database`);
   }
+}
+
+export function exportRooms(){
+  return localStorage.getItem("roomDoc")
 }
