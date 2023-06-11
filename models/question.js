@@ -1,5 +1,5 @@
 import { generateId } from "./user.js";
-export class question {
+export class Question {
   id = "";
   name = "";
   image="";
@@ -7,50 +7,53 @@ export class question {
   solution = 0;
   solved = 0;
 
-  constructor(id, name, options, solution, solved=0, creator_id) {
+  constructor(id, name, options, solution, solved=0) {
     this.id = id;
     this.name = name;
     this.options = options;
     this.solution = solution;
     this.solved = solved;
-    this.creator_id = creator_id;
   }
 }
 
+export let questionsDoc=[]
 
-export let questionsDoc
-
-//Inject in questionsDoc
 export function init(){
-  questionsDoc=localStorage.questionsDoc
-  ? JSON.parse(localStorage.roomDoc)
-  : [
-    {
-      id: 1,
-      name:"True or False?There's a difference between this operators?",
-      image:"../public/images/level1-question1.png",
-      options:["True","False"],
-      solution:"True",
-      solved:0
-    },
-    {
-      id: 2,
-      name:"What's the return",
-      image:"../public/images/level1-question1.png",
-      options:["True","False"],
-      solution:"True",
-      solved:0
-    }
-    ];
-
-  localStorage.setItem("questionsDoc", JSON.stringify(questionsDoc));
+  questionsDoc=localStorage.questionDoc
+    ? JSON.parse(localStorage.questionDoc)
+    : [
+      {
+        id:1,
+        name:"True or False? There's a difference between this two operators?",
+        image:"../public/images/level1-question1.png",
+        options:["True","False"],
+        solution:"True",
+        solved:0
+      },
+      {
+        id:2,
+        name:"True or False? There's a difference between this two operators?",
+        image:"../public/images/level1-question1.png",
+        options:["True","False"],
+        solution:"True",
+        solved:0
+      },
+      {
+        id:3,
+        name:"True or False? There's a difference between this two operators?",
+        image:"../public/images/level1-question1.png",
+        options:["True","False"],
+        solution:"True",
+        solved:0
+      }
+    ]
 }
 
 export function addQuestion(name,image,options,solution){
-  if (questionsDocDoc.some((question) => question.photo===photo)) {
+  if (questionsDoc.some((question) => question.photo===photo)) {
     throw Error(`Question ${name} already exists!`);
   } else {
-    roomDoc.push(new Room(generateId(id), name, image, options,solution));
-    localStorage.questionDoc = JSON.stringify(questionsDocDoc);
+    questionsDoc.push(new Question(generateId(id), name, image, options,solution));
+    localStorage.questionDoc = JSON.stringify(questionsDoc);
   }
 }

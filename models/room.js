@@ -1,5 +1,5 @@
 import { generateId } from "./user.js";
-
+import * as Question from "./question.js"
 export class Room {
   id = 0;
   name = "";
@@ -8,7 +8,7 @@ export class Room {
   icon="";
   levels = [];
 
-  constructor(id, name, description, photo, icon, targets,levels) {
+  constructor(id, name, description, photo, icon,levels) {
     this.id = id;
     this.name = name;
     this.description=description
@@ -36,6 +36,7 @@ export class Room {
 
 // Load Rooms from local storage
 export let roomDoc;
+export let questionDoc
 
 export function init() {
   roomDoc = localStorage.roomDoc
