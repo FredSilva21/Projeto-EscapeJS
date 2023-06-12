@@ -70,7 +70,7 @@ export function init() {
           id: 1,
           name: "admin",
           email: "admin@email.com",
-          dateOfBirth: "01-01-2000",
+          dateOfBirth: getAge("01-01-2000"),
           gender: "Other",
           password: "admin123",
           type: "admin",
@@ -80,6 +80,8 @@ export function init() {
           score: 10000,
         },
       ];
+
+  localStorage.setItem("userDoc",JSON.stringify(userDoc))
 }
 
 

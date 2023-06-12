@@ -248,23 +248,50 @@ function renderUsersTable() {
       </select>
     </div>
 
-    <div class="form-check">
-      <input class="form-check-input" type="radio" name="typeUser" id="user">
+    <div class="form-check-inline">
+      <input class="form-check-input" type="radio" name="typeUser" id="user" value="user">
       <label class="form-check-label" for="user">
        User
       </label>
-      <input class="form-check-input" type="radio" name="typeUser" id="admin" checked>
+      <input class="form-check-input" type="radio" name="typeUser" id="admin" value="admin" checked>
       <label class="form-check-label" for="admin">
         Admin
     </label>
     </div>
     <div class="form-input">
-          <button type="submit">Add Account</button>
+          <button type="submit" id="addAccount">Add Account</button>
     </div>
-  </form>`;
-  modal.style.display = "flex";
+    </form>`;
+    modal.style.display = "flex";
 
-  const close = document.querySelector(".modal-content span");
-  close.addEventListener("click", () => (modal.style.display = "none"));
-  })
-}
+    const submit= document.querySelector(".form-input button")
+    submit.addEventListener("click",function(event){
+      event.preventDefault()
+      const addName = document.getElementById("newUsername").value;
+      const addEmail = document.getElementById("newEmail").value;
+      const addAge = document.getElementById("newDateOfBirth").value;
+      const addGender = document.getElementById("newGender").value;
+      const type = document.querySelector('input[name="typeUser"]:checked').value;
+      console.log(type)
+
+      const newUser=user.createUser(
+        user.generateId(),
+        addName,
+        addEmail,
+        user.getAge(addAge),
+        addGender,
+      );
+
+      newUser.type=type
+      modal.style.display="none"
+      renderUsersTable()
+    })
+
+    const close = document.querySelector(".modal-content span");
+    close.addEventListener("click", () => (modal.style.display = "none"));
+    })
+
+    
+  }
+
+  
