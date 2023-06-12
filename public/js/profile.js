@@ -27,21 +27,21 @@ function injectProfile() {
     gender.innerHTML = "Gender: " + userProfile.gender;
     levels.innerHTML = "Levels: " + userProfile.rooms.length;
     score.innerHTML = "Score: " + userProfile.score;
-    avatar.src=userProfile.avatar
+    avatar.src = userProfile.avatar;
   }
 }
 
-function verifyAdmin(){
-  if(user.userAuth().type=="user"){
-    admin.style.display="none"
+function verifyAdmin() {
+  if (user.userAuth().type == "user") {
+    admin.style.display = "none";
   }
-  admin.style.display="relative"
+  admin.style.display = "relative";
 }
 
 //Button to edit profile
-const editProfile=document.querySelector(".editProfile")
-editProfile.addEventListener("click",function(){
-    modalContent.innerHTML=`<span class="close">&times;</span>
+const editProfile = document.querySelector(".editProfile");
+editProfile.addEventListener("click", function () {
+  modalContent.innerHTML = `<span class="close">&times;</span>
     <form method="get">
     <div class="form-input">
       <input
@@ -96,46 +96,56 @@ editProfile.addEventListener("click",function(){
     <div class="form-input">
           <button type="submit">Save</button>
     </div>
-  </form>`
-    modal.style.display="flex"
+  </form>`;
+  modal.style.display = "flex";
 
-    const close=document.querySelector(".modal-content span")
-    close.addEventListener("click", () => modal.style.display = "none");
+  const close = document.querySelector(".modal-content span");
+  close.addEventListener("click", () => (modal.style.display = "none"));
 
-    const save = document.querySelector(".form-input button");
-    save.addEventListener("click", (event) => {
-      event.preventDefault(); // Prevent form submission and page refresh
-      const newName = document.getElementById("username").value;
-      const newEmail = document.getElementById("editEmail").value;
-      const newAge = document.getElementById("dateOfBirth").value;
-      const newGender = document.getElementById("editGender").value;
-      const newPhoto = document.getElementById("profilePhoto").value;
+  const save = document.querySelector(".form-input button");
+  save.addEventListener("click", (event) => {
+    event.preventDefault(); // Prevent form submission and page refresh
+    const newName = document.getElementById("username").value;
+    const newEmail = document.getElementById("editEmail").value;
+    const newAge = document.getElementById("dateOfBirth").value;
+    const newGender = document.getElementById("editGender").value;
+    const newPhoto = document.getElementById("profilePhoto").value;
 
-      let account = user.userDoc.find((username) => username.id === user.userAuth().id);
+    let account = user.userDoc.find(
+      (username) => username.id === user.userAuth().id
+    );
 
-      if (account) {
+    if (account) {
+      if (
+        newName !== account.name ||
+        newEmail !== account.email ||
+        (newAge !== "" && user.getAge(newAge) !== account.dateOfBirth) ||
+        newGender !== "#" ||
+        newPhoto !== account.avatar
+      ) {
         account.name = newName;
         account.email = newEmail;
-        account.dateOfBirth = user.getAge(newAge);
-        account.gender = newGender;
-        account.avatar=newPhoto
-        console.log(newPhoto)
+        account.dateOfBirth = newAge !== "" ? user.getAge(newAge) : account.dateOfBirth;
+        account.gender = newGender !== "#" ? newGender : account.gender;
+        account.avatar = newPhoto;
+        console.log(newPhoto);
       }
-      localStorage.setItem("userDoc", JSON.stringify(user.userDoc));
-      sessionStorage.setItem("userInSession", JSON.stringify(account));
-      
-      name.innerHTML = "Name: " + newName;
-      email.innerHTML = "Email: " + newEmail;
-      age.innerHTML = "Age: " + user.getAge(newAge);
-      gender.innerHTML = "Gender: " + newGender;
-      avatar.src=newPhoto
-      modal.style.display = "none"
-    });
-})
+    }
+    localStorage.setItem("userDoc", JSON.stringify(user.userDoc));
+    sessionStorage.setItem("userInSession", JSON.stringify(account));
+
+    name.innerHTML = "Name: " + newName;
+    email.innerHTML = "Email: " + newEmail;
+    age.innerHTML = "Age: " + (newAge !== "" ? user.getAge(newAge) : user.getAge(account.dateOfBirth));
+    gender.innerHTML = "Gender: " + (newGender !== "#" ? newGender : account.gender);
+    avatar.src = newPhoto;
+    modal.style.display = "none";
+  });
+});
 
 //Button Admin
 const admin = document.querySelector(".adminButton");
-admin.addEventListener("click", function() {
+admin.addEventListener("click", function () {
   const adminCont = document.querySelector(".admin-container");
   adminCont.innerHTML = `
     <div class="adminFunctions">
@@ -163,7 +173,7 @@ function renderUsersTable() {
     <th>Actions</th>
   </tr></thead><tbody>`;
 
-  user.exportAllUsers().forEach(user => {
+  user.exportAllUsers().forEach((user) => {
     template += `<tr>
     <td>${user.name}</td>
     <td>${user.email}</td>
