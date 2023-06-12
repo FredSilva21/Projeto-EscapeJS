@@ -7,47 +7,52 @@ export class Question {
   solution = 0;
   solved = 0;
 
-  constructor(id, name, options, solution, solved=0) {
+  constructor(id, name, image ,options, solution, solved=0) {
     this.id = id;
     this.name = name;
+    this.image=image
     this.options = options;
     this.solution = solution;
     this.solved = solved;
   }
 }
 
-export let questionsDoc=[]
+export let questionsDoc = [];
 
-export function init(){
+export function init() {
   questionsDoc=localStorage.questionDoc
-    ? JSON.parse(localStorage.questionDoc)
-    : [
-      {
-        id:1,
-        name:"True or False? There's a difference between this two operators?",
-        image:"../public/images/level1-question1.png",
-        options:["True","False"],
-        solution:"True",
-        solved:0
-      },
-      {
-        id:2,
-        name:"True or False? There's a difference between this two operators?",
-        image:"../public/images/level1-question1.png",
-        options:["True","False"],
-        solution:"True",
-        solved:0
-      },
-      {
-        id:3,
-        name:"True or False? There's a difference between this two operators?",
-        image:"../public/images/level1-question1.png",
-        options:["True","False"],
-        solution:"True",
-        solved:0
-      }
-    ]
+  ? JSON.parse(localStorage.questionDoc)
+  : [
+    {
+      id:1,
+      name:"True or False? There's a difference between this two operators?",
+      image:"../public/images/level1-question1.png",
+      options:["True","False"],
+      solution:"True",
+      solved:0
+    },
+    {
+      id:2,
+      name:"True or False? There's a difference between this two operators?",
+      image:"../public/images/level1-question1.png",
+      options:["True","False"],
+      solution:"True",
+      solved:0
+    },
+    {
+      id:3,
+      name:"True or False? There's a difference between this two operators?",
+      image:"../public/images/level1-question1.png",
+      options:["True","False"],
+      solution:"True",
+      solved:0
+    }
+  ]
+
+  localStorage.setItem("questionDoc", JSON.stringify(questionsDoc));
 }
+
+
 
 export function addQuestion(name,image,options,solution){
   if (questionsDoc.some((question) => question.photo===photo)) {
