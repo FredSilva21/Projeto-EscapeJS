@@ -1,4 +1,5 @@
 import * as roomCatalog from "../../models/room.js";
+import * as User from "../../models/user.js"
 
 // Load Room
 roomCatalog.init();
@@ -8,7 +9,6 @@ function renderCards(){
     let template=""
 
     for(const room of roomDoc){
-        console.log(room)
         template+=`<div class="row justify-content-center">
         <div class="col-lg-10">
             <div class="card mb-4">
@@ -20,7 +20,7 @@ function renderCards(){
                         <div class="card-body">
                             <h5 class="card-title">${room.name}</h5>
                             <p class="card-text">${room.description}</p>
-                            <a href="./room.html?roomId=${room.id}" class="btn btn-primary btn-custom">Play</a>
+                            <a href="./room.html?roomId=${room.id}" class="btn btn-primary btn-custom" id="play">Play</a>
                         </div>
                     </div>
                 </div>
@@ -31,4 +31,10 @@ function renderCards(){
 
     const container=document.querySelector(".container")
     container.innerHTML=template
+
+    const playButtons = document.querySelectorAll("#play");
+    playButtons.forEach((button) => {
+    button.addEventListener("click", function(){
+    });
+    });
 }

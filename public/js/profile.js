@@ -1,5 +1,8 @@
 import * as user from "../../models/user.js";
 
+const admin = document.querySelector(".adminButton");
+verifyAdmin()
+
 const modal = document.querySelector("#modal");
 const modalContent = document.querySelector(".modal-content");
 const loggedUser = user.inSession();
@@ -144,7 +147,6 @@ editProfile.addEventListener("click", function () {
 });
 
 //Button Admin
-const admin = document.querySelector(".adminButton");
 admin.addEventListener("click", function () {
   const adminCont = document.querySelector(".admin-container");
   adminCont.innerHTML = `
@@ -194,4 +196,75 @@ function renderUsersTable() {
   </tbody>`;
 
   table.innerHTML = template;
+
+  const rem=document.querySelectorAll("#rem")
+  rem.forEach((button,index) => {
+    button.addEventListener("click",function(){
+        user.userDoc.pop(index)
+        localStorage.setItem("userDoc",JSON.stringify(user.userDoc))
+        renderUsersTable()
+    })
+  });
+
+  const add=document.getElementById("add")
+  add.addEventListener("click",function(){
+    modalContent.innerHTML = `<span class="close">&times;</span>
+    <form method="get">
+    <div class="form-input">
+      <input
+        type="text"
+        name="username"
+        id="newUsername"
+        placeholder="Name"
+        required
+      />
+    </div>
+
+    <div class="form-input">
+      <input
+        type="email"
+        name="email"
+        id="newEmail"
+        placeholder="Email"
+        required
+        />
+    </div>
+    <div class="form-input">
+      <input
+        type="date"
+        name="dateOfBirth"
+        id="newDateOfBirth"
+        placeholder="Date of Birth"
+        required
+      />
+    </div>
+
+    <div class="form-input">
+      <select name="gender" id="newGender" >
+        <option value="#" disabled selected>Select Gender</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+      </select>
+    </div>
+
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="typeUser" id="user">
+      <label class="form-check-label" for="user">
+       User
+      </label>
+      <input class="form-check-input" type="radio" name="typeUser" id="admin" checked>
+      <label class="form-check-label" for="admin">
+        Admin
+    </label>
+    </div>
+    <div class="form-input">
+          <button type="submit">Add Account</button>
+    </div>
+  </form>`;
+  modal.style.display = "flex";
+
+  const close = document.querySelector(".modal-content span");
+  close.addEventListener("click", () => (modal.style.display = "none"));
+  })
 }
