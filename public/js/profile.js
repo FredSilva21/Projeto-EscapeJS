@@ -125,7 +125,7 @@ editProfile.addEventListener("click", function () {
       ) {
         account.name = newName;
         account.email = newEmail;
-        account.dateOfBirth = newAge !== "" ? user.getAge(newAge) : account.dateOfBirth;
+        account.dateOfBirth = newAge !== "" ? newAge : account.dateOfBirth;
         account.gender = newGender !== "#" ? newGender : account.gender;
         account.avatar = newPhoto;
         console.log(newPhoto);
@@ -136,7 +136,7 @@ editProfile.addEventListener("click", function () {
 
     name.innerHTML = "Name: " + newName;
     email.innerHTML = "Email: " + newEmail;
-    age.innerHTML = "Age: " + (newAge !== "" ? user.getAge(newAge) : user.getAge(account.dateOfBirth));
+    age.innerHTML = "Age: " + (newAge !== "" ? newAge : account.dateOfBirth);
     gender.innerHTML = "Gender: " + (newGender !== "#" ? newGender : account.gender);
     avatar.src = newPhoto;
     modal.style.display = "none";
