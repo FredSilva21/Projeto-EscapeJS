@@ -19,5 +19,38 @@ const title = document.querySelector("h3");
 title.innerHTML = `Level ${levelId}-${level.name}`;
 
 function renderLevel(){
-    const levelContainer=document.querySelector(".level-container")
+    const questionTitle=document.querySelector(".question-title")
+    const questionOptions=document.querySelector(".question-options")
+
+    // Get the level object
+    const roomLevel = Room.roomDoc.find(room => room.levels.some(level => level.id == levelId));
+  
+    if (!roomLevel) {
+      console.log("Level not found.");
+      return;
+    }
+
+    // Get a random level from the room's levels array
+    const level = roomLevel.levels[Math.floor(Math.random() * roomLevel.levels.length)];
+    console.log(level)
+
+    // Get a random question from the level's questions array
+    const randomQuestion = level.questions[Math.floor(Math.random() * level.questions.length)];
+    console.log(randomQuestion)
+
+    // Set the question title
+    questionTitle.innerHTML = randomQuestion.name;
+
+    // Clear previous question options
+    questionOptions.innerHTML = "";
+
+    // Shuffle the options randomly
+    const shuffledOptions = randomQuestion.options.sort(() => Math.random() - 0.5);
+
+    // Loop through the options and add them to the questionOptions element
+    shuffledOptions.forEach(option => {
+        questionOptions.innerHTML=`<button class="option-button" value="${option}">${option}</button>`
+    });
 }
+  
+renderLevel()

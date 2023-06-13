@@ -1,3 +1,4 @@
+import { roomDoc } from "./room.js";
 import { generateId } from "./user.js";
 
 export class Question {
@@ -60,4 +61,7 @@ export function addQuestion(id, name, image, options, solution) {
     questionsDoc.push(new Question(id, name, image, options, solution));
     localStorage.questionDoc = JSON.stringify(questionsDoc);
   }
+}
+
+export function addQuestionToRoom(array,index){
 }
