@@ -23,6 +23,16 @@ export class Room {
     this.levels.push(level);
   }
 
+  addQuestions(levelId, questions) {
+    const level = this.levels.find(level => level.id === levelId);
+  
+    if (level) {
+      level.questions.push(...questions);
+    } else {
+      throw new Error(`Level with id ${levelId} not found in the room.`);
+    }
+  }
+
   removeLevel(levelName) {
     for (let level in this.levels) {
       if (this.levels[level].name === levelName) {
@@ -92,4 +102,21 @@ export function deleteRoom(name) {
 
 export function exportRooms(){
   return localStorage.getItem("roomDoc")
+}
+
+export function addQuestionsToRooms() {
+  let questionsRemaining = Question.questionsDoc.slice(); // Cria uma cópia do array questionsDoc
+
+  for (let room of roomDoc) {
+    const roomQuestions = questionsRemaining.slice(0, 3); // Obtém as próximas 3 perguntas
+
+    room.addQuestions(roomQuestions); // Adiciona as perguntas ao room
+
+    questionsRemaining = questionsRemaining.slice(3); // Remove as perguntas já adicionadas
+
+    if (questionsRemaining.length === 0) {
+      // Se não houver mais perguntas restantes, interrompe o loop
+      break;
+    }
+  }
 }

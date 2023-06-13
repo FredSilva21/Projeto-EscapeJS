@@ -62,6 +62,3 @@ export function addQuestion(id, name, image, options, solution) {
     localStorage.questionDoc = JSON.stringify(questionsDoc);
   }
 }
-
-export function addQuestionToRoom(array,index){
-}
