@@ -65,7 +65,7 @@ export function init() {
         {
           id: 6,
           name: "The JavaScript 'typeof' operator can be used to determine the data type of a variable.",
-          image: "",
+          image: "../public/images/level1-question6.png", //! To add img
           options:["True", "False"],
           solution: "True",
           solved: 0,
