@@ -32,7 +32,7 @@ export function init() {
         },
         {
           id: 2,
-          name: "What is the value of number?",
+          name: "What is the value of <b>number?</b>",
           image: "../public/images/level1-question2.png",
           options: ["2", "10","NaN","Error"],
           solution: "10",
@@ -40,10 +40,18 @@ export function init() {
         },
         {
           id: 3,
-          name: "True or False? There's a difference between these two operators?",
-          image: "../public/images/level1-question1.png",
-          options: ["True", "False"],
-          solution: "True",
+          name: "What is the error?",
+          image: "../public/images/level1-question3.png",
+          options: ["The variable 'number' is not declared correctly.","The variable 'text' is not declared correctly.","The concatenation is being performed using the addition operator (+) instead of the concatenation operator (+=).","The variable 'result' is not being printed correctly to the console."],
+          solution: "The variable 'number' is not declared correctly.",
+          solved: 0,
+        },
+        {
+          id: 4,
+          name: "What will be the result printed in the console when executing the code?",
+          image: "../public/images/level1-question4.png",
+          options:["True", "False"],
+          solution: "False",
           solved: 0,
         },
       ];
