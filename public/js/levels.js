@@ -33,7 +33,7 @@ function renderLevel() {
     // Get the current question
     const currentQuestion = questions[currentQuestionIndex];
 
- 
+    questionImage.innerHTML= `<img src="${currentQuestion.image}">`
 
     // Set the question title
     questionTitle.innerHTML = `<p>${currentQuestion.name}</p>`;
