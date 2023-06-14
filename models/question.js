@@ -122,7 +122,7 @@ export function init() {
         },
         {
           id: 13,
-          name:"",
+          name:"What is the error?",
           image: "../public/images/level3-question3.png",
           options:["The calculateSum function does not return a value.","The 'b' parameter is missing in the function call.","The value of the 'result' variable is not assigned correctly.","The calculateSum function is called with too many arguments."],
           solution: "The calculateSum function is called with too many arguments.",
@@ -130,10 +130,18 @@ export function init() {
         },
         {
           id: 14,
-          name: "JavaScript functions can only return one type of data",
-          image: "",
-          options:["True","False"],
-          solution: "False",
+          name: "What is the purpose of the 'this' keyword?",
+          image: "../public/images/level3-question4.png",
+          options:["Calling the object.", "Calling the function.", "Referring to the object that the function is executing in.", "Reference to the function of the object."],
+          solution: "Referring to the object that the function is executing in.",
+          solved: 0,
+        },
+        {
+          id: 15,
+          name: "What will be the output of the following code snippet?",
+          image: "../public/images/level3-question5.png",
+          options:["01234","55555","12345","444444"],
+          solution: "55555",
           solved: 0,
         }
       ];
