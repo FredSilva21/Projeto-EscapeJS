@@ -6,6 +6,13 @@
   padding: 0;
 }
 
+.top-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100vh;
+}
+
 .top-container h3,
 #countdown {
   font-size: 35pt;
@@ -17,6 +24,7 @@
 .top-container p {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 h2 {
@@ -35,15 +43,22 @@ h2 {
 
 .question-image {
   width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  margin-top: 10px;
 }
 
 .question-image img {
   max-width: 600px;
   width: 600px;
+  align-self: center;
 }
 
 .question-title{
   text-align: center;
+  font-size: 30pt;
 }
 
 .question-options{
