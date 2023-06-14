@@ -1,3 +1,29 @@
-h2{
-    text-align: center;
+.top-container h3,#countdown{
+    font-size: 35pt;
+  }
+  
+  #countdown{
+    margin-left: 10px;
+  }
+  .top-container p{
+    display: flex;
+    align-items: center;
+  }
+
+h2 {
+  text-align: center;
+}
+
+.level-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 90%;
+  height: 80vh; /* Alterado para 100vh para ocupar toda a altura da página */
+  margin: 0 auto; /* Adicionado para centralizar horizontalmente */
+}
+
+.question-image{
+    max-width:700px;
 }
