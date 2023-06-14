@@ -105,21 +105,37 @@ export function init() {
         },
         //Level 3
         {
-          id: 8,
-          name: "What is the error in the following code??",
-          image: "../public/images/level2-question1.png",
-          options:["Missing semicolon at the end of the first line","Division by zero","Undeclared variable 'result'","Missing 'catch' block"],
-          solution: "Greater than 5",
+          id: 11,
+          name: "What is the correct way to define a function in JavaScript?",
+          image: "../public/images/level3-question1.png",
+          options:["A","B","C","D"],
+          solution: "B",
           solved: 0,
         },
         {
-          id: 8,
-          name: "What is the error in the following code??",
-          image: "../public/images/level2-question1.png",
-          options:["Missing semicolon at the end of the first line","Division by zero","Undeclared variable 'result'","Missing 'catch' block"],
-          solution: "Greater than 5",
+          id: 12,
+          name: "What is the correct way to call the function 'myFunction' with an argument named 'value'?",
+          image: "../public/images/level3-question2.png",
+          options:["A","B","C","D"],
+          solution: "B",
           solved: 0,
         },
+        {
+          id: 13,
+          name:"",
+          image: "../public/images/level3-question3.png",
+          options:["The calculateSum function does not return a value.","The 'b' parameter is missing in the function call.","The value of the 'result' variable is not assigned correctly.","The calculateSum function is called with too many arguments."],
+          solution: "The calculateSum function is called with too many arguments.",
+          solved: 0,
+        },
+        {
+          id: 14,
+          name: "JavaScript functions can only return one type of data",
+          image: "",
+          options:["True","False"],
+          solution: "False",
+          solved: 0,
+        }
       ];
 
   localStorage.setItem("questionsDoc", JSON.stringify(questionsDoc));
