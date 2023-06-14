@@ -2,6 +2,7 @@ import * as Room from "../../models/room.js";
 import * as Question from "../../models/question.js";
 
 Room.init();
+Question.init();
 //Get variable in url
 const urlParams = new URLSearchParams(window.location.search);
 const levelId = urlParams.get("levelId");
@@ -32,8 +33,7 @@ function renderLevel() {
     // Get the current question
     const currentQuestion = questions[currentQuestionIndex];
 
-    //Set image question
-    questionImage.innerHTML=`<img src="${currentQuestion.image}">`
+ 
 
     // Set the question title
     questionTitle.innerHTML = `<p>${currentQuestion.name}</p>`;
