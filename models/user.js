@@ -43,16 +43,13 @@ export class User {
     this.questions.pop(question);
   }
 
-  updateScore(score, questions) {
-    /*
-    const answerCorrect = 25;
-    const balance = correct answers *answer correct 
-    this.score += balance
-    */
-  }
-
   changePassword(password) {
     this.oldPassword = password;
+  }
+
+  updateScore(numero){
+    this.score+=25*numero
+    console.log("TESTE")
   }
 
   calculateScore(score) {}

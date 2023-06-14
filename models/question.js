@@ -3,7 +3,7 @@ export class Question {
   name = "";
   image = "";
   options = [];
-  solution = 0;
+  solution = "";
   solved = 0;
 
   constructor(id, name, image, options, solution, solved = 0) {
@@ -32,10 +32,10 @@ export function init() {
         },
         {
           id: 2,
-          name: "True or False? There's a difference between these two operators?",
-          image: "../public/images/level1-question1.png",
-          options: ["True", "False"],
-          solution: "True",
+          name: "What is the value of number?",
+          image: "../public/images/level1-question2.png",
+          options: ["2", "10","NaN","Error"],
+          solution: "10",
           solved: 0,
         },
         {

@@ -1,8 +1,10 @@
 import * as Room from "../../models/room.js";
 import * as Question from "../../models/question.js";
+import * as User from "../../models/user.js";
 
 Room.init();
 Question.init();
+User.init()
 //Get variable in url
 const urlParams = new URLSearchParams(window.location.search);
 const levelId = urlParams.get("levelId");
@@ -14,6 +16,8 @@ for (const room of Room.roomDoc) {
     break;
   }
 }
+
+const loggedUser = User.userAuth()
 
 // Set the innerHTML of the title element
 const title = document.querySelector("h3");
@@ -27,6 +31,8 @@ function renderLevel() {
   const questionOptions = document.querySelector(".question-options");
 
   const questions = level.questions;
+
+  let correctAnswers=0
 
   // Check if there are more questions to display
   if (currentQuestionIndex < questions.length) {
@@ -49,9 +55,23 @@ function renderLevel() {
       questionOptions.appendChild(button);
     });
 
-    // Increment the question index for the next iteration
-    currentQuestionIndex++;
+    const buttonOptions=document.querySelectorAll(".option-button")
+    buttonOptions.forEach(button => {
+        button.addEventListener("click",function(){
+          if(button.textContent===currentQuestion.solution){
+            //Increment the correct answers   
+            User.updateScore()
+            // Increment the question index for the next iteration
+            currentQuestionIndex++;
+          }else{
+            currentQuestionIndex++
+          }
+        })
+    });
+
   }
+  // Save the updated user object back to session storage
+  sessionStorage.setItem("userInSession", JSON.stringify(loggedUser));
 }
 
 
