@@ -59,7 +59,7 @@ export function init() {
         description:"First Room, will you make it to the end?",
         photo: "../public/images/room1.png",
         icon:"../public/images/room1 icon.png",
-        levels: [{id:1,name:"Fundamentals",questions:[Question.questionsDoc[0],Question.questionsDoc[1],Question.questionsDoc[2]],coord:"1112,475,1181,517"},{id:2,name:"Conditionals",questions:[],coord:"255,290,282,343"},{id:3,name:"Loops",questions:[],coord:"470,250,495,276"},{id:4,coord:"820,350,900,400"}],
+        levels: [{id:1,name:"Fundamentals",questions:[Question.questionsDoc[0],Question.questionsDoc[1],Question.questionsDoc[2],Question.questionsDoc[3]],coord:"1112,475,1181,517"},{id:2,name:"Conditionals",questions:[],coord:"255,290,282,343"},{id:3,name:"Loops",questions:[],coord:"470,250,495,276"},{id:4,coord:"820,350,900,400"}],
       },
       {
         id: 2,
