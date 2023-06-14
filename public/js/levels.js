@@ -1,6 +1,7 @@
 import * as Room from "../../models/room.js";
 import * as Question from "../../models/question.js";
 import * as User from "../../models/user.js";
+import { startTime } from "../../utils/timer.js";
 
 Room.init();
 Question.init();
@@ -68,6 +69,7 @@ function renderLevel() {
       // Adicione o evento de clique ao botão
       button.addEventListener("click", function () {
         checkAnswer(option);
+        sessionStorage.removeItem("remainingTime");
       });
     });
   }

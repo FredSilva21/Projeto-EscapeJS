@@ -1,14 +1,23 @@
-.top-container h3,#countdown{
-    font-size: 35pt;
-  }
-  
-  #countdown{
-    margin-left: 10px;
-  }
-  .top-container p{
-    display: flex;
-    align-items: center;
-  }
+@import url("https://fonts.googleapis.com/css2?family=Urbanist&display=swap");
+
+* {
+  font-family: "Urbanist" Bold;
+  margin: 0;
+  padding: 0;
+}
+
+.top-container h3,
+#countdown {
+  font-size: 35pt;
+}
+
+#countdown {
+  margin-left: 10px;
+}
+.top-container p {
+  display: flex;
+  align-items: center;
+}
 
 h2 {
   text-align: center;
@@ -24,6 +33,35 @@ h2 {
   margin: 0 auto; /* Adicionado para centralizar horizontalmente */
 }
 
-.question-image{
-    max-width:700px;
+.question-image {
+  width: 90%;
+}
+
+.question-image img {
+  max-width: 600px;
+  width: 600px;
+}
+
+.question-title{
+  text-align: center;
+}
+
+.question-options{
+  display: flex;
+  flex-direction: column;
+}
+
+.question-options button{
+  padding: 10px 20px;
+  color: black;
+  border-radius: 10px;
+  background-color: #faff00;
+  cursor: pointer;
+  transition: 0.5s;
+  width:300px;
+}
+
+.question-options button:hover{
+  transform: scale(1.2);
+  cursor: pointer;
 }
