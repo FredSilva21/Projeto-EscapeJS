@@ -89,10 +89,10 @@ export function init() {
         },
         {
           id: 9,
-          name: "The if-else statement allows the execution of different code blocks based on specified conditions.",
-          image: "",
-          options:["True", "False"],
-          solution: "True",
+          name: "The if-else statement allows the execution of different code blocks based on specified conditions. What is the answer?",
+          image: "../public/images/level2-question3.png",
+          options:["You are and adult", "You are a minor"],
+          solution: "You are and adult",
           solved: 0,
         },
         {
