@@ -50,7 +50,6 @@ export class Room {
 export let roomDoc;
 
 export function init() {
-  console.log(Question.questionsDoc)
   roomDoc = localStorage.roomDoc
     ? JSON.parse(localStorage.roomDoc)
     : [

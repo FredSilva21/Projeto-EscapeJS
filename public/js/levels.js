@@ -18,55 +18,41 @@ for (const room of Room.roomDoc) {
 const title = document.querySelector("h3");
 title.innerHTML = `Level ${levelId}-${level.name}`;
 
+let currentQuestionIndex = 0;
+
 function renderLevel() {
+  const questionImage=document.querySelector(".question-image")
   const questionTitle = document.querySelector(".question-title");
   const questionOptions = document.querySelector(".question-options");
 
-  // Get the level object
-  const roomLevel = Room.roomDoc.find((room) =>
-    room.levels.some((level) => level.id == levelId)
-  );
+  const questions = level.questions;
 
-  if (!roomLevel) {
-    console.log("Level not found.");
-    return;
+  // Check if there are more questions to display
+  if (currentQuestionIndex < questions.length) {
+    // Get the current question
+    const currentQuestion = questions[currentQuestionIndex];
+
+    //Set image question
+    questionImage.innerHTML=`<img src="${currentQuestion.image}">`
+
+    // Set the question title
+    questionTitle.innerHTML = `<p>${currentQuestion.name}</p>`;
+
+    // Clear previous question options
+    questionOptions.innerHTML = "";
+
+    // Loop through the options and add them to the questionOptions element
+    currentQuestion.options.forEach(option => {
+      const button = document.createElement("button");
+      button.classList.add("option-button");
+      button.textContent = option;
+      questionOptions.appendChild(button);
+    });
+
+    // Increment the question index for the next iteration
+    currentQuestionIndex++;
   }
-
-  // Get a random level from the room's levels array
-  const level =
-    roomLevel.levels[Math.floor(Math.random() * roomLevel.levels.length)];
-  console.log(level);
-
-  if (!level.questions || level.questions.length === 0) {
-    console.log("No questions found.");
-    return
-  }
-
-  // Get a random question from the level's questions array
-  const randomQuestion =
-    level.questions[Math.floor(Math.random() * level.questions.length)];
-  console.log(randomQuestion);
-
-  if (!randomQuestion) {
-    console.log("Question name is undefined");
-    return
-  }
-
-  // Set the question title
-  questionTitle.innerHTML = randomQuestion.name;
-
-  // Clear previous question options
-  questionOptions.innerHTML = "";
-
-  // Shuffle the options randomly
-  const shuffledOptions = randomQuestion.options.sort(
-    () => Math.random() - 0.5
-  );
-
-  // Loop through the options and add them to the questionOptions element
-  shuffledOptions.forEach((option) => {
-    questionOptions.innerHTML += `<button class="option-button" value="${option}">${option}</button>`;
-  });
 }
+
 
 renderLevel();

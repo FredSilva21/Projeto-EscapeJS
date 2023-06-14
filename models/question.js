@@ -1,6 +1,3 @@
-import { roomDoc } from "./room.js";
-import { generateId } from "./user.js";
-
 export class Question {
   id = "";
   name = "";
