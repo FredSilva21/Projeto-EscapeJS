@@ -2,6 +2,7 @@ import * as Room from "../../models/room.js";
 import * as Question from "../../models/question.js";
 
 Room.init();
+Question.init();
 //Get variable in url
 const urlParams = new URLSearchParams(window.location.search);
 const levelId = urlParams.get("levelId");
@@ -39,7 +40,7 @@ function renderLevel() {
 
   if (!level.questions || level.questions.length === 0) {
     console.log("No questions found.");
-    return
+    return;
   }
 
   // Get a random question from the level's questions array
@@ -49,7 +50,7 @@ function renderLevel() {
 
   if (!randomQuestion) {
     console.log("Question name is undefined");
-    return
+    return;
   }
 
   // Set the question title
