@@ -1,5 +1,7 @@
 import { generateId } from "./user.js";
 import * as Question from "./question.js"
+
+Question.init()
 export class Room {
   id = 0;
   name = "";
@@ -46,9 +48,9 @@ export class Room {
 
 // Load Rooms from local storage
 export let roomDoc;
-export let questionDoc
 
 export function init() {
+  console.log(Question.questionsDoc)
   roomDoc = localStorage.roomDoc
     ? JSON.parse(localStorage.roomDoc)
     : [
@@ -58,7 +60,7 @@ export function init() {
         description:"First Room, will you make it to the end?",
         photo: "../public/images/room1.png",
         icon:"../public/images/room1 icon.png",
-        levels: [{id:1,name:"Fundamentals",questions:[],coord:"1112,475,1181,517"},{id:2,name:"Conditionals",questions:[],coord:"255,290,282,343"},{id:3,name:"Loops",questions:[],coord:"470,250,495,276"},{id:4,coord:"820,350,900,400"}],
+        levels: [{id:1,name:"Fundamentals",questions:[Question.questionsDoc[0],Question.questionsDoc[1],Question.questionsDoc[2]],coord:"1112,475,1181,517"},{id:2,name:"Conditionals",questions:[],coord:"255,290,282,343"},{id:3,name:"Loops",questions:[],coord:"470,250,495,276"},{id:4,coord:"820,350,900,400"}],
       },
       {
         id: 2,
@@ -102,21 +104,4 @@ export function deleteRoom(name) {
 
 export function exportRooms(){
   return localStorage.getItem("roomDoc")
-}
-
-export function addQuestionsToRooms() {
-  let questionsRemaining = Question.questionsDoc.slice(); // Cria uma cópia do array questionsDoc
-
-  for (let room of roomDoc) {
-    const roomQuestions = questionsRemaining.slice(0, 3); // Obtém as próximas 3 perguntas
-
-    room.addQuestions(roomQuestions); // Adiciona as perguntas ao room
-
-    questionsRemaining = questionsRemaining.slice(3); // Remove as perguntas já adicionadas
-
-    if (questionsRemaining.length === 0) {
-      // Se não houver mais perguntas restantes, interrompe o loop
-      break;
-    }
-  }
 }
