@@ -65,7 +65,7 @@ export function init() {
         {
           id: 6,
           name: "The JavaScript 'typeof' operator can be used to determine the data type of a variable.",
-          image: "",
+          image: "../public/images/level1-question6.png", //! To add img
           options:["True", "False"],
           solution: "True",
           solved: 0,
@@ -89,10 +89,10 @@ export function init() {
         },
         {
           id: 9,
-          name: "The if-else statement allows the execution of different code blocks based on specified conditions.",
-          image: "",
-          options:["True", "False"],
-          solution: "True",
+          name: "The if-else statement allows the execution of different code blocks based on specified conditions. What is the answer?",
+          image: "../public/images/level2-question3.png",
+          options:["You are and adult", "You are a minor"],
+          solution: "You are and adult",
           solved: 0,
         },
         {
@@ -106,56 +106,7 @@ export function init() {
         //Level 3
         {
           id: 11,
-          name: "Which loop in JavaScript is used when you want to execute the loop body at least once, regardless of the condition?",
-          image: "",
-          options:[ "for loop","while loop","do-while loop","switch statement"],
-          solution: "do-while loop",
-          solved: 0,
-        },
-        {
-          id: 12,
-          name: "What is the purpose of the 'continue' statement in a loop?",
-          image: "",
-          options:["o exit the loop immediately","To skip the rest of the loop body and move to the next iteration","To restart the loop from the beginning","To check the condition and decide whether to continue the loop or not"],
-          solution: "To skip the rest of the loop body and move to the next iteration",
-          solved: 0,
-        },
-        {
-          id: 13,
-          name:"",
-          image: "../public/images/level3-question3.png",
-          options:["A","B","C","D"],
-          solution: "D",
-          solved: 0,
-        },
-        {
-          id: 14,
-          name: "",
-          image: "../public/images/level3-question4.png",
-          options:["A","B","C","D"],
-          solution: "A",
-          solved: 0,
-        },
-        {
-          id: 15,
-          name: "The do-while loop in JavaScript always executes the loop body at least once.",
-          image: "../public/images/level3-question4.png",
-          options:["True","False"],
-          solution: "True",
-          solved: 0,
-        },
-        {
-          id: 16,
-          name: "The 'break' statement can be used to exit a loop prematurely.",
-          image: "../public/images/level3-question4.png",
-          options:["True","False"],
-          solution: "True",
-          solved: 0,
-        },
-        //Level 4
-        {
-          id: 17,
-          name: "The do-while loop in JavaScript always executes the loop body at least once.",
+          name: "What is the correct way to define a function in JavaScript?",
           image: "../public/images/level3-question1.png",
           options:["A","B","C","D"],
           solution: "B",
@@ -178,62 +129,13 @@ export function init() {
           solved: 0,
         },
         {
-          id: 20,
+          id: 14,
           name: "JavaScript functions can only return one type of data",
           image: "",
           options:["True","False"],
           solution: "False",
           solved: 0,
-        },
-        //Level 5
-        {
-          id: 21,
-          name: "What is the correct way to create an empty array in JavaScript?",
-          image: "",
-          options:["let myArray = []","let myArray = {}",'let myArray = ""',"let myArray = null"],
-          solution: "let myArray = []",
-          solved: 0,
-        },
-        {
-          id: 22,
-          name: "Which array method is used to add elements to the end of an array?",
-          image: "",
-          options:["push()","pop()","shift()","unshift()"],
-          solution: "push()",
-          solved: 0,
-        },
-        {
-          id: 23,
-          name:"",
-          image: "../public/images/level5-question3.png",
-          options:["A","B","C","D"],
-          solution: "C",
-          solved: 0,
-        },
-        {
-          id: 24,
-          name: "",
-          image: "../public/images/level5-question4.png",
-          options:["A","B","C","D"],
-          solution: "A",
-          solved: 0,
-        },
-        {
-          id: 25,
-          name: "Arrays in JavaScript can hold elements of different data types",
-          image:"",
-          options:["True","False"],
-          solution: "True",
-          solved: 0,
-        },
-        {
-          id: 26,
-          name: "The 'length' property of an array returns the number of elements in the array.",
-          image: "",
-          options:["True","False"],
-          solution: "True",
-          solved: 0,
-        },
+        }
       ];
 
   localStorage.setItem("questionsDoc", JSON.stringify(questionsDoc));
