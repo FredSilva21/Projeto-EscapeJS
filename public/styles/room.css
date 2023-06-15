@@ -47,6 +47,11 @@
   align-items: center; 
   height: 100vh;
 }
+
+.room-container img{
+  max-width: 1400px;
+  max-height: 800px;
+}
 /*
 .col-md-4 {
   display: flex;

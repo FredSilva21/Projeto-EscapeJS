@@ -59,15 +59,15 @@ export function init() {
         description:"First Room, will you make it to the end?",
         photo: "../public/images/room1.png",
         icon:"../public/images/room1 icon.png",
-        levels: [{id:1,name:"Fundamentals",questions:[Question.questionsDoc[0],Question.questionsDoc[1],Question.questionsDoc[2],Question.questionsDoc[3],Question.questionsDoc[4],Question.questionsDoc[5]],coord:"1112,475,1181,517"},{id:2,name:"Conditionals",questions:[Question.questionsDoc[6],Question.questionsDoc[7],Question.questionsDoc[8],Question.questionsDoc[9]],coord:"255,290,282,343"},{id:3,name:"Loops",questions:[Question.questionsDoc[10],Question.questionsDoc[11],Question.questionsDoc[12],Question.questionsDoc[13]],coord:"470,250,495,276"},{id:4,coord:"820,350,900,400"}],
+        levels: [{id:1,name:"Fundamentals",questions:[Question.questionsDoc[0],Question.questionsDoc[1],Question.questionsDoc[2],Question.questionsDoc[3],Question.questionsDoc[4],Question.questionsDoc[5]],coord:"1112,475,1181,517"},{id:2,name:"Conditionals",questions:[Question.questionsDoc[6],Question.questionsDoc[7],Question.questionsDoc[8],Question.questionsDoc[9]],coord:"255,290,282,343"},{id:3,name:"Loops",questions:[Question.questionsDoc[10],Question.questionsDoc[11],Question.questionsDoc[12],Question.questionsDoc[13],Question.questionsDoc[14]],coord:"470,250,495,276"},{id:4,coord:"820,350,900,400"}],
       },
       {
         id: 2,
         name: "Chapter 2:Working Hard",
         description:"Second Room, this next will not be that easy!",
-        photo: "../public/images/room2.png",
+        photo: "../public/images/level2.jpg",
         icon:"../public/images/room2 icon.png",
-        levels: [],
+        levels: [{id:1,name:"Functions",questions:[Question.questionsDoc[15],Question.questionsDoc[16],Question.questionsDoc[17],Question.questionsDoc[18]],coord:"0,100,1400,600"}],
       },
       {
         id: 3,
