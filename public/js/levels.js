@@ -44,8 +44,7 @@ function checkAnswer(selectedOption) {
 function renderLevel() {
   const questionImage = document.querySelector(".question-image");
   const questionTitle = document.querySelector(".question-title");
-  const questionOptions = document.querySelector(".question-options");
-
+  const questionOptions=document.querySelector(".question-options")
   // Check if there are more questions to display
   if (currentQuestionIndex < questions.length) {
     // Get the current question
@@ -57,12 +56,13 @@ function renderLevel() {
     questionTitle.innerHTML = `<p>${currentQuestion.name}</p>`;
 
     // Clear previous question options
-    questionOptions.innerHTML = "";
+    questionOptions.innerHTML=""
 
     // Modifique o loop que cria os botões de opção
     currentQuestion.options.forEach((option) => {
       const button = document.createElement("button");
       button.classList.add("option-button");
+      button.classList.add("col-sm-6")
       button.textContent = option;
       questionOptions.appendChild(button);
 

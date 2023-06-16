@@ -62,12 +62,12 @@ h2 {
   text-align: center;
   font-size: 30pt;
 }
-
+/*
 .question-options{
   display: flex;
   flex-direction: column;
 }
-
+*/
 .question-options button{
   padding: 10px 20px;
   color: black;
@@ -75,7 +75,8 @@ h2 {
   background-color: #faff00;
   cursor: pointer;
   transition: 0.5s;
-  width:300px;
+  margin:10px 20px;
+  width:40%;
 }
 
 .question-options button:hover{
