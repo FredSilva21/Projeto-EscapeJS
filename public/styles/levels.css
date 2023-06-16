@@ -53,6 +53,8 @@ h2 {
 .question-image img {
   max-width: 600px;
   width: 600px;
+  max-height: 560px;
+  height: 560px;
   align-self: center;
 }
 

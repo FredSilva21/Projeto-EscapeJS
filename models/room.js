@@ -59,15 +59,15 @@ export function init() {
         description:"First Room, will you make it to the end?",
         photo: "../public/images/room1.png",
         icon:"../public/images/room1 icon.png",
-        levels: [{id:1,name:"Fundamentals",questions:[Question.questionsDoc[0],Question.questionsDoc[1],Question.questionsDoc[2],Question.questionsDoc[3],Question.questionsDoc[4],Question.questionsDoc[5]],coord:"1000,400,1100,450" },{id:2,name:"Conditionals",questions:[Question.questionsDoc[6],Question.questionsDoc[7],Question.questionsDoc[8],Question.questionsDoc[9]],coord:"250,285,290,340"},{id:3,name:"Loops",questions:[Question.questionsDoc[10],Question.questionsDoc[11],Question.questionsDoc[12],Question.questionsDoc[13],Question.questionsDoc[14]],coord:"440,220,500,275"},{id:4,coord:"700,330,800,370"}],
+        levels: [{id:1,name:"Fundamentals",questions:[Question.questionsDoc[0],Question.questionsDoc[1],Question.questionsDoc[2],Question.questionsDoc[3],Question.questionsDoc[4],Question.questionsDoc[5]],coord:"1000,400,1100,450" },{id:2,name:"Conditionals",questions:[Question.questionsDoc[6],Question.questionsDoc[7],Question.questionsDoc[8],Question.questionsDoc[9]],coord:"250,285,290,340"},{id:3,name:"Loops",questions:[Question.questionsDoc[10],Question.questionsDoc[11],Question.questionsDoc[12],Question.questionsDoc[13],Question.questionsDoc[14],Question.questionsDoc[15]],coord:"440,220,500,275"},{id:4,coord:"700,330,800,370"}],
       },
       {
         id: 2,
         name: "Chapter 2:Working Hard",
         description:"Second Room, this next will not be that easy!",
-        photo: "../public/images/level2.jpg",
+        photo: "../public/images/level2.png",
         icon:"../public/images/room2 icon.png",
-        levels: [{id:1,name:"Functions",questions:[Question.questionsDoc[15],Question.questionsDoc[16],Question.questionsDoc[17],Question.questionsDoc[18]],coord:"0,100,1400,600"}],
+        levels: [{id:1,name:"Functions",questions:[Question.questionsDoc[16],Question.questionsDoc[17],Question.questionsDoc[18],Question.questionsDoc[19]],coord:"450,180,513,225"},{id:2,name:"Arrays",questions:[Question.questionsDoc[20],Question.questionsDoc[21],Question.questionsDoc[22],Question.questionsDoc[23],Question.questionsDoc[24],Question.questionsDoc[25]],coord:"450,180,513,225"},{id:3,name:"Objects",questions:[Question.questionsDoc[26],Question.questionsDoc[27],Question.questionsDoc[28],Question.questionsDoc[29],Question.questionsDoc[30],Question.questionsDoc[31]],coord:"450,180,513,225"}],
       },
       {
         id: 3,

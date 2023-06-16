@@ -233,6 +233,55 @@ export function init() {
           solution: "True",
           solved: 0,
         },
+        //Level 6
+        {
+          id: 27,
+          name: "What is the correct syntax to create an empty object in JavaScript?",
+          image: "",
+          options:["let myObj = []","let myObj = {}",'let myObj = ""',"let myObj = null"],
+          solution: "let myObj = {}",
+          solved: 0,
+        },
+        {
+          id: 28,
+          name: "Which operator is used to access a property of an object?",
+          image: "",
+          options:[".",",",";",":"],
+          solution: ".",
+          solved: 0,
+        },
+        {
+          id: 29,
+          name:"",
+          image: "../public/images/level6-question3.png",
+          options:["A","B","C","D"],
+          solution: "C",
+          solved: 0,
+        },
+        {
+          id: 30,
+          name: "",
+          image: "../public/images/level6-question4.png",
+          options:["A","B","C","D"],
+          solution: "A",
+          solved: 0,
+        },
+        {
+          id: 31,
+          name: "Objects in JavaScript can have methods, which are functions assigned as properties.",
+          image:"",
+          options:["True","False"],
+          solution: "True",
+          solved: 0,
+        },
+        {
+          id: 32,
+          name: "The 'Object.keys()' method in JavaScript returns an array of all the property names of an object.",
+          image: "",
+          options:["True","False"],
+          solution: "True",
+          solved: 0,
+        },
       ];
 
   localStorage.setItem("questionsDoc", JSON.stringify(questionsDoc));
