@@ -67,7 +67,7 @@ export function init() {
         description:"Second Room, this next will not be that easy!",
         photo: "../public/images/level2.png",
         icon:"../public/images/room2 icon.png",
-        levels: [{id:1,name:"Functions",questions:[Question.questionsDoc[16],Question.questionsDoc[17],Question.questionsDoc[18],Question.questionsDoc[19]],coord:"450,180,513,225"},{id:2,name:"Arrays",questions:[Question.questionsDoc[20],Question.questionsDoc[21],Question.questionsDoc[22],Question.questionsDoc[23],Question.questionsDoc[24],Question.questionsDoc[25]],coord:"450,180,513,225"},{id:3,name:"Objects",questions:[Question.questionsDoc[26],Question.questionsDoc[27],Question.questionsDoc[28],Question.questionsDoc[29],Question.questionsDoc[30],Question.questionsDoc[31]],coord:"450,180,513,225"}],
+        levels: [{id:1,name:"Functions",questions:[Question.questionsDoc[16],Question.questionsDoc[17],Question.questionsDoc[18],Question.questionsDoc[19]],coord:"450,180,513,225"},{id:2,name:"Arrays",questions:[Question.questionsDoc[20],Question.questionsDoc[21],Question.questionsDoc[22],Question.questionsDoc[23],Question.questionsDoc[24],Question.questionsDoc[25]],coord:"1290,110,1370,170"},{id:3,name:"Objects",questions:[Question.questionsDoc[26],Question.questionsDoc[27],Question.questionsDoc[28],Question.questionsDoc[29],Question.questionsDoc[30],Question.questionsDoc[31]],coord:"400,325,446,380"}],
       },
       {
         id: 3,
