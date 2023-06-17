@@ -29,12 +29,9 @@ let currentQuestionIndex = 0;
 let correctAnswers=0
 
 // Adicione esta função fora da função renderLevel()
-function checkAnswer(selectedOption) {
-  const currentQuestion = questions[currentQuestionIndex];
-
+function checkAnswer(selectedOption,currentQuestion) {
   if (selectedOption === currentQuestion.solution) {
-    correctAnswers++;
-    console.log("Correct");
+    User.updateScore()
   }
 
   currentQuestionIndex++;
@@ -68,7 +65,7 @@ function renderLevel() {
 
       // Adicione o evento de clique ao botão
       button.addEventListener("click", function () {
-        checkAnswer(option);
+        checkAnswer(option,currentQuestion);
         sessionStorage.removeItem("remainingTime");
       });
     });

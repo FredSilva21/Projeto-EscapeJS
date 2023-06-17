@@ -37,8 +37,8 @@ h2 {
   justify-content: center;
   align-items: center;
   max-width: 90%;
-  height: 80vh; /* Alterado para 100vh para ocupar toda a altura da página */
-  margin: 0 auto; /* Adicionado para centralizar horizontalmente */
+  height: 80vh;
+  margin: 0 auto;
 }
 
 .question-image {

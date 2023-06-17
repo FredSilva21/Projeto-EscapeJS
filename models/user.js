@@ -46,17 +46,10 @@ export class User {
   changePassword(password) {
     this.oldPassword = password;
   }
-
-  updateScore(numero){
-    this.score+=25*numero
-    console.log("TESTE")
-  }
-
-  calculateScore(score) {}
 }
 
 // Load users info from local storage
-export let userDoc;
+export let userDoc=[];
 
 // Load Admin ROOT Account
 export function init() {
@@ -196,4 +189,12 @@ export function userAuth() {
 
 export function exportAllUsers() {
   return userDoc;
+}
+
+export function updateScore(){
+  console.log(userAuth())
+    if(userDoc.find(item=>item==userAuth())){
+      item.score+=25
+      console.log(item)
+    }
 }
