@@ -1,6 +1,5 @@
 import * as user from "../../models/user.js";
 
-user.init();
 renderTable();
 
 function renderTable() {
@@ -32,7 +31,7 @@ function renderTable() {
   
       position++;
     }
-
+  
     table.innerHTML = template;
 
     const show=document.getElementById("showBtn")
