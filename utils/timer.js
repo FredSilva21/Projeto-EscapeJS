@@ -1,4 +1,4 @@
-setInterval(startTime, 1000);
+let intervalId; // Variável para armazenar o ID do intervalo
 
 export function startTime() {
   const startMinutes = 10;
@@ -15,11 +15,17 @@ export function startTime() {
   if (time > 0) {
     time--;
   } else {
+    clearInterval(intervalId); // Interrompe o intervalo quando o tempo acaba
   }
 
   // Armazene o tempo restante no sessionStorage
   sessionStorage.setItem("remainingTime", time);
 }
 
-// Limpe o sessionStorage quando necessário (por exemplo, quando o tempo deve ser redefinido)
-sessionStorage.removeItem("remainingTime");
+export function stopTime() {
+  clearInterval(intervalId); // Interrompe o intervalo
+  sessionStorage.removeItem("remainingTime"); // Limpa o valor do sessionStorage
+}
+
+// Inicie o intervalo de tempo e armazene o ID do intervalo na variável intervalId
+intervalId = setInterval(startTime, 1000);

@@ -231,6 +231,15 @@ function renderUsersTable() {
     </div>
     <div class="form-input">
       <input
+        type="password"
+        name="password"
+        id="newPw"
+        placeholder="Password"
+        required
+        />
+    </div>
+    <div class="form-input">
+      <input
         type="date"
         name="dateOfBirth"
         id="newDateOfBirth"
@@ -269,20 +278,20 @@ function renderUsersTable() {
       event.preventDefault()
       const addName = document.getElementById("newUsername").value;
       const addEmail = document.getElementById("newEmail").value;
+      const addPass=document.getElementById("newPw").value
       const addAge = document.getElementById("newDateOfBirth").value;
       const addGender = document.getElementById("newGender").value;
       const type = document.querySelector('input[name="typeUser"]:checked').value;
-      console.log(type)
 
-      const newUser=user.createUser(
+      user.createUser(
         user.generateId(),
         addName,
         addEmail,
         user.getAge(addAge),
         addGender,
+        addPass,
+        type
       );
-
-      newUser.type=type
       modal.style.display="none"
       renderUsersTable()
     })

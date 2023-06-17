@@ -1,7 +1,6 @@
 import * as Room from "../../models/room.js";
 import * as Question from "../../models/question.js";
 import * as User from "../../models/user.js";
-import { startTime } from "../../utils/timer.js";
 
 Room.init();
 Question.init();
@@ -25,53 +24,60 @@ const questions = level.questions;
 const title = document.querySelector("h3");
 title.innerHTML = `Level ${levelId}-${level.name}`;
 
-let currentQuestionIndex = 0;
-let correctAnswers=0
+// ...
 
-// Adicione esta função fora da função renderLevel()
-function checkAnswer(selectedOption,currentQuestion) {
+// Defina currentQuestionIndex antes das funções
+let currentQuestionIndex = 0;
+
+function checkAnswer(selectedOption, currentQuestion, loggedUser) {
   if (selectedOption === currentQuestion.solution) {
-    User.updateScore()
+    updateScore(loggedUser);
   }
 
   currentQuestionIndex++;
-  renderLevel();
+  if (currentQuestionIndex < questions.length) {
+    renderLevel();
+  }
 }
 
 function renderLevel() {
   const questionImage = document.querySelector(".question-image");
   const questionTitle = document.querySelector(".question-title");
-  const questionOptions=document.querySelector(".question-options")
-  // Check if there are more questions to display
-  if (currentQuestionIndex < questions.length) {
-    // Get the current question
-    const currentQuestion = questions[currentQuestionIndex];
+  const questionOptions = document.querySelector(".question-options");
 
-    questionImage.innerHTML = `<img src="${currentQuestion.image}">`;
+  // Get the current question
+  const currentQuestion = questions[currentQuestionIndex];
 
-    // Set the question title
-    questionTitle.innerHTML = `<p>${currentQuestion.name}</p>`;
+  questionImage.innerHTML = `<img src="${currentQuestion.image}">`;
 
-    // Clear previous question options
-    questionOptions.innerHTML=""
+  // Set the question title
+  questionTitle.innerHTML = `<p>${currentQuestion.name}</p>`;
 
-    // Modifique o loop que cria os botões de opção
-    currentQuestion.options.forEach((option) => {
-      const button = document.createElement("button");
-      button.classList.add("option-button");
-      button.classList.add("col-sm-6")
-      button.textContent = option;
-      questionOptions.appendChild(button);
+  // Clear previous question options
+  questionOptions.innerHTML = "";
 
-      // Adicione o evento de clique ao botão
-      button.addEventListener("click", function () {
-        checkAnswer(option,currentQuestion);
-        sessionStorage.removeItem("remainingTime");
-      });
+  // Modifique o loop que cria os botões de opção
+  currentQuestion.options.forEach((option) => {
+    const button = document.createElement("button");
+    button.classList.add("option-button");
+    button.classList.add("col-sm-6");
+    button.textContent = option;
+    questionOptions.appendChild(button);
+
+    // Adicione o evento de clique ao botão
+    button.addEventListener("click", function () {
+      checkAnswer(option, currentQuestion, loggedUser);
     });
+  });
+}
+
+function updateScore(loggedUser) {
+  const userIndex = User.userDoc.findIndex((item) => item === loggedUser);
+  if (userIndex !== -1) {
+    User.userDoc[userIndex].score += 25;
+    localStorage.setItem("userDoc", JSON.stringify(User.userDoc))
+    sessionStorage.setItem("userInSession", JSON.stringify(loggedUser));
   }
-  // Save the updated user object back to session storage
-  sessionStorage.setItem("userInSession", JSON.stringify(loggedUser));
 }
 
 renderLevel();

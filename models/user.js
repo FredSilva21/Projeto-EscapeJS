@@ -122,9 +122,11 @@ export function generateId(id) {
   return id;
 }
 
-// Add new User
-export function createUser(id, name, email, age, gender, password) {
-  userDoc.push(new User(generateId(id), name, email, age, gender, password));
+export function createUser(id, name, email, age, gender, password, type = "admin") {
+  if (type !== "admin") {
+    type = "user";
+  }
+  userDoc.push(new User(generateId(id), name, email, age, gender, password, type));
   localStorage.userDoc = JSON.stringify(userDoc);
 }
 
@@ -189,12 +191,4 @@ export function userAuth() {
 
 export function exportAllUsers() {
   return userDoc;
-}
-
-export function updateScore(){
-  console.log(userAuth())
-    if(userDoc.find(item=>item==userAuth())){
-      item.score+=25
-      console.log(item)
-    }
 }
