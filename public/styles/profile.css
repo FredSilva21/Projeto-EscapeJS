@@ -106,11 +106,26 @@ body {
   background-color: #faff00;
   cursor: pointer;
   transition: 0.5s;
-  width: 35%;
+  width: 40%;
   margin: 1rem;
 }
 
 #users:hover{
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+#rooms:hover{
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+#questions:hover{
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+#scoreTime:hover{
   transform: scale(1.2);
   cursor: pointer;
 }
