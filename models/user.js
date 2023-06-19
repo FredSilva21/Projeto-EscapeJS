@@ -130,7 +130,6 @@ export function createUser(
   type = "user"
 ) {
 
-  console.log(type)
   if (type != "admin") {
     type = "user";
   }

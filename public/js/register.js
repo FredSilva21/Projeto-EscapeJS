@@ -26,6 +26,9 @@ function register() {
     modal.style.display = "flex";
     h2.innerHTML = "Error";
     prg.innerHTML = "Passwords must be equal!";
+    setTimeout(() => {
+      modal.style.display = "none";
+    }, 2000);
     return;
   }
 
@@ -33,6 +36,9 @@ function register() {
     modal.style.display = "flex";
     h2.innerHTML = "Error";
     prg.innerHTML = "Already have an account with the same username!";
+    setTimeout(() => {
+      modal.style.display = "none";
+    }, 2000);
     return;
   }
 
@@ -40,7 +46,11 @@ function register() {
     modal.style.display = "flex";
     h2.innerHTML = "Error";
     prg.innerHTML = "Already have an account with the same email!";
-    return;
+    setTimeout(() => {
+      modal.style.display = "none";
+      changeToLogin(); // Chamada da função changeToLogin() após o tempo de exibição do modal
+    }, 2000);
+    return
   }
 
   user.createUser(
@@ -52,11 +62,15 @@ function register() {
     pwd
   );
 
+  modal.style.display = "flex";
+  h2.innerHTML = "Success";
+  prg.innerHTML = "Registered successfully!";
+
   setTimeout(() => {
-    modal.style.display = "flex";
-    h2.innerHTML = "Success";
-    prg.innerHTML = "Registered successfully!";
-  });
+    modal.style.display = "none";
+    changeToLogin(); // Chamada da função changeToLogin() após o tempo de exibição do modal
+  }, 2000); // Oculta o modal após 2000 milissegundos (2 segundos)
+
 }
 
 // Quando clicamos no butão Sign Up chama a função de registo

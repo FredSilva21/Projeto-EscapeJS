@@ -1,6 +1,5 @@
 export function init(){
   localStorage.setItem("Time",JSON.stringify(600))
-  console.log(localStorage.getItem("Time"))
 }
 
 export function startTime() {

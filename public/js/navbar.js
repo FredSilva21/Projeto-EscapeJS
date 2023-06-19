@@ -3,7 +3,7 @@ import * as user from "../../models/user.js";
 user.init();
 navBar();
 
-function navBar() {
+export function navBar() {
   let result = `<a href="./views/register.html">Sign Up</a>`;
 
   if (user.inSession()) {
@@ -18,7 +18,6 @@ function navBar() {
   if (logout) {
     logout.addEventListener("click", function (event) {
       event.preventDefault();
-      console.log("TESTE");
       user.logout();
       navBar();
     });
