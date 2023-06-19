@@ -390,7 +390,7 @@ function renderRoomsTable() {
         document.getElementById("newRoomDescription").value;
       const addPhoto = document.getElementById("newRoomPhoto").value;
 
-      room.createRoom(room.generateId(), addName, addDescription, addPhoto);
+      room.addRoom(room.generateId(), addName, addDescription, addPhoto);
       modal.style.display = "none";
       renderRoomsTable();
     });
