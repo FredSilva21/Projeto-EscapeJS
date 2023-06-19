@@ -1,4 +1,6 @@
 import * as user from "../../models/user.js";
+import * as room from "../../models/room.js";
+
 
 const admin = document.querySelector(".adminButton");
 verifyAdmin();
@@ -304,7 +306,18 @@ function renderUsersTable() {
   });
 }
 
-function renderRoomsTable() {}
+function renderRoomsTable() {
+  const table = document.querySelector(".content-table");
+  let template = `<thead><tr>
+  <th>Name</th>
+  <th>Description</th>
+  <th>Photo</th>
+</tr></thead><tbody>`;
+
+  room.exportRooms().forEach((roo))
+
+
+}
 
 function renderQuestionsTable() {}
 
