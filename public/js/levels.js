@@ -30,13 +30,17 @@ title.innerHTML = `Level ${levelId}-${level.name}`;
 let currentQuestionIndex = 0;
 
 function checkAnswer(selectedOption, currentQuestion, loggedUser) {
-  if (selectedOption === currentQuestion.solution) {
+  console.log(selectedOption)
+  console.log(currentQuestion)
+  if (selectedOption === currentQuestion.options[currentQuestion.solution]) {
     updateScore(loggedUser);
   }
 
   currentQuestionIndex++;
   if (currentQuestionIndex < questions.length) {
     renderLevel();
+  }else{
+    
   }
 }
 
@@ -57,7 +61,7 @@ function renderLevel() {
   questionOptions.innerHTML = "";
 
   // Modifique o loop que cria os botões de opção
-  currentQuestion.options.forEach((option) => {
+  currentQuestion.options.forEach((option,index) => {
     const button = document.createElement("button");
     button.classList.add("option-button");
     button.classList.add("col-sm-6");
@@ -72,7 +76,7 @@ function renderLevel() {
 }
 
 function updateScore(loggedUser) {
-  const userIndex = User.userDoc.findIndex((item) => item === loggedUser);
+  const userIndex = User.userDoc.findIndex((item) => item.id === loggedUser.id);
   if (userIndex !== -1) {
     User.userDoc[userIndex].score += 25;
     localStorage.setItem("userDoc", JSON.stringify(User.userDoc));

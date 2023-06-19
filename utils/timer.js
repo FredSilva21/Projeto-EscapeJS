@@ -1,8 +1,11 @@
-let intervalId; // Variável para armazenar o ID do intervalo
+export function init(){
+  localStorage.setItem("Time",JSON.stringify(600))
+  console.log(localStorage.getItem("Time"))
+}
 
 export function startTime() {
-  const startMinutes = 10;
-  let time = sessionStorage.getItem("remainingTime") || startMinutes * 60;
+  const startMinutes = localStorage.getItem("Time");
+  let time = sessionStorage.getItem("remainingTime") || startMinutes;
 
   const countDown = document.getElementById("countdown");
   let minutes = Math.floor(time / 60);
@@ -28,4 +31,4 @@ export function stopTime() {
 }
 
 // Inicie o intervalo de tempo e armazene o ID do intervalo na variável intervalId
-intervalId = setInterval(startTime, 1000);
+const intervalId=setInterval(startTime, 1000);

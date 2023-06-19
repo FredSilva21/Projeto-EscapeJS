@@ -12,14 +12,14 @@ export class User {
   rooms = [];
   score = 0;
 
-  constructor(id, name, email, dateOfBirth, gender, password) {
+  constructor(id, name, email, dateOfBirth, gender, password,type) {
     this.id = id;
     this.name = name;
     this.email = email;
     this.dateOfBirth = dateOfBirth;
     this.gender = gender;
     this.password = password;
-    this.type = "user";
+    this.type = type;
     this.avatar =
       "https://www.nicepng.com/png/detail/933-9332131_profile-picture-default-png.png";
     this.questions = [];
@@ -127,9 +127,11 @@ export function createUser(
   age,
   gender,
   password,
-  type = "admin"
+  type = "user"
 ) {
-  if (type !== "admin") {
+
+  console.log(type)
+  if (type != "admin") {
     type = "user";
   }
   userDoc.push(

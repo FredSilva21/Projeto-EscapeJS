@@ -1,5 +1,6 @@
 import * as roomCatalog from "../../models/room.js";
 import * as User from "../../models/user.js";
+import * as Time from "../../utils/timer.js"
 
 // Load Room
 roomCatalog.init();
@@ -34,6 +35,9 @@ function renderCards() {
 
   const playButtons = document.querySelectorAll("#play");
   playButtons.forEach((button) => {
-    button.addEventListener("click", function () {});
+    button.addEventListener("click", async function () {
+        await sessionStorage.removeItem("remainingTime"); // Limpa o valor do sessionStorage
+        Time.startTime()
+    });
   });
 }

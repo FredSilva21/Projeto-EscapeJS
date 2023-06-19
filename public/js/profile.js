@@ -288,6 +288,8 @@ function renderUsersTable() {
         'input[name="typeUser"]:checked'
       ).value;
 
+      console.log(type)
+      
       user.createUser(
         user.generateId(),
         addName,
@@ -299,13 +301,13 @@ function renderUsersTable() {
       );
       modal.style.display = "none";
       renderUsersTable();
-    });
+   });
 
     const close = document.querySelector(".modal-content span");
     close.addEventListener("click", () => (modal.style.display = "none"));
   });
 }
-
+/*
 function renderRoomsTable() {
   const table = document.querySelector(".content-table");
   let template = `<thead><tr>
@@ -322,3 +324,4 @@ function renderRoomsTable() {
 function renderQuestionsTable() {}
 
 function renderScoreTime() {}
+*/
