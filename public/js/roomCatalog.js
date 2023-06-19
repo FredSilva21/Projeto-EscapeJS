@@ -1,10 +1,11 @@
 import * as roomCatalog from "../../models/room.js";
 import * as User from "../../models/user.js";
-import * as Time from "../../utils/timer.js"
+import * as Time from "../../utils/timer.js";
 
 // Load Room
 roomCatalog.init();
 const roomDoc = roomCatalog.roomDoc;
+
 renderCards();
 function renderCards() {
   let template = "";
@@ -36,8 +37,8 @@ function renderCards() {
   const playButtons = document.querySelectorAll("#play");
   playButtons.forEach((button) => {
     button.addEventListener("click", async function () {
-        await sessionStorage.removeItem("remainingTime"); // Limpa o valor do sessionStorage
-        Time.startTime()
+      await sessionStorage.removeItem("remainingTime");
+      Time.startTime();
     });
-  });
+    });
 }
