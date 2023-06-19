@@ -149,7 +149,7 @@ export function init() {
           id: 3,
           name: "Chapter 3:Final Bosses",
           description: "You're not ready for this.",
-          photo: "../public/images/room3.png",
+          photo: "../public/images/room3.jpg",
           icon: "../public/images/room3 icon.png",
           levels: [],
         },

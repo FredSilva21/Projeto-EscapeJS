@@ -16,13 +16,20 @@ renderRoom();
 function renderRoom() {
   let roomContainer = document.querySelector(".room-container");
   let template = `<img src="${room[0].photo}" usemap="#room" alt="room" class="img-fluid rounded mx-auto d-block" width="1500px" height="720px">`;
-
+  
   template += `<map name="room">`;
-
-  room[0].levels.forEach((level) => {
-    template += ` <area target="" alt="" title="" href="./levels.html?levelId=${level.id}" coords=${level.coord} shape="rect">`;
-  });
-
-  template += `</map>`;
-  roomContainer.innerHTML = template;
+  
+    for (let i = 0; i < room[0].levels.length; i++) {
+      const level = room[0].levels[i];
+      const isLastLevel = i === room[0].levels.length - 1;
+  
+      if (isLastLevel) {
+        template += `<area onclick="openPDF()" coords=${level.coord} shape="rect">`;
+      } else {
+        template += `<area target="" alt="" title="" href="./levels.html?levelId=${level.id}" coords=${level.coord} shape="rect">`;
+      }
+    }
+  
+    template += `</map>`;
+    roomContainer.innerHTML = template;
 }

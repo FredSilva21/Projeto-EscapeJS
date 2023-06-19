@@ -170,7 +170,7 @@ export function init() {
         {
           id: 16,
           name: "The 'break' statement can be used to exit a loop prematurely.",
-          image: "../public/images/level3-question6.png",
+          image:"",
           options: ["True", "False"],
           solution: 0,
           solved: 0,
