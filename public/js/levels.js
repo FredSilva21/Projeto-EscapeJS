@@ -6,6 +6,9 @@ Room.init();
 Question.init();
 User.init();
 
+//Get score in local storage
+const score=localStorage.getItem("Score")
+
 //Get variable in url
 const urlParams = new URLSearchParams(window.location.search);
 const levelId = urlParams.get("levelId");
@@ -29,6 +32,7 @@ title.innerHTML = `Level ${levelId}-${level.name}`;
 //Modal
 const modal=document.getElementById("modal")
 const modalBody=document.querySelector(".modal-body")
+const h2=document.querySelector(".modal-content h2")
 // Defina currentQuestionIndex antes das funções
 let currentQuestionIndex = 0;
 let correctAnswers=0
@@ -43,10 +47,10 @@ function checkAnswer(selectedOption, currentQuestion, loggedUser) {
     renderLevel();
   }else{
     modal.style.display="flex"
+    h2.innerHTML=`Level ${levelId} Finished!`
     modalBody.innerHTML=`<div><p>You answered ${correctAnswers} questions correctly of ${questions.length}!</p></div>
-    <div><p>Score: +${25*correctAnswers}</p></div>
+    <div><p>Score: +${score*correctAnswers}</p></div>
     <div><a href="./room.html?roomId=${roomId}">Back to Room</a></div>`
-
   }
 }
 
