@@ -303,3 +303,9 @@ function renderUsersTable() {
     close.addEventListener("click", () => (modal.style.display = "none"));
   });
 }
+
+function renderRoomsTable() {}
+
+function renderQuestionsTable() {}
+
+function renderScoreTime() {}
