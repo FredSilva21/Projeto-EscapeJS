@@ -18,10 +18,6 @@ function register() {
   const pwd = document.getElementById("password").value;
   const confirmPwd = document.getElementById("confirm-password").value;
 
-  close.addEventListener("click", function () {
-    modal.style.display = "none";
-  });
-
   if (pwd !== confirmPwd) {
     modal.style.display = "flex";
     h2.innerHTML = "Error";
@@ -47,8 +43,7 @@ function register() {
     h2.innerHTML = "Error";
     prg.innerHTML = "Already have an account with the same email!";
     setTimeout(() => {
-      modal.style.display = "none";
-      changeToLogin(); // Chamada da função changeToLogin() após o tempo de exibição do modal
+      modal.style.display = "none"; // Chamada da função changeToLogin() após o tempo de exibição do modal
     }, 2000);
     return
   }
@@ -67,8 +62,7 @@ function register() {
   prg.innerHTML = "Registered successfully!";
 
   setTimeout(() => {
-    modal.style.display = "none";
-    changeToLogin(); // Chamada da função changeToLogin() após o tempo de exibição do modal
+    modal.style.display = "none";// Chamada da função changeToLogin() após o tempo de exibição do modal
   }, 2000); // Oculta o modal após 2000 milissegundos (2 segundos)
 
 }
@@ -79,6 +73,7 @@ document
   .addEventListener("submit", function (event) {
     event.preventDefault();
     register();
+    changeToLogin()
   });
 
 // Quando clicamos no botão de Sign In iremos fazer o login do utilizador
@@ -87,7 +82,12 @@ document.getElementById("login").addEventListener("submit", function (event) {
   const email = document.getElementById("emailLogin").value;
   const password = document.getElementById("passwordLogin").value;
   if (user.login(email, password)) {
-    window.location.replace("../../index.html");
+    modal.style.display = "flex";
+    h2.innerHTML = "Success";
+    prg.innerHTML = "Logged successfully!";
+    setTimeout(() => {
+      window.location.replace("../../index.html");
+    }, 2000);
   } else {
     modal.style.display = "flex";
     h2.innerHTML = "Error";

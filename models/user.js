@@ -112,6 +112,7 @@ export function init() {
       ];
 
   localStorage.setItem("userDoc", JSON.stringify(userDoc));
+  localStorage.setItem("Score",JSON.stringify(25))
 }
 
 // Generate next ID

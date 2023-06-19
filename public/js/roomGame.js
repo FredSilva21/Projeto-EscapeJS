@@ -29,7 +29,7 @@ function renderRoom() {
       if (isLastLevel) {
         template += `<area onclick="openPDF()" coords=${level.coord} shape="rect">`;
       } else {
-        template += `<area target="" alt="" title="" href="./levels.html?levelId=${level.id}" coords=${level.coord} shape="rect">`;
+        template += `<area target="" alt="" title="" href="./levels.html?levelId=${level.id}&roomId=${roomId}" coords=${level.coord} shape="rect">`;
       }
     }
   

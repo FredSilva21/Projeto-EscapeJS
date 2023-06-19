@@ -5,9 +5,11 @@ import * as User from "../../models/user.js";
 Room.init();
 Question.init();
 User.init();
+
 //Get variable in url
 const urlParams = new URLSearchParams(window.location.search);
 const levelId = urlParams.get("levelId");
+const roomId=urlParams.get("roomId")
 
 let level;
 for (const room of Room.roomDoc) {
@@ -17,30 +19,34 @@ for (const room of Room.roomDoc) {
   }
 }
 
-const loggedUser = User.userAuth();
+let loggedUser = User.userAuth();
 const questions = level.questions;
 
 // Set the innerHTML of the title element
 const title = document.querySelector("h3");
 title.innerHTML = `Level ${levelId}-${level.name}`;
 
-// ...
-
+//Modal
+const modal=document.getElementById("modal")
+const modalBody=document.querySelector(".modal-body")
 // Defina currentQuestionIndex antes das funções
 let currentQuestionIndex = 0;
-
+let correctAnswers=0
 function checkAnswer(selectedOption, currentQuestion, loggedUser) {
-  console.log(selectedOption)
-  console.log(currentQuestion)
   if (selectedOption === currentQuestion.options[currentQuestion.solution]) {
     updateScore(loggedUser);
+    correctAnswers++
   }
-
+  
   currentQuestionIndex++;
   if (currentQuestionIndex < questions.length) {
     renderLevel();
   }else{
-    
+    modal.style.display="flex"
+    modalBody.innerHTML=`<div><p>You answered ${correctAnswers} questions correctly of ${questions.length}!</p></div>
+    <div><p>Score: +${25*correctAnswers}</p></div>
+    <div><a href="./room.html?roomId=${roomId}">Back to Room</a></div>`
+
   }
 }
 
@@ -61,7 +67,7 @@ function renderLevel() {
   questionOptions.innerHTML = "";
 
   // Modifique o loop que cria os botões de opção
-  currentQuestion.options.forEach((option,index) => {
+  currentQuestion.options.forEach((option) => {
     const button = document.createElement("button");
     button.classList.add("option-button");
     button.classList.add("col-sm-6");
@@ -80,7 +86,7 @@ function updateScore(loggedUser) {
   if (userIndex !== -1) {
     User.userDoc[userIndex].score += 25;
     localStorage.setItem("userDoc", JSON.stringify(User.userDoc));
-    sessionStorage.setItem("userInSession", JSON.stringify(loggedUser));
+    sessionStorage.setItem("userInSession", JSON.stringify(User.userDoc[userIndex]));
   }
 }
 
