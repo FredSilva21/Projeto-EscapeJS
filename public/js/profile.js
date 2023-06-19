@@ -1,5 +1,6 @@
 import * as user from "../../models/user.js";
 import * as room from "../../models/room.js";
+import * as question from "../../models/question.js";
 
 const admin = document.querySelector(".adminButton");
 verifyAdmin();
@@ -309,6 +310,8 @@ function renderUsersTable() {
   });
 }
 
+// Add Rooms
+//! NOT WORKING PROPERLY 
 function renderRoomsTable() {
   const table = document.querySelector(".content-table");
   let template = `<thead><tr>
@@ -317,12 +320,13 @@ function renderRoomsTable() {
     <th>Photo</th>
   </tr></thead><tbody>`;
 
-  room.exportRooms().forEach((room) => {
+  const rooms = JSON.parse(exportRooms());
+  rooms.forEach((room) => {
     template += `<tr>
       <td>${room.name}</td>
       <td>${room.description}</td>
-      <td>${room.photo}</td>
-      <td><button type="button" id="rem">Remove</button></td>
+      <td><img src="${room.photo}" alt="Room Photo" width="100"></td>
+      <td><button type="button" class="rem" data-id="${room.id}">Remove</button></td>
     </tr>`;
   });
 
@@ -337,10 +341,10 @@ function renderRoomsTable() {
   table.innerHTML = template;
 
   const rem = document.querySelectorAll("#rem");
-  rem.forEach((button, index) => {
+  rem.forEach((button) => {
     button.addEventListener("click", function () {
-      room.roomDoc.pop(index);
-      localStorage.setItem("roomDoc", JSON.stringify(room.roomDoc));
+      const roomId = parseInt(button.getAttribute("data-id"));
+      deleteRoom(roomId);
       renderRoomsTable();
     });
   });
@@ -390,7 +394,7 @@ function renderRoomsTable() {
         document.getElementById("newRoomDescription").value;
       const addPhoto = document.getElementById("newRoomPhoto").value;
 
-      room.addRoom(room.generateId(), addName, addDescription, addPhoto);
+      addRoom(addName, addDescription, addPhoto);
       modal.style.display = "none";
       renderRoomsTable();
     });
