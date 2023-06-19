@@ -335,21 +335,18 @@ export function addQuestion(id, name, image, options, solution) {
   }
 }
 
-export function correctAnswer(id, solution) {
-  const question = questionsDoc.find((answer) => answer.id === id);
+//! Not Working Correctly
+export function checkAnswer(correct) {
+  var selectedQuestion = questionsDoc[questionsDoc.length - 1];
+  var correctAnswer = selectedQuestion.option[selectedQuestion.solution];
 
-  if (!question) {
+  if (!selectedQuestion) {
     throw new Error("Question doest not exist!");
   }
 
-  const correctAnswer = question.solution;
-  const selectedAnswer = question.options[solution] === correctAnswer;
-
-  if (selectedAnswer) {
-    question.solved = 1;
-    localStorage.questionsDoc = JSON.stringify(questionsDoc);
-    alert("Correct");
+  if (correct === correctAnswer) {
+    console.log("Correct");
   } else {
-    alert("Wrong!");
+    throw new Error("Incorrect");
   }
 }
