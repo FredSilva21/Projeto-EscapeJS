@@ -162,18 +162,20 @@ export function addRoom(name, photo, levels) {
   if (roomDoc.some((room) => room.name === name)) {
     throw Error(`Room ${name} already exists!`);
   } else {
-    roomDoc.push(new Room(generateId(id), name, photo, levels));
+    const newId = roomDoc.length + 1;
+    const newRoom = new Room(newId, name, description, photo, icon, levels);
+    roomDoc.push(newRoom);
     localStorage.roomDoc = JSON.stringify(roomDoc);
   }
 }
 
-export function deleteRoom(name) {
-  const position = roomDoc.findIndex((user) => user.name === name);
+export function deleteRoom(roomId) {
+  const position = roomDoc.findIndex((user) => user.id === roomId);
   if (position !== -1) {
     roomDoc.splice(position, 1);
-    localStorage.roomDoc = JSON.stringify(roomDoc);
+    localStorage.setItem("roomDoc", JSON.stringify(roomDoc));
   } else {
-    return new Error(`${name}: is not present in the database`);
+    return new Error(`${roomId}: is not present in the database`);
   }
 }
 
