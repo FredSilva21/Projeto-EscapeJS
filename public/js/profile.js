@@ -1,7 +1,6 @@
 import * as user from "../../models/user.js";
 import * as room from "../../models/room.js";
 
-
 const admin = document.querySelector(".adminButton");
 verifyAdmin();
 
@@ -288,8 +287,8 @@ function renderUsersTable() {
         'input[name="typeUser"]:checked'
       ).value;
 
-      console.log(type)
-      
+      console.log(type);
+
       user.createUser(
         user.generateId(),
         addName,
@@ -301,13 +300,13 @@ function renderUsersTable() {
       );
       modal.style.display = "none";
       renderUsersTable();
-   });
+    });
 
     const close = document.querySelector(".modal-content span");
     close.addEventListener("click", () => (modal.style.display = "none"));
   });
 }
-/*
+
 function renderRoomsTable() {
   const table = document.querySelector(".content-table");
   let template = `<thead><tr>
@@ -316,12 +315,60 @@ function renderRoomsTable() {
   <th>Photo</th>
 </tr></thead><tbody>`;
 
-  room.exportRooms().forEach((roo))
+  room.exportRooms().forEach((room) => {
+    template += `<tr>
+    <td>${room.name}</td>
+    <td>${room.description}</td>
+    <td>${room.photo}</td>
+    <td><button type="button" id="rem">Remove</button></td>
+    </tr>`;
+  });
 
+  template += `
+    <tr>
+      <td colspan="7">
+        <button type="button" id="add" style="width: 100%;">Add</button>
+      </td>
+    </tr>
+  </tbody>`;
 
+  table.innerHTML = template;
+
+  const rem = document.querySelectorAll("#rem");
+  rem.forEach((button, index) => {
+    button.addEventListener("click", function () {
+      user.userDoc.pop(index);
+      localStorage.setItem("userDoc", JSON.stringify(room.roomDoc));
+      renderRoomsTable();
+    });
+  });
+
+  const add = document.getElementById("add");
+  add.addEventListener("click", function () {
+    modalContent.innerHTML = `<span class="close">&times;</span>
+    <form method="get">
+    </form>`;
+    modal.style.display = "flex";
+
+    const submit = document.querySelector(".form-input button");
+    submit.addEventListener("click", function (event) {
+      event.preventDefault();
+      const addName = document.getElementById("newRoomName").value;
+      const addDescription = document.getElementById("newRoomDescription").value;
+      const addPhoto = document.getElementById("newRoomPhoto").value;
+
+      console.log(type);
+
+      room.createRoom(room.generateId(), addName, addDescription, addPhoto);
+      modal.style.display = "none";
+      renderUsersTable();
+    });
+
+    const close = document.querySelector(".modal-content span");
+    close.addEventListener("click", () => (modal.style.display = "none"));
+  });
 }
 
 function renderQuestionsTable() {}
 
 function renderScoreTime() {}
-*/
