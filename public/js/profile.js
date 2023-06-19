@@ -1,4 +1,5 @@
 import * as user from "../../models/user.js";
+import { exportRooms } from "../../models/room.js";
 import * as room from "../../models/room.js";
 import * as question from "../../models/question.js";
 
@@ -310,8 +311,11 @@ function renderUsersTable() {
   });
 }
 
+// Call the Class Room
+room.init();
+renderRoomsTable();
+
 // Add Rooms
-//! NOT WORKING PROPERLY 
 function renderRoomsTable() {
   const table = document.querySelector(".content-table");
   let template = `<thead><tr>
@@ -320,7 +324,8 @@ function renderRoomsTable() {
     <th>Photo</th>
   </tr></thead><tbody>`;
 
-  const rooms = JSON.parse(exportRooms());
+  console.log(room.exportRooms);
+  const rooms = room.exportRooms();
   rooms.forEach((room) => {
     template += `<tr>
       <td>${room.name}</td>
@@ -340,7 +345,7 @@ function renderRoomsTable() {
 
   table.innerHTML = template;
 
-  const rem = document.querySelectorAll("#rem");
+  const rem = document.querySelectorAll(".rem");
   rem.forEach((button) => {
     button.addEventListener("click", function () {
       const roomId = parseInt(button.getAttribute("data-id"));

@@ -180,5 +180,6 @@ export function deleteRoom(roomId) {
 }
 
 export function exportRooms() {
-  return localStorage.getItem("roomDoc");
+  console.log(roomDoc);
+  return roomDoc;
 }
