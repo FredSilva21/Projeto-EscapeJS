@@ -77,6 +77,7 @@ h2 {
   transition: 0.5s;
   margin: 10px 20px;
   width: 40%;
+  min-width: 200px;
 }
 
 .question-options button:hover {
@@ -86,12 +87,15 @@ h2 {
 
 #modal {
   display: flex;
+  justify-content: center;
+  align-items: center;
   position: fixed;
   top: 0;
   left: 0;
-  width: 30%;
-  height: 50%;
+  width: 40%;
+  height: 60%;
 }
+
 
 .modal-content {
   background-color: white;
@@ -101,16 +105,38 @@ h2 {
 }
 
 .modal-content h2 {
-  font-size: 18px;
+  font-size: 25px;
   margin-bottom: 10px;
 }
 
-.modal-content p {
-  font-size: 14px;
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.modal-body p {
+  font-size: 22px;
   margin-bottom: 20px;
   text-align: center;
 }
 
-.close {
+.modal-body div a{
+  padding: 10px 20px;
+  color: black;
+  border-radius: 10px;
+  background-color: #faff00;
+  cursor: pointer;
+  transition: 0.5s;
+  margin: 10px 20px;
+  width: 40%;;
+  text-decoration: none;
+  border-color: black;
+}
+
+.modal-body div a:hover{
+  transform: scale(1.2);
   cursor: pointer;
 }

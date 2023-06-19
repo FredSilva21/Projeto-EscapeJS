@@ -1,9 +1,6 @@
 import * as Room from "../../models/room.js";
-import * as Time from "../../utils/timer.js"
 
 Room.init();
-
-
 
 //Get variable in url
 const urlParams = new URLSearchParams(window.location.search);
