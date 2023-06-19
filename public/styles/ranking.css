@@ -42,9 +42,9 @@
   text-align: center;
 }
 
-#showBtn{
+#showBtn {
   padding: 10px 20px;
-  color:#fffa7e;
+  color: #fffa7e;
   border-radius: 10px;
   background-color: black;
   cursor: pointer;
@@ -52,7 +52,7 @@
   width: 100%;
 }
 
-#showBtn:hover{
+#showBtn:hover {
   transform: scale(1.2);
   cursor: pointer;
 }

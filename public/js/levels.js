@@ -75,7 +75,7 @@ function updateScore(loggedUser) {
   const userIndex = User.userDoc.findIndex((item) => item === loggedUser);
   if (userIndex !== -1) {
     User.userDoc[userIndex].score += 25;
-    localStorage.setItem("userDoc", JSON.stringify(User.userDoc))
+    localStorage.setItem("userDoc", JSON.stringify(User.userDoc));
     sessionStorage.setItem("userInSession", JSON.stringify(loggedUser));
   }
 }

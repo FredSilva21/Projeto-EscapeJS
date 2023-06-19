@@ -1,7 +1,7 @@
 import * as user from "../../models/user.js";
 
 const admin = document.querySelector(".adminButton");
-verifyAdmin()
+verifyAdmin();
 
 const modal = document.querySelector("#modal");
 const modalContent = document.querySelector(".modal-content");
@@ -140,7 +140,8 @@ editProfile.addEventListener("click", function () {
     name.innerHTML = "Name: " + newName;
     email.innerHTML = "Email: " + newEmail;
     age.innerHTML = "Age: " + (newAge !== "" ? newAge : account.dateOfBirth);
-    gender.innerHTML = "Gender: " + (newGender !== "#" ? newGender : account.gender);
+    gender.innerHTML =
+      "Gender: " + (newGender !== "#" ? newGender : account.gender);
     avatar.src = newPhoto;
     modal.style.display = "none";
   });
@@ -197,17 +198,17 @@ function renderUsersTable() {
 
   table.innerHTML = template;
 
-  const rem=document.querySelectorAll("#rem")
-  rem.forEach((button,index) => {
-    button.addEventListener("click",function(){
-        user.userDoc.pop(index)
-        localStorage.setItem("userDoc",JSON.stringify(user.userDoc))
-        renderUsersTable()
-    })
+  const rem = document.querySelectorAll("#rem");
+  rem.forEach((button, index) => {
+    button.addEventListener("click", function () {
+      user.userDoc.pop(index);
+      localStorage.setItem("userDoc", JSON.stringify(user.userDoc));
+      renderUsersTable();
+    });
   });
 
-  const add=document.getElementById("add")
-  add.addEventListener("click",function(){
+  const add = document.getElementById("add");
+  add.addEventListener("click", function () {
     modalContent.innerHTML = `<span class="close">&times;</span>
     <form method="get">
     <div class="form-input">
@@ -273,15 +274,17 @@ function renderUsersTable() {
     </form>`;
     modal.style.display = "flex";
 
-    const submit= document.querySelector(".form-input button")
-    submit.addEventListener("click",function(event){
-      event.preventDefault()
+    const submit = document.querySelector(".form-input button");
+    submit.addEventListener("click", function (event) {
+      event.preventDefault();
       const addName = document.getElementById("newUsername").value;
       const addEmail = document.getElementById("newEmail").value;
-      const addPass=document.getElementById("newPw").value
+      const addPass = document.getElementById("newPw").value;
       const addAge = document.getElementById("newDateOfBirth").value;
       const addGender = document.getElementById("newGender").value;
-      const type = document.querySelector('input[name="typeUser"]:checked').value;
+      const type = document.querySelector(
+        'input[name="typeUser"]:checked'
+      ).value;
 
       user.createUser(
         user.generateId(),
@@ -292,15 +295,11 @@ function renderUsersTable() {
         addPass,
         type
       );
-      modal.style.display="none"
-      renderUsersTable()
-    })
+      modal.style.display = "none";
+      renderUsersTable();
+    });
 
     const close = document.querySelector(".modal-content span");
     close.addEventListener("click", () => (modal.style.display = "none"));
-    })
-
-    
-  }
-
-  
+  });
+}

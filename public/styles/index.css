@@ -1,5 +1,7 @@
 /*Primeiro Container*/
-.first-container,.second-container,.third-container {
+.first-container,
+.second-container,
+.third-container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -35,7 +37,7 @@
   color: #7e7e7e;
 }
 
-.cta a :hover{
+.cta a :hover {
   text-decoration: none;
   color: white;
 }
@@ -87,7 +89,7 @@
   flex-direction: row;
 }
 
-.second-text .second-button-par button{
+.second-text .second-button-par button {
   background-color: black;
   border-radius: 35px;
   color: #7e7e7e;
@@ -101,14 +103,14 @@
   cursor: pointer;
 }
 
-.second-text .second-button-par button a{
+.second-text .second-button-par button a {
   text-decoration: none;
   color: #7e7e7e;
 }
 
-.second-text .second-button-par button a:hover{
+.second-text .second-button-par button a:hover {
   text-decoration: none;
-  color:white
+  color: white;
 }
 
 .second-text .second-button-par p {

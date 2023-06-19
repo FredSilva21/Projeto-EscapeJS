@@ -1,22 +1,21 @@
 import { generateId } from "./user.js";
-import * as Question from "./question.js"
+import * as Question from "./question.js";
 
-Question.init()
+Question.init();
 export class Room {
   id = 0;
   name = "";
-  description="";
+  description = "";
   photo = "";
-  icon="";
+  icon = "";
   levels = [];
 
-  constructor(id, name, description, photo, icon,levels) {
+  constructor(id, name, description, photo, icon, levels) {
     this.id = id;
     this.name = name;
-    this.description=description
+    this.description = description;
     this.photo = photo;
-    this.icon=icon,
-    this.levels = levels;
+    (this.icon = icon), (this.levels = levels);
   }
 
   // Methods
@@ -26,8 +25,8 @@ export class Room {
   }
 
   addQuestions(levelId, questions) {
-    const level = this.levels.find(level => level.id === levelId);
-  
+    const level = this.levels.find((level) => level.id === levelId);
+
     if (level) {
       level.questions.push(...questions);
     } else {
@@ -53,33 +52,110 @@ export function init() {
   roomDoc = localStorage.roomDoc
     ? JSON.parse(localStorage.roomDoc)
     : [
-      {
-        id: 1,
-        name: "Chapter 1:The Beggining",
-        description:"First Room, will you make it to the end?",
-        photo: "../public/images/room1.png",
-        icon:"../public/images/room1 icon.png",
-        levels: [{id:1,name:"Fundamentals",questions:[Question.questionsDoc[0],Question.questionsDoc[1],Question.questionsDoc[2],Question.questionsDoc[3],Question.questionsDoc[4],Question.questionsDoc[5]],coord:"1000,400,1100,450" },{id:2,name:"Conditionals",questions:[Question.questionsDoc[6],Question.questionsDoc[7],Question.questionsDoc[8],Question.questionsDoc[9]],coord:"250,285,290,340"},{id:3,name:"Loops",questions:[Question.questionsDoc[10],Question.questionsDoc[11],Question.questionsDoc[12],Question.questionsDoc[13],Question.questionsDoc[14],Question.questionsDoc[15]],coord:"440,220,500,275"},{id:4,coord:"700,330,800,370"}],
-      },
-      {
-        id: 2,
-        name: "Chapter 2:Working Hard",
-        description:"Second Room, this next will not be that easy!",
-        photo: "../public/images/level2.png",
-        icon:"../public/images/room2 icon.png",
-        levels: [{id:1,name:"Functions",questions:[Question.questionsDoc[16],Question.questionsDoc[17],Question.questionsDoc[18],Question.questionsDoc[19]],coord:"450,180,513,225"},{id:2,name:"Arrays",questions:[Question.questionsDoc[20],Question.questionsDoc[21],Question.questionsDoc[22],Question.questionsDoc[23],Question.questionsDoc[24],Question.questionsDoc[25]],coord:"1290,110,1370,170"},{id:3,name:"Objects",questions:[Question.questionsDoc[26],Question.questionsDoc[27],Question.questionsDoc[28],Question.questionsDoc[29],Question.questionsDoc[30],Question.questionsDoc[31]],coord:"400,325,446,380"}],
-      },
-      {
-        id: 3,
-        name: "Chapter 3:Final Bosses",
-        description:"You're not ready for this.",
-        photo: "../public/images/room3.png",
-        icon:"../public/images/room3 icon.png",
-        levels: [],
-      }, 
+        {
+          id: 1,
+          name: "Chapter 1:The Beggining",
+          description: "First Room, will you make it to the end?",
+          photo: "../public/images/room1.png",
+          icon: "../public/images/room1 icon.png",
+          levels: [
+            {
+              id: 1,
+              name: "Fundamentals",
+              questions: [
+                Question.questionsDoc[0],
+                Question.questionsDoc[1],
+                Question.questionsDoc[2],
+                Question.questionsDoc[3],
+                Question.questionsDoc[4],
+                Question.questionsDoc[5],
+              ],
+              coord: "1000,400,1100,450",
+            },
+            {
+              id: 2,
+              name: "Conditionals",
+              questions: [
+                Question.questionsDoc[6],
+                Question.questionsDoc[7],
+                Question.questionsDoc[8],
+                Question.questionsDoc[9],
+              ],
+              coord: "250,285,290,340",
+            },
+            {
+              id: 3,
+              name: "Loops",
+              questions: [
+                Question.questionsDoc[10],
+                Question.questionsDoc[11],
+                Question.questionsDoc[12],
+                Question.questionsDoc[13],
+                Question.questionsDoc[14],
+                Question.questionsDoc[15],
+              ],
+              coord: "440,220,500,275",
+            },
+            { id: 4, coord: "700,330,800,370" },
+          ],
+        },
+        {
+          id: 2,
+          name: "Chapter 2:Working Hard",
+          description: "Second Room, this next will not be that easy!",
+          photo: "../public/images/level2.png",
+          icon: "../public/images/room2 icon.png",
+          levels: [
+            {
+              id: 1,
+              name: "Functions",
+              questions: [
+                Question.questionsDoc[16],
+                Question.questionsDoc[17],
+                Question.questionsDoc[18],
+                Question.questionsDoc[19],
+              ],
+              coord: "450,180,513,225",
+            },
+            {
+              id: 2,
+              name: "Arrays",
+              questions: [
+                Question.questionsDoc[20],
+                Question.questionsDoc[21],
+                Question.questionsDoc[22],
+                Question.questionsDoc[23],
+                Question.questionsDoc[24],
+                Question.questionsDoc[25],
+              ],
+              coord: "1290,110,1370,170",
+            },
+            {
+              id: 3,
+              name: "Objects",
+              questions: [
+                Question.questionsDoc[26],
+                Question.questionsDoc[27],
+                Question.questionsDoc[28],
+                Question.questionsDoc[29],
+                Question.questionsDoc[30],
+                Question.questionsDoc[31],
+              ],
+              coord: "400,325,446,380",
+            },
+          ],
+        },
+        {
+          id: 3,
+          name: "Chapter 3:Final Bosses",
+          description: "You're not ready for this.",
+          photo: "../public/images/room3.png",
+          icon: "../public/images/room3 icon.png",
+          levels: [],
+        },
       ];
 
-    localStorage.setItem("roomDoc", JSON.stringify(roomDoc));
+  localStorage.setItem("roomDoc", JSON.stringify(roomDoc));
 }
 
 export function addRoom(name, photo, levels) {
@@ -101,6 +177,6 @@ export function deleteRoom(name) {
   }
 }
 
-export function exportRooms(){
-  return localStorage.getItem("roomDoc")
+export function exportRooms() {
+  return localStorage.getItem("roomDoc");
 }

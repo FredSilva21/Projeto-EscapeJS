@@ -6,7 +6,7 @@
   padding: 0;
 }
 
-.top-container{
+.top-container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -58,7 +58,7 @@ h2 {
   align-self: center;
 }
 
-.question-title{
+.question-title {
   text-align: center;
   font-size: 30pt;
 }
@@ -68,18 +68,18 @@ h2 {
   flex-direction: column;
 }
 */
-.question-options button{
+.question-options button {
   padding: 10px 20px;
   color: black;
   border-radius: 10px;
   background-color: #faff00;
   cursor: pointer;
   transition: 0.5s;
-  margin:10px 20px;
-  width:40%;
+  margin: 10px 20px;
+  width: 40%;
 }
 
-.question-options button:hover{
+.question-options button:hover {
   transform: scale(1.2);
   cursor: pointer;
 }

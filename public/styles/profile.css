@@ -85,21 +85,24 @@ body {
 }
 
 /*Admin Container*/
-.admin-container{
+.admin-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.admin-functions{
+.admin-functions {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 }
 
-#users,#rooms,#questions,#scoreTime{
+#users,
+#rooms,
+#questions,
+#scoreTime {
   padding: 10px 20px;
   color: black;
   border-radius: 10px;
@@ -110,22 +113,22 @@ body {
   margin: 1rem;
 }
 
-#users:hover{
+#users:hover {
   transform: scale(1.2);
   cursor: pointer;
 }
 
-#rooms:hover{
+#rooms:hover {
   transform: scale(1.2);
   cursor: pointer;
 }
 
-#questions:hover{
+#questions:hover {
   transform: scale(1.2);
   cursor: pointer;
 }
 
-#scoreTime:hover{
+#scoreTime:hover {
   transform: scale(1.2);
   cursor: pointer;
 }
@@ -142,8 +145,8 @@ body {
 }
 
 .content-table thead tr {
-  background-color:black;
-  color:#fffa7e;
+  background-color: black;
+  color: #fffa7e;
   text-align: center;
   font-weight: bold;
 }
@@ -157,7 +160,7 @@ body {
   border-bottom: 1px solid black;
 }
 
-.content-table tbody tr{
+.content-table tbody tr {
   background-color: #fffa7e;
 }
 
@@ -165,8 +168,9 @@ body {
   border-bottom: 2px solid #faff00;
 }
 
-#rem,#add{
-  color:#fffa7e;
+#rem,
+#add {
+  color: #fffa7e;
   border-radius: 10px;
   background-color: black;
   cursor: pointer;
@@ -209,7 +213,7 @@ body {
 
 form {
   width: 90%;
-  height:50%;
+  height: 50%;
   margin: 1rem auto;
   padding: 2rem;
   border-radius: 20px;
@@ -246,7 +250,7 @@ select:hover {
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
 }
 
-.form-input button{
+.form-input button {
   padding: 10px 20px;
   color: black;
   border-radius: 10px;
@@ -256,7 +260,7 @@ select:hover {
   width: 80%;
 }
 
-.form-input button:hover{
+.form-input button:hover {
   transform: scale(1.2);
   cursor: pointer;
 }

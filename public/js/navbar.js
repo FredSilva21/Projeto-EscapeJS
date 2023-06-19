@@ -11,18 +11,16 @@ function navBar() {
   }
 
   const li = document.querySelector("li:nth-child(5)");
-  
-  li.innerHTML=result
+
+  li.innerHTML = result;
 
   const logout = document.querySelector("#logOut");
   if (logout) {
     logout.addEventListener("click", function (event) {
       event.preventDefault();
-      console.log("TESTE")
-      user.logout()
-      navBar()
+      console.log("TESTE");
+      user.logout();
+      navBar();
     });
   }
 }
-
-

@@ -35,7 +35,6 @@ form {
   font-weight: bold;
 }
 
-
 .form-input {
   margin-bottom: 1rem;
   text-align: center;
@@ -49,8 +48,8 @@ form {
   text-align: center;
 }
 
-.form-input input:hover{
-  box-shadow: 0 5px 10px rgba(0,0,0,0.4);
+.form-input input:hover {
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
 }
 
 select {
@@ -58,20 +57,21 @@ select {
   padding: 8px;
   border-radius: 10px;
   margin-bottom: 5px;
-  text-align: center
+  text-align: center;
 }
 
 select:hover {
-  box-shadow: 0 5px 10px rgba(0,0,0,0.4);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
 }
 
-.form-input:last-child{
+.form-input:last-child {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.form-input button,.has_account button {
+.form-input button,
+.has_account button {
   padding: 10px 20px;
   color: black;
   border-radius: 10px;
@@ -81,12 +81,13 @@ select:hover {
   width: 80%;
 }
 
-.form-input button:hover,.has_account button:hover {
+.form-input button:hover,
+.has_account button:hover {
   transform: scale(1.2);
   cursor: pointer;
 }
 
-.has_account{
+.has_account {
   width: 100%;
   margin: 1rem auto;
 }
@@ -96,12 +97,12 @@ select:hover {
   color: black;
   font-weight: bold;
   padding: 0.25rem;
-  color:#898989
+  color: #898989;
 }
 
 .has_account a:hover {
   text-decoration: underline;
-  color:black
+  color: black;
 }
 
 /*Modals*/
@@ -152,7 +153,6 @@ select:hover {
   cursor: pointer;
 }
 
-
-#login{
+#login {
   display: none;
 }

@@ -6,7 +6,7 @@
 }
 
 /*Top Container*/
-.top-container{
+.top-container {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -14,7 +14,7 @@
 }
 
 /*Button*/
-.top-container button{
+.top-container button {
   border-radius: 35px;
   width: 10%;
   height: 10%;
@@ -23,32 +23,33 @@
   background-color: #fffa7e;
 }
 
-.top-container button:hover{
+.top-container button:hover {
   transform: scale(1.2);
-  background-color:#faff00;
+  background-color: #faff00;
 }
 
-.top-container h3,#countdown{
+.top-container h3,
+#countdown {
   font-size: 35pt;
 }
 
-#countdown{
+#countdown {
   margin-left: 10px;
 }
-.top-container p{
+.top-container p {
   display: flex;
   align-items: center;
 }
 
 /*Room Container*/
-.room-container{
-  display: flex; 
-  justify-content: center; 
-  align-items: center; 
+.room-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 100vh;
 }
 
-.room-container img{
+.room-container img {
   max-width: 1400px;
   max-height: 560px;
 }
@@ -60,6 +61,3 @@
   align-content: center;
 }
 */
-
-
-

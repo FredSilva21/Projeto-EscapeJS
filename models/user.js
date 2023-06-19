@@ -20,7 +20,8 @@ export class User {
     this.gender = gender;
     this.password = password;
     this.type = "user";
-    this.avatar = "https://www.nicepng.com/png/detail/933-9332131_profile-picture-default-png.png"
+    this.avatar =
+      "https://www.nicepng.com/png/detail/933-9332131_profile-picture-default-png.png";
     this.questions = [];
     this.rooms = [];
     this.score = 0;
@@ -49,7 +50,7 @@ export class User {
 }
 
 // Load users info from local storage
-export let userDoc=[];
+export let userDoc = [];
 
 // Load Admin ROOT Account
 export function init() {
@@ -110,11 +111,8 @@ export function init() {
         },
       ];
 
-  localStorage.setItem("userDoc",JSON.stringify(userDoc))
+  localStorage.setItem("userDoc", JSON.stringify(userDoc));
 }
-
-
-
 
 // Generate next ID
 export function generateId(id) {
@@ -122,11 +120,21 @@ export function generateId(id) {
   return id;
 }
 
-export function createUser(id, name, email, age, gender, password, type = "admin") {
+export function createUser(
+  id,
+  name,
+  email,
+  age,
+  gender,
+  password,
+  type = "admin"
+) {
   if (type !== "admin") {
     type = "user";
   }
-  userDoc.push(new User(generateId(id), name, email, age, gender, password, type));
+  userDoc.push(
+    new User(generateId(id), name, email, age, gender, password, type)
+  );
   localStorage.userDoc = JSON.stringify(userDoc);
 }
 
