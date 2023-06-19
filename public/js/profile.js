@@ -318,7 +318,7 @@ renderRoomsTable();
 // Add Rooms
 function renderRoomsTable() {
   const table = document.querySelector(".content-table");
-  let template = `<thead><tr>
+  let template = `<thead colspan="7"><tr>
     <th>Name</th>
     <th>Description</th>
     <th>Photo</th>
@@ -330,14 +330,14 @@ function renderRoomsTable() {
     template += `<tr>
       <td>${room.name}</td>
       <td>${room.description}</td>
-      <td><img src="${room.photo}" alt="Room Photo" width="100"></td>
+      <td><img src="${room.photo}" alt="Room Photo" width="100%"></td>
       <td><button type="button" class="rem" data-id="${room.id}">Remove</button></td>
     </tr>`;
   });
 
   template += `
     <tr>
-      <td colspan="4">
+      <td colspan="5">
         <button type="button" id="add" style="width: 100%;">Add</button>
       </td>
     </tr>
