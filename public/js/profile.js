@@ -163,6 +163,8 @@ admin.addEventListener("click", function () {
 
   const userManage = document.getElementById("users");
   userManage.addEventListener("click", renderUsersTable);
+  const roomManage = document.getElementById("rooms");
+  roomManage.addEventListener("click", renderRoomsTable);
 });
 
 function renderUsersTable() {
@@ -310,23 +312,23 @@ function renderUsersTable() {
 function renderRoomsTable() {
   const table = document.querySelector(".content-table");
   let template = `<thead><tr>
-  <th>Name</th>
-  <th>Description</th>
-  <th>Photo</th>
-</tr></thead><tbody>`;
+    <th>Name</th>
+    <th>Description</th>
+    <th>Photo</th>
+  </tr></thead><tbody>`;
 
   room.exportRooms().forEach((room) => {
     template += `<tr>
-    <td>${room.name}</td>
-    <td>${room.description}</td>
-    <td>${room.photo}</td>
-    <td><button type="button" id="rem">Remove</button></td>
+      <td>${room.name}</td>
+      <td>${room.description}</td>
+      <td>${room.photo}</td>
+      <td><button type="button" id="rem">Remove</button></td>
     </tr>`;
   });
 
   template += `
     <tr>
-      <td colspan="7">
+      <td colspan="4">
         <button type="button" id="add" style="width: 100%;">Add</button>
       </td>
     </tr>
@@ -337,8 +339,8 @@ function renderRoomsTable() {
   const rem = document.querySelectorAll("#rem");
   rem.forEach((button, index) => {
     button.addEventListener("click", function () {
-      user.userDoc.pop(index);
-      localStorage.setItem("userDoc", JSON.stringify(room.roomDoc));
+      room.roomDoc.pop(index);
+      localStorage.setItem("roomDoc", JSON.stringify(room.roomDoc));
       renderRoomsTable();
     });
   });
@@ -346,22 +348,51 @@ function renderRoomsTable() {
   const add = document.getElementById("add");
   add.addEventListener("click", function () {
     modalContent.innerHTML = `<span class="close">&times;</span>
-    <form method="get">
-    </form>`;
+      <form method="get">
+        <div class="form-input">
+          <input
+            type="text"
+            name="roomName"
+            id="newRoomName"
+            placeholder="Name"
+            required
+          />
+        </div>
+        <div class="form-input">
+          <input
+            type="text"
+            name="roomDescription"
+            id="newRoomDescription"
+            placeholder="Description"
+            required
+          />
+        </div>
+        <div class="form-input">
+          <input
+            type="text"
+            name="roomPhoto"
+            id="newRoomPhoto"
+            placeholder="Photo URL"
+            required
+          />
+        </div>
+        <div class="form-input">
+          <button type="submit" id="addRoom">Add Room</button>
+        </div>
+      </form>`;
     modal.style.display = "flex";
 
     const submit = document.querySelector(".form-input button");
     submit.addEventListener("click", function (event) {
       event.preventDefault();
       const addName = document.getElementById("newRoomName").value;
-      const addDescription = document.getElementById("newRoomDescription").value;
+      const addDescription =
+        document.getElementById("newRoomDescription").value;
       const addPhoto = document.getElementById("newRoomPhoto").value;
 
-      console.log(type);
-
-      room.createRoom(room.generateId(), addName, addDescription, addPhoto);
+      room.addRoom(room.generateId(), addName, addDescription, addPhoto);
       modal.style.display = "none";
-      renderUsersTable();
+      renderRoomsTable();
     });
 
     const close = document.querySelector(".modal-content span");
