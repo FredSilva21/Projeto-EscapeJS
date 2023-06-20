@@ -18,6 +18,20 @@ export function startTime() {
     time--;
   } else {
     clearInterval(intervalId); // Interrompe o intervalo quando o tempo acaba
+    const modal = document.getElementById("modal");
+    const modalBody = document.querySelector(".modal-body");
+    const h2 = document.querySelector(".modal-content h2");
+
+    modal.style.display = "flex";
+    h2.innerHTML = "Time's Up!";
+    modalBody.innerHTML = `
+      <div><p>Oops! Your time has run out.</p></div>
+      <div><p>Bonus Score: +0</p></div>
+    `;
+
+    setTimeout(() => {
+      window.location.href = "./catalog.html";
+    }, 2000);
   }
 
   // Armazene o tempo restante no sessionStorage

@@ -57,11 +57,41 @@
   max-width: 1400px;
   max-height: 560px;
 }
-/*
-.col-md-4 {
-  display: flex;
-  flex-wrap: wrap;
+
+/*Modal*/
+/*Modal*/
+#modal{
+  display: none;
+  align-items: center;
   justify-content: center;
-  align-content: center;
+  width: 40%;
+  left:50%;
+  transform: translateX(-50%)
 }
-*/
+
+.modal-content {
+  background-color: white;
+  padding: 10px 20px;
+  width: 300px;
+  border-radius: 35px;
+}
+
+.modal-content h2 {
+  font-size: 25px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.modal-body p {
+  font-size: 22px;
+  margin-bottom: 20px;
+  text-align: center;
+}

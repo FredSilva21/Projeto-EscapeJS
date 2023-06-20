@@ -13,6 +13,7 @@ const score=localStorage.getItem("Score")
 //Get variable in url
 const urlParams = new URLSearchParams(window.location.search);
 const levelId = urlParams.get("levelId");
+console.log(levelId)
 const roomId=urlParams.get("roomId")
 
 //Find what level is
@@ -61,7 +62,7 @@ function checkAnswer(selectedOption, currentQuestion, loggedUser) {
 
   setTimeout(() => {
     optionButtons.forEach((button) => {
-      button.classList.remove("incorrect-option"); // Remove a classe CSS para restaurar a cor original do botão
+      button.classList.remove("incorrect-option"); // Remove css class to change color button
     });
 
     setTimeout(() => {
@@ -78,8 +79,11 @@ function checkAnswer(selectedOption, currentQuestion, loggedUser) {
         `;
 
         updateQuestions(loggedUser, correctAnswers);
+      }else if(levelId=="2" && currentQuestion==questions.length){
+          Time.stopTime()
+          console.log("TESTE")
       }
-    }, 250); // Atraso adicional de 1 segundo antes de prosseguir para a próxima pergunta
+    }, 250);
 
   }, 250);
 }
@@ -137,6 +141,10 @@ function updateQuestions(loggedUser,correctAnswers){
     localStorage.setItem("userDoc", JSON.stringify(User.userDoc));
     sessionStorage.setItem("userInSession", JSON.stringify(User.userDoc[userIndex]));
   }
+}
+
+function lastQuestion(currentQuestion){
+  
 }
 
 renderLevel();
