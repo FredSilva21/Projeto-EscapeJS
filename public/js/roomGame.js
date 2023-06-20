@@ -10,7 +10,9 @@ const roomId = urlParams.get("roomId");
 const room = Room.roomDoc.filter((item) => item.id == roomId);
 
 const h3 = document.querySelector(".top-container h3");
+const icons=document.getElementById("icons")
 h3.innerHTML = room[0].name;
+icons.innerHTML="Find by the following order:"
 renderRoom();
 
 function renderRoom() {
@@ -21,8 +23,11 @@ function renderRoom() {
 
   for (let i = 0; i < room[0].levels.length; i++) {
     const level = room[0].levels[i];
+    console.log(level)
     const isLastLevel = i === room[0].levels.length - 1;
-
+    if(i<room[0].levels.length-1){
+      icons.innerHTML+=`<img src="${level.icon}" width=100px heigth=80px>`
+    }
     if (isLastLevel) {
       template += `<area onclick="openPDF('${level.url}')" coords=${level.coord} shape="rect">`;
     } else {
