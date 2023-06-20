@@ -62,6 +62,7 @@ export function init() {
             {
               id: 1,
               name: "Fundamentals",
+              icon:"../public/images/level 1 icone.png",
               questions: [
                 Question.questionsDoc[0],
                 Question.questionsDoc[1],
@@ -75,6 +76,7 @@ export function init() {
             {
               id: 2,
               name: "Conditionals",
+              icon:"../public/images/level 2 icone.png",
               questions: [
                 Question.questionsDoc[6],
                 Question.questionsDoc[7],
@@ -83,6 +85,11 @@ export function init() {
               ],
               coord: "250,285,290,340",
             },
+            {
+              id:3,
+              url:"../public/pdfs/room1 pdf.pdf",
+              coord:"815,350,890,390"
+            }
           ],
         },
         {
@@ -95,6 +102,7 @@ export function init() {
             {
               id: 1,
               name: "Loops",
+              icon:"../public/images/level 3 icone.png",
               questions: [
                 Question.questionsDoc[10],
                 Question.questionsDoc[11],
@@ -108,6 +116,7 @@ export function init() {
             {
               id: 2,
               name: "Functions",
+              icon:"../public/images/level 4 icone.png",
               questions: [
                 Question.questionsDoc[16],
                 Question.questionsDoc[17],
@@ -116,7 +125,7 @@ export function init() {
               ],
               coord: "450,180,513,225",
             },
-            { id: 4, coord: "700,330,800,370" },
+            { id: 3, url:"",coord: "700,330,800,370" },
           ],
         },
         {
@@ -129,6 +138,7 @@ export function init() {
             {
               id: 1,
               name: "Arrays",
+              icon:"../public/images/level 5 icone.png",
               questions: [
                 Question.questionsDoc[20],
                 Question.questionsDoc[21],
@@ -142,6 +152,7 @@ export function init() {
             {
               id: 2,
               name: "Objects",
+              icon:"../public/images/level 6 icone.png",
               questions: [
                 Question.questionsDoc[26],
                 Question.questionsDoc[27],
@@ -152,6 +163,7 @@ export function init() {
               ],
               coord: "400,325,446,380",
             },
+            { id: 3, url:"",coord: "700,330,800,370" },
           ],
         },
       ];

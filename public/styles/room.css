@@ -41,6 +41,10 @@
   align-items: center;
 }
 
+#icons{
+  text-align: center;
+}
+
 /*Room Container*/
 .room-container {
   display: flex;
