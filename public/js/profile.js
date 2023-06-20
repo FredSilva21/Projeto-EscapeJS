@@ -192,7 +192,8 @@ function renderUsersTable() {
     <td>${user.gender}</td>
     <td>${user.score}</td>
     <td>${user.type}</td>
-    <td><button type="button" id="rem">Remove</button></td>
+    <td><button type="button" id="rem">Remove</button>
+    <button type="button" id="options">Options</button></td>
     </tr>`;
   });
 
@@ -208,8 +209,17 @@ function renderUsersTable() {
 
   const rem = document.querySelectorAll("#rem");
   rem.forEach((button, index) => {
-    button.addEventListener("click", function () {
+    button.addEventListener("click", () => {
       user.userDoc.pop(index);
+      localStorage.setItem("userDoc", JSON.stringify(user.userDoc));
+      renderUsersTable();
+    });
+  });
+
+  const options = document.querySelectorAll("#options");
+  options.forEach((button, index) => {
+    button.addEventListener("click", () => {
+      user.userDoc();
       localStorage.setItem("userDoc", JSON.stringify(user.userDoc));
       renderUsersTable();
     });
