@@ -166,10 +166,10 @@ admin.addEventListener("click", function () {
   userManage.addEventListener("click", renderUsersTable);
   const roomManage = document.getElementById("rooms");
   roomManage.addEventListener("click", renderRoomsTable);
-  const questionManage = document.getElementById("questions")
+  const questionManage = document.getElementById("questions");
   questionManage.addEventListener("click", renderQuestionsTable);
-  const scoreTime=document.getElementById("scoreTime")
-  scoreTime.addEventListener("click",renderScoreTime)
+  const scoreTime = document.getElementById("scoreTime");
+  scoreTime.addEventListener("click", renderScoreTime);
 });
 
 function renderUsersTable() {
@@ -321,7 +321,7 @@ renderRoomsTable();
 // Add Rooms
 function renderRoomsTable() {
   const table = document.querySelector(".content-table");
-  let template = `<thead colspan="7"><tr>
+  let template = `<thead><tr>
     <th>Name</th>
     <th>Description</th>
     <th>Photo</th>
@@ -340,7 +340,7 @@ function renderRoomsTable() {
 
   template += `
     <tr>
-      <td colspan="5">
+      <td colspan="7">
         <button type="button" id="add" style="width: 100%;">Add</button>
       </td>
     </tr>
@@ -493,8 +493,7 @@ function renderQuestionsTable() {
       event.preventDefault();
       const addName = document.getElementById("newQuestionName").value;
       const addPhoto = document.getElementById("newQuestionPhoto").value;
-      const addOption =
-        document.getElementById("newQuestionOption").value;
+      const addOption = document.getElementById("newQuestionOption").value;
 
       addRoom(addName, addOption, addPhoto);
       modal.style.display = "none";
@@ -507,8 +506,8 @@ function renderQuestionsTable() {
 }
 
 function renderScoreTime() {
-  modal.style.display="flex"
-  modalContent.innerHTML=`<span class="close">&times;</span>
+  modal.style.display = "flex";
+  modalContent.innerHTML = `<span class="close">&times;</span>
   <form method="get">
     <div class="form-input">
       <input
@@ -531,5 +530,5 @@ function renderScoreTime() {
     <div class="form-input">
           <button type="submit" id="changeTimeScore">Save</button>
       </div>
-    </form>`
+    </form>`;
 }
