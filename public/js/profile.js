@@ -446,7 +446,7 @@ function renderQuestionsTable() {
   rem.forEach((button) => {
     button.addEventListener("click", function () {
       const questionId = parseInt(button.getAttribute("data-id"));
-      room.deleteRoom(questionId);
+      question.deleteQuestion(questionId);
       renderQuestionsTable();
     });
   });
@@ -495,7 +495,7 @@ function renderQuestionsTable() {
       const addPhoto = document.getElementById("newQuestionPhoto").value;
       const addOption = document.getElementById("newQuestionOption").value;
 
-      addRoom(addName, addOption, addPhoto);
+      question.addQuestion(addName, addOption, addPhoto);
       modal.style.display = "none";
       renderQuestionsTable();
     });

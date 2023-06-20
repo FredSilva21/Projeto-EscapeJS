@@ -88,12 +88,7 @@ export function init() {
           id: 8,
           name: "What is the result?",
           image: "../public/images/level2-question2.png",
-          options: [
-            "Greater than 5",
-            "Less than 5",
-            "Equal to 5",
-            "Error",
-          ],
+          options: ["Greater than 5", "Less than 5", "Equal to 5", "Error"],
           solution: 1,
           solved: 0,
         },
@@ -170,7 +165,7 @@ export function init() {
         {
           id: 16,
           name: "The 'break' statement can be used to exit a loop prematurely.",
-          image:"../public/images/level4-question6.png",
+          image: "../public/images/level4-question6.png",
           options: ["True", "False"],
           solution: 0,
           solved: 0,
@@ -335,6 +330,16 @@ export function addQuestion(id, name, image, options, solution) {
   }
 }
 
+export function deleteQuestion(questionId) {
+  const pos = questionsDoc.findIndex((user) => user.id === questionId);
+  if (pos !== -1) {
+    questionsDoc.splice(pos, 1);
+    localStorage.setItem("questionsDoc", JSON.stringify(questionsDoc));
+  } else {
+    return new Error(`${questionId}: is not presente in the database`);
+  }
+}
+
 //! Not Working Correctly
 export function checkAnswer(correct) {
   var selectedQuestion = questionsDoc[questionsDoc.length - 1];
@@ -351,6 +356,6 @@ export function checkAnswer(correct) {
   }
 }
 
-export function exportQuestions(){
-  return questionsDoc
+export function exportQuestions() {
+  return questionsDoc;
 }
