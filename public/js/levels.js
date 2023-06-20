@@ -74,7 +74,7 @@ function renderLevel() {
   // Clear previous question options
   questionOptions.innerHTML = "";
 
-  // Modifique o loop que cria os botões de opção
+  // Change loop to create buttons
   currentQuestion.options.forEach((option) => {
     const button = document.createElement("button");
     button.classList.add("option-button");
@@ -82,7 +82,7 @@ function renderLevel() {
     button.textContent = option;
     questionOptions.appendChild(button);
 
-    // Adicione o evento de clique ao botão
+    // Add event click
     button.addEventListener("click", function () {
       checkAnswer(option, currentQuestion, loggedUser);
     });

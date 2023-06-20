@@ -193,7 +193,7 @@ function renderUsersTable() {
     <td>${user.score}</td>
     <td>${user.type}</td>
     <td><button type="button" id="rem">Remove</button>
-    <button type="button" id="options">Options</button></td>
+    <button type="button" id="options">Change type</button></td>
     </tr>`;
   });
 
@@ -217,6 +217,25 @@ function renderUsersTable() {
     });
   });
 
+  const options = document.querySelectorAll("#options");
+  options.forEach((option,index) => {
+    const userTab = user.userDoc[index];
+    const isUserAdmin = userTab.type === "admin";
+  
+    // Define o texto do botão com base no tipo de usuário
+    const buttonText = isUserAdmin ? "Downgrade to User" : "Promote to Admin";
+      option.textContent = buttonText;
+      option.addEventListener("click", function() {
+        if(buttonText=="Downgrade to User"){
+          userTab.type="user"
+          renderUsersTable()
+        }else{
+          userTab.type="admin"
+          renderUsersTable()
+        }
+      })
+  })
+  
   const add = document.getElementById("add");
   add.addEventListener("click", () => {
     modalContent.innerHTML = `<span class="close">&times;</span>
@@ -309,9 +328,8 @@ function renderUsersTable() {
       renderUsersTable();
     });
   });
-  const close = document.querySelector(".modal-content span");
-  close.addEventListener("click", () => (modal.style.display = "none"));
 }
+
 
 // Call the Class Room
 room.init();
