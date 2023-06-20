@@ -443,10 +443,13 @@ function renderQuestionsTable() {
   table.innerHTML = template;
 
   const rem = document.querySelectorAll(".rem");
-  rem.forEach((button) => {
-    button.addEventListener("click", function () {
-      const questionId = parseInt(button.getAttribute("data-id"));
-      question.deleteQuestion(questionId);
+  rem.forEach((button, index) => {
+    button.addEventListener("click", () => {
+      question.questionsDoc.pop(index);
+      localStorage.setItem(
+        "questionsDoc",
+        JSON.stringify(question.questionsDoc)
+      );
       renderQuestionsTable();
     });
   });
