@@ -521,6 +521,26 @@ function renderQuestionsTable() {
       const addPhoto = document.getElementById("newQuestionPhoto").value;
       const addOption = document.getElementById("newQuestionOption").value;
       const addSolution = document.getElementById("newQuestionSolution").value;
+      const selectElement = document.getElementById("selectLevel");
+      const selectRoomId = selectElement.value;
+
+      // Select the room
+      const selectRoom = room.find((room) => room.id === selectRoomId); //!
+
+      if (selectRoom) {
+        const newQuestion = new question.Question(
+          generateId(),
+          addName,
+          addPhoto,
+          addOption,
+          addSolution
+        );
+        selectRoom.addQuestions(selectRoomId, [newQuestion]);
+        localStorage.setItem("roomDoc", JSON.stringify(roomDoc));
+        console.log("Added");
+      } else {
+        console.error("Select");
+      }
 
       question.addQuestion(addName, addOption, addPhoto, addSolution);
       modal.style.display = "none";
