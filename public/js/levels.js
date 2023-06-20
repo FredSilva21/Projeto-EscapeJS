@@ -77,6 +77,15 @@ function checkAnswer(selectedOption, currentQuestion, loggedUser) {
           <div><a href="./catalog.html">Back to Catalog</a></div>
         `;
         updateQuestions(loggedUser,correctAnswers)
+      }else if(currentQuestionIndex==questions.length){
+        modal.style.display = "flex"
+        h2.innerHTML = `${level.name} Finished!`;
+        modalBody.innerHTML = `
+          <div><p>You answered ${correctAnswers} questions correctly of ${questions.length}!</p></div>
+          <div><p>Score: +${score * correctAnswers}</p></div>
+          <div><a href="./room.html?roomId=${room.id}">Back to Room</a></div>
+        `;
+        updateQuestions(loggedUser,correctAnswers)
       }
     }, 250);
 

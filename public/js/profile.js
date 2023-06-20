@@ -371,8 +371,6 @@ function renderRoomsTable() {
     button.addEventListener("click", function () {
       room.roomDoc.pop(index);
       localStorage.setItem("roomDoc", JSON.stringify(room.roomDoc));
-      // const roomId = parseInt(button.getAttribute("data-id"));
-      // deleteRoom(roomId);
       renderRoomsTable();
     });
   });
@@ -476,7 +474,7 @@ function renderQuestionsTable() {
   const rem = document.querySelectorAll(".rem");
   rem.forEach((button, index) => {
     button.addEventListener("click", () => {
-      question.questionsDoc.pop(index);
+      question.questionsDoc.splice(index,1);
       localStorage.setItem(
         "questionsDoc",
         JSON.stringify(question.questionsDoc)
@@ -555,7 +553,7 @@ function renderQuestionsTable() {
       const selectRoomId = selectElement.value;
 
       // Select the room
-      const selectRoom = room.roomDoc.find((room) => room.id === selectRoomId); //!
+      const selectRoom = room.roomDoc.find((room) => room.id === selectRoomId); 
 
       if (selectRoom) {
         const newQuestion = new question.Question(
