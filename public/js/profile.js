@@ -1,5 +1,4 @@
 import * as user from "../../models/user.js";
-import { exportRooms } from "../../models/room.js";
 import * as room from "../../models/room.js";
 import * as question from "../../models/question.js";
 
@@ -167,6 +166,8 @@ admin.addEventListener("click", function () {
   userManage.addEventListener("click", renderUsersTable);
   const roomManage = document.getElementById("rooms");
   roomManage.addEventListener("click", renderRoomsTable);
+  const questionManage = document.getElementById("questions")
+  questionManage.addEventListener("click", renderQuestionsTable);
 });
 
 function renderUsersTable() {
@@ -409,6 +410,98 @@ function renderRoomsTable() {
   });
 }
 
-function renderQuestionsTable() {}
+function renderQuestionsTable() {
+  const table = document.querySelector(".content-table");
+  let template = `<thead colspan="7"><tr>
+    <th>Name</th>
+    <th>image</th>
+    <th>Options</th>
+    <th>Solution</th>
+  </tr></thead><tbody>`;
+
+  console.log(question.exportQuestions);
+  const questions = question.exportQuestions();
+  questions.forEach((question) => {
+    template += `<tr>
+      <td>${question.name}</td>
+      <td><img src="${question.image}" alt="Room Photo" width="100%"></td>
+      <td>${question.options}</td>
+      <td><button type="button" class="rem" data-id="${question.id}">Remove</button></td>
+    </tr>`;
+  });
+
+  template += `
+    <tr>
+      <td colspan="5">
+        <button type="button" id="add" style="width: 100%;">Add</button>
+      </td>
+    </tr>
+  </tbody>`;
+
+  table.innerHTML = template;
+
+  const rem = document.querySelectorAll(".rem");
+  rem.forEach((button) => {
+    button.addEventListener("click", function () {
+      const questionId = parseInt(button.getAttribute("data-id"));
+      deleteRoom(questionId);
+      renderQuestionsTable();
+    });
+  });
+
+  const add = document.getElementById("add");
+  add.addEventListener("click", function () {
+    modalContent.innerHTML = `<span class="close">&times;</span>
+      <form method="get">
+        <div class="form-input">
+          <input
+            type="text"
+            name="questionName"
+            id="newQuestionName"
+            placeholder="Name"
+            required
+          />
+        </div>
+        <div class="form-input">
+          <input
+            type="text"
+            name="questionPhoto"
+            id="newQuestionPhoto"
+            placeholder="Photo URL"
+            required
+          />
+        </div>
+        <div class="form-input">
+          <input
+            type="text"
+            name="questionOption"
+            id="newQuestionOption"
+            placeholder="Options"
+            required
+          />
+        </div>
+        <div class="form-input">
+          <button type="submit" id="addQuestion">Add Question</button>
+        </div>
+      </form>`;
+    modal.style.display = "flex";
+
+    const submit = document.querySelector(".form-input button");
+    submit.addEventListener("click", function (event) {
+      event.preventDefault();
+      const addName = document.getElementById("newQuestionName").value;
+      const addPhoto = document.getElementById("newQuestionPhoto").value;
+      const addOption =
+        document.getElementById("newQuestionOption").value;
+
+      addRoom(addName, addOption, addPhoto);
+      modal.style.display = "none";
+      renderQuestionsTable();
+    });
+
+    const close = document.querySelector(".modal-content span");
+    close.addEventListener("click", () => (modal.style.display = "none"));
+  });
+}
 
 function renderScoreTime() {}
