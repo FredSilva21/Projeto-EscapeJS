@@ -86,13 +86,13 @@ export function init() {
         },
         {
           id: 8,
-          name: "What is the error in the following code?",
+          name: "What is the result?",
           image: "../public/images/level2-question2.png",
           options: [
-            "Missing semicolon at the end of the first line",
-            "Division by zero",
-            "Undeclared variable 'result'",
-            "Missing 'catch' block",
+            "Greater than 5",
+            "Less than 5",
+            "Equal to 5",
+            "Error",
           ],
           solution: 1,
           solved: 0,
@@ -170,7 +170,7 @@ export function init() {
         {
           id: 16,
           name: "The 'break' statement can be used to exit a loop prematurely.",
-          image:"",
+          image:"../public/images/level4-question6.png",
           options: ["True", "False"],
           solution: 0,
           solved: 0,
