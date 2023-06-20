@@ -83,20 +83,6 @@ export function init() {
               ],
               coord: "250,285,290,340",
             },
-            {
-              id: 3,
-              name: "Loops",
-              questions: [
-                Question.questionsDoc[10],
-                Question.questionsDoc[11],
-                Question.questionsDoc[12],
-                Question.questionsDoc[13],
-                Question.questionsDoc[14],
-                Question.questionsDoc[15],
-              ],
-              coord: "440,220,500,275",
-            },
-            { id: 4, coord: "700,330,800,370" },
           ],
         },
         {
@@ -108,6 +94,19 @@ export function init() {
           levels: [
             {
               id: 1,
+              name: "Loops",
+              questions: [
+                Question.questionsDoc[10],
+                Question.questionsDoc[11],
+                Question.questionsDoc[12],
+                Question.questionsDoc[13],
+                Question.questionsDoc[14],
+                Question.questionsDoc[15],
+              ],
+              coord: "440,220,500,275",
+            },
+            {
+              id: 2,
               name: "Functions",
               questions: [
                 Question.questionsDoc[16],
@@ -117,8 +116,18 @@ export function init() {
               ],
               coord: "450,180,513,225",
             },
+            { id: 4, coord: "700,330,800,370" },
+          ],
+        },
+        {
+          id: 3,
+          name: "Chapter 3:Final Bosses",
+          description: "You're not ready for this.",
+          photo: "../public/images/room3.jpg",
+          icon: "../public/images/room3 icon.png",
+          levels: [
             {
-              id: 2,
+              id: 1,
               name: "Arrays",
               questions: [
                 Question.questionsDoc[20],
@@ -131,7 +140,7 @@ export function init() {
               coord: "1290,110,1370,170",
             },
             {
-              id: 3,
+              id: 2,
               name: "Objects",
               questions: [
                 Question.questionsDoc[26],
@@ -144,14 +153,6 @@ export function init() {
               coord: "400,325,446,380",
             },
           ],
-        },
-        {
-          id: 3,
-          name: "Chapter 3:Final Bosses",
-          description: "You're not ready for this.",
-          photo: "../public/images/room3.jpg",
-          icon: "../public/images/room3 icon.png",
-          levels: [],
         },
       ];
 
