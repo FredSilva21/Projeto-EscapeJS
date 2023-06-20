@@ -294,8 +294,6 @@ function renderUsersTable() {
         'input[name="typeUser"]:checked'
       ).value;
 
-      console.log(type);
-
       user.createUser(
         user.generateId(),
         addName,

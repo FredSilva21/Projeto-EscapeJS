@@ -8,7 +8,7 @@ export class User {
   password = "";
   type = "";
   avatar = "";
-  questions = [];
+  questions = [0,0,0];
   rooms = [];
   score = 0;
 
@@ -131,7 +131,7 @@ export function init() {
           password: "cplusplus",
           type: "user",
           avatar: "../public/images/user.png",
-          questions: [],
+          questions: [0,0,0],
           rooms: [],
           score: 1500,
         },

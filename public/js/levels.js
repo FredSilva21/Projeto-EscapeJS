@@ -51,6 +51,7 @@ function checkAnswer(selectedOption, currentQuestion, loggedUser) {
     modalBody.innerHTML=`<div><p>You answered ${correctAnswers} questions correctly of ${questions.length}!</p></div>
     <div><p>Score: +${score*correctAnswers}</p></div>
     <div><a href="./room.html?roomId=${roomId}">Back to Room</a></div>`
+    updateQuestions(loggedUser,correctAnswers)
   }
 }
 
@@ -89,6 +90,15 @@ function updateScore(loggedUser) {
   const userIndex = User.userDoc.findIndex((item) => item.id === loggedUser.id);
   if (userIndex !== -1) {
     User.userDoc[userIndex].score += 25;
+    localStorage.setItem("userDoc", JSON.stringify(User.userDoc));
+    sessionStorage.setItem("userInSession", JSON.stringify(User.userDoc[userIndex]));
+  }
+}
+
+function updateQuestions(loggedUser,correctAnswers){
+  const userIndex = User.userDoc.findIndex((item) => item.id === loggedUser.id);
+  if (userIndex !== -1) {
+    User.userDoc[userIndex].questions[levelId-1]=correctAnswers
     localStorage.setItem("userDoc", JSON.stringify(User.userDoc));
     sessionStorage.setItem("userInSession", JSON.stringify(User.userDoc[userIndex]));
   }
