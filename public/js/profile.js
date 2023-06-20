@@ -350,7 +350,7 @@ function renderRoomsTable() {
   rem.forEach((button) => {
     button.addEventListener("click", function () {
       const roomId = parseInt(button.getAttribute("data-id"));
-      deleteRoom(roomId);
+      room.deleteRoom(roomId);
       renderRoomsTable();
     });
   });
