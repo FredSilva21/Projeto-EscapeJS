@@ -340,22 +340,6 @@ export function deleteQuestion(questionId) {
   }
 }
 
-//! Not Working Correctly
-export function checkAnswer(correct) {
-  var selectedQuestion = questionsDoc[questionsDoc.length - 1];
-  var correctAnswer = selectedQuestion.option[selectedQuestion.solution];
-
-  if (!selectedQuestion) {
-    throw new Error("Question doest not exist!");
-  }
-
-  if (correct === correctAnswer) {
-    console.log("Correct");
-  } else {
-    throw new Error("Incorrect");
-  }
-}
-
 export function exportQuestions() {
   return questionsDoc;
 }
