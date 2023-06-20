@@ -350,3 +350,7 @@ export function checkAnswer(correct) {
     throw new Error("Incorrect");
   }
 }
+
+export function exportQuestions(){
+  return questionsDoc
+}
