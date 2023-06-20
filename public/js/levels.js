@@ -1,6 +1,7 @@
 import * as Room from "../../models/room.js";
 import * as Question from "../../models/question.js";
 import * as User from "../../models/user.js";
+import * as Time from "../../utils/timer.js"
 
 Room.init();
 Question.init();
@@ -37,25 +38,51 @@ const h2=document.querySelector(".modal-content h2")
 let currentQuestionIndex = 0;
 let correctAnswers=0
 
-//Function to check if answer is correct
 function checkAnswer(selectedOption, currentQuestion, loggedUser) {
+  const optionButtons = document.querySelectorAll(".option-button");
   if (selectedOption === currentQuestion.options[currentQuestion.solution]) {
     updateScore(loggedUser);
-    correctAnswers++
+    correctAnswers++;
+
+    const correctButton = optionButtons[currentQuestion.solution];
+    correctButton.classList.add("correct-option"); // Adiciona a classe CSS para destacar a opção correta
+    correctButton.style.backgroundColor = "green";
+    correctButton.style.color="white"
+  } else {
+    Time.wrongAnswerTime();
+    optionButtons.forEach((button) => {
+      if (button.textContent === selectedOption) {
+        button.classList.add("incorrect-option"); // Adiciona a classe CSS para destacar a opção incorreta
+        button.style.backgroundColor = "red";
+        button.style.color="white"
+      }
+    });
   }
-  
-  currentQuestionIndex++;
-  if (currentQuestionIndex < questions.length) {
-    renderLevel();
-  }else if(currentQuestionIndex==questions.length){
-    modal.style.display="flex"
-    h2.innerHTML=`Level ${levelId} Finished!`
-    modalBody.innerHTML=`<div><p>You answered ${correctAnswers} questions correctly of ${questions.length}!</p></div>
-    <div><p>Score: +${score*correctAnswers}</p></div>
-    <div><a href="./room.html?roomId=${roomId}">Back to Room</a></div>`
-    updateQuestions(loggedUser,correctAnswers)
-  }
+
+  setTimeout(() => {
+    optionButtons.forEach((button) => {
+      button.classList.remove("incorrect-option"); // Remove a classe CSS para restaurar a cor original do botão
+    });
+
+    setTimeout(() => {
+      currentQuestionIndex++;
+      if (currentQuestionIndex < questions.length) {
+        requestAnimationFrame(() => renderLevel()); // Força uma nova renderização do DOM antes de prosseguir para a próxima pergunta
+      } else if (currentQuestionIndex === questions.length) {
+        modal.style.display = "flex";
+        h2.innerHTML = `Level ${levelId} Finished!`;
+        modalBody.innerHTML = `<div><p>You answered ${correctAnswers} questions correctly of ${questions.length}!</p></div>
+        <div><p>Score: +${score * correctAnswers}</p></div>
+        <div><a href="./room.html?roomId=${roomId}">Back to Room</a></div>`;
+        updateQuestions(loggedUser, correctAnswers);
+      }
+    }, 500); // Atraso adicional de 1 segundo antes de prosseguir para a próxima pergunta
+
+  }, 1000);
 }
+
+
+
 
 //Function to render Level
 function renderLevel() {

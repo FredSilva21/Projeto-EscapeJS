@@ -29,5 +29,12 @@ export function stopTime() {
   sessionStorage.removeItem("remainingTime"); // Limpa o valor do sessionStorage
 }
 
+export function wrongAnswerTime() {
+  let time = parseInt(sessionStorage.getItem("remainingTime"));
+  time -= 5;
+  sessionStorage.setItem("remainingTime", JSON.stringify(time));
+}
+
+
 // Inicie o intervalo de tempo e armazene o ID do intervalo na variável intervalId
 const intervalId=setInterval(startTime, 1000);
