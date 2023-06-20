@@ -69,11 +69,14 @@ function checkAnswer(selectedOption, currentQuestion, loggedUser) {
       if (currentQuestionIndex < questions.length) {
         requestAnimationFrame(() => renderLevel()); // Força uma nova renderização do DOM antes de prosseguir para a próxima pergunta
       } else if (currentQuestionIndex === questions.length) {
-        modal.style.display = "flex";
+        modal.style.display = "flex"
         h2.innerHTML = `Level ${levelId} Finished!`;
-        modalBody.innerHTML = `<div><p>You answered ${correctAnswers} questions correctly of ${questions.length}!</p></div>
-        <div><p>Score: +${score * correctAnswers}</p></div>
-        <div><a href="./room.html?roomId=${roomId}">Back to Room</a></div>`;
+        modalBody.innerHTML = `
+          <div><p>You answered ${correctAnswers} questions correctly of ${questions.length}!</p></div>
+          <div><p>Score: +${score * correctAnswers}</p></div>
+          <div><a href="./room.html?roomId=${roomId}">Back to Room</a></div>
+        `;
+
         updateQuestions(loggedUser, correctAnswers);
       }
     }, 500); // Atraso adicional de 1 segundo antes de prosseguir para a próxima pergunta
