@@ -525,7 +525,7 @@ function renderQuestionsTable() {
       const selectRoomId = selectElement.value;
 
       // Select the room
-      const selectRoom = room.find((room) => room.id === selectRoomId); //!
+      const selectRoom = room.roomDoc.find((room) => room.id === selectRoomId); //!
 
       if (selectRoom) {
         const newQuestion = new question.Question(
