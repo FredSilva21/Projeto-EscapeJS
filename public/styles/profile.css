@@ -169,7 +169,7 @@ body {
 }
 
 #rem,
-#add,#options {
+#add,#options,.rem {
   color: #fffa7e;
   border-radius: 10px;
   background-color: black;

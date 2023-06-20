@@ -1,7 +1,9 @@
 import * as user from "../../models/user.js";
 import * as room from "../../models/room.js";
 import * as question from "../../models/question.js";
+import * as navBar from "../js/navbar.js"
 
+navBar.navBarProf()
 const admin = document.querySelector(".adminButton");
 verifyAdmin();
 
@@ -341,9 +343,9 @@ function renderRoomsTable() {
     <th>Name</th>
     <th>Description</th>
     <th>Photo</th>
+    <th>Actions</th>
   </tr></thead><tbody>`;
 
-  console.log(room.exportRooms);
   const rooms = room.exportRooms();
   rooms.forEach((room) => {
     template += `<tr>
@@ -407,6 +409,15 @@ function renderRoomsTable() {
           />
         </div>
         <div class="form-input">
+          <input
+            type="text"
+            name="roomIcon"
+            id="newRoomIcon"
+            placeholder="Icon URL"
+            required
+          />
+        </div>
+        <div class="form-input">
           <button type="submit" id="addRoom">Add Room</button>
         </div>
       </form>`;
@@ -419,8 +430,8 @@ function renderRoomsTable() {
       const addDescription =
         document.getElementById("newRoomDescription").value;
       const addPhoto = document.getElementById("newRoomPhoto").value;
-
-      room.addRoom(addName, addDescription, addPhoto);
+      const addIcon=document.getElementById("newRoomIcon").value;
+      room.addRoom(addName, addDescription, addPhoto, addIcon);
       modal.style.display = "none";
       renderRoomsTable();
     });
@@ -437,6 +448,7 @@ function renderQuestionsTable() {
     <th>image</th>
     <th>Options</th>
     <th>Solution</th>
+    <th>Actions</th>
   </tr></thead><tbody>`;
 
   console.log(question.exportQuestions);

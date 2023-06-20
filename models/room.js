@@ -170,12 +170,12 @@ export function init() {
   localStorage.setItem("roomDoc", JSON.stringify(roomDoc));
 }
 
-export function addRoom(name, description, photo) {
+export function addRoom(name, description, photo,icon) {
   if (roomDoc.some((room) => room.name === name)) {
     throw Error(`Room ${name} already exists!`);
   } else {
     const newId = roomDoc.length + 1;
-    const newRoom = new Room(newId, name, description, photo);
+    const newRoom = new Room(newId, name, description, photo,icon);
     roomDoc.push(newRoom);
     localStorage.roomDoc = JSON.stringify(roomDoc);
   }

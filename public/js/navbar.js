@@ -23,3 +23,24 @@ export function navBar() {
     });
   }
 }
+
+export function navBarProf(){
+  let result = `<a href="./register.html">Sign Up</a>`;
+
+  if (user.inSession()) {
+    result = `<a href="#" id="logOut">Log Out</a>`;
+  }
+
+  const li = document.querySelector("li:nth-child(5)");
+
+  li.innerHTML = result;
+
+  const logout = document.querySelector("#logOut");
+  if (logout) {
+    logout.addEventListener("click", function (event) {
+      event.preventDefault();
+      user.logout();
+      navBar();
+    });
+  }
+}
