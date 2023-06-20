@@ -14,6 +14,7 @@ const urlParams = new URLSearchParams(window.location.search);
 const levelId = urlParams.get("levelId");
 const roomId=urlParams.get("roomId")
 
+//Find what level is
 let level;
 const room = Room.roomDoc.find((room) => room.id == roomId);
 if (room) {
@@ -31,9 +32,12 @@ title.innerHTML = `${level.name}`;
 const modal=document.getElementById("modal")
 const modalBody=document.querySelector(".modal-body")
 const h2=document.querySelector(".modal-content h2")
-// Defina currentQuestionIndex antes das funções
+
+// Increment variables
 let currentQuestionIndex = 0;
 let correctAnswers=0
+
+//Function to check if answer is correct
 function checkAnswer(selectedOption, currentQuestion, loggedUser) {
   if (selectedOption === currentQuestion.options[currentQuestion.solution]) {
     updateScore(loggedUser);
@@ -53,6 +57,7 @@ function checkAnswer(selectedOption, currentQuestion, loggedUser) {
   }
 }
 
+//Function to render Level
 function renderLevel() {
   const questionImage = document.querySelector(".question-image");
   const questionTitle = document.querySelector(".question-title");
@@ -84,6 +89,7 @@ function renderLevel() {
   });
 }
 
+//Function to update user score
 function updateScore(loggedUser) {
   const userIndex = User.userDoc.findIndex((item) => item.id === loggedUser.id);
   if (userIndex !== -1) {
@@ -93,6 +99,7 @@ function updateScore(loggedUser) {
   }
 }
 
+//Function to add the correct questions to user questions
 function updateQuestions(loggedUser,correctAnswers){
   const userIndex = User.userDoc.findIndex((item) => item.id === loggedUser.id);
   if (userIndex !== -1) {
