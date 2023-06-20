@@ -492,7 +492,7 @@ function renderQuestionsTable() {
         </div>
         <div class="form-input">
           <input
-            type="text"
+            type="number"
             name="questionSolution"
             id="newQuestionSolution"
             placeholder="Solution"
