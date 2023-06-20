@@ -317,7 +317,6 @@ function renderUsersTable() {
 
 // Call the Class Room
 room.init();
-renderRoomsTable();
 
 // Add Rooms
 function renderRoomsTable() {
@@ -350,10 +349,12 @@ function renderRoomsTable() {
   table.innerHTML = template;
 
   const rem = document.querySelectorAll(".rem");
-  rem.forEach((button) => {
+  rem.forEach((button, index) => {
     button.addEventListener("click", function () {
-      const roomId = parseInt(button.getAttribute("data-id"));
-      deleteRoom(roomId);
+      room.roomDoc.pop(index);
+      localStorage.setItem("roomDoc", JSON.stringify(room.roomDoc));
+      // const roomId = parseInt(button.getAttribute("data-id"));
+      // deleteRoom(roomId);
       renderRoomsTable();
     });
   });
