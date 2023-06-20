@@ -428,6 +428,7 @@ function renderQuestionsTable() {
       <td>${question.name}</td>
       <td><img src="${question.image}" alt="Room Photo" width="100%"></td>
       <td>${question.options}</td>
+      <td>${question.solution}</td>
       <td><button type="button" class="rem" data-id="${question.id}">Remove</button></td>
     </tr>`;
   });
@@ -481,9 +482,29 @@ function renderQuestionsTable() {
             type="text"
             name="questionOption"
             id="newQuestionOption"
-            placeholder="Options"
+            placeholder="Options (Separate options with ';')"
             required
           />
+        </div>
+        <div class="form-input">
+          <input
+            type="text"
+            name="questionSolution"
+            id="newQuestionSolution"
+            placeholder="Solution"
+            required
+          />
+        </div>
+        <div class="form-input">
+          <select name="selectLevel"
+           id="selectLevel"
+            placeholder="Select Level"
+            required
+          >
+          <option value="">Level 1</option>
+          <option value="">Level 2</option>
+          <option value="">Level 3</option>
+          </select>
         </div>
         <div class="form-input">
           <button type="submit" id="addQuestion">Add Question</button>
@@ -497,8 +518,9 @@ function renderQuestionsTable() {
       const addName = document.getElementById("newQuestionName").value;
       const addPhoto = document.getElementById("newQuestionPhoto").value;
       const addOption = document.getElementById("newQuestionOption").value;
+      const addSolution = document.getElementById("newQuestionSolution").value;
 
-      question.addQuestion(addName, addOption, addPhoto);
+      question.addQuestion(addName, addOption, addPhoto, addSolution);
       modal.style.display = "none";
       renderQuestionsTable();
     });
