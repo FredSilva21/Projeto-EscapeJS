@@ -17,8 +17,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  flex: wrap;
+  left: 0;
+  margin: 1rem;
+  padding: 5rem;
   color: #7e7e7e;
-  width: 50%;
 }
 
 .first-text .first-button-par {

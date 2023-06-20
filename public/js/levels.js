@@ -15,11 +15,9 @@ const levelId = urlParams.get("levelId");
 const roomId=urlParams.get("roomId")
 
 let level;
-for (const room of Room.roomDoc) {
+const room = Room.roomDoc.find((room) => room.id == roomId);
+if (room) {
   level = room.levels.find((level) => level.id == levelId);
-  if (level) {
-    break;
-  }
 }
 
 let loggedUser = User.userAuth();
@@ -27,7 +25,7 @@ const questions = level.questions;
 
 // Set the innerHTML of the title element
 const title = document.querySelector("h3");
-title.innerHTML = `Level ${levelId}-${level.name}`;
+title.innerHTML = `${level.name}`;
 
 //Modal
 const modal=document.getElementById("modal")
@@ -45,7 +43,7 @@ function checkAnswer(selectedOption, currentQuestion, loggedUser) {
   currentQuestionIndex++;
   if (currentQuestionIndex < questions.length) {
     renderLevel();
-  }else{
+  }else if(currentQuestionIndex==questions.length){
     modal.style.display="flex"
     h2.innerHTML=`Level ${levelId} Finished!`
     modalBody.innerHTML=`<div><p>You answered ${correctAnswers} questions correctly of ${questions.length}!</p></div>

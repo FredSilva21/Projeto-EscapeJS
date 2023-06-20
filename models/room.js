@@ -1,4 +1,3 @@
-import { generateId } from "./user.js";
 import * as Question from "./question.js";
 
 Question.init();
@@ -61,7 +60,7 @@ export function init() {
           levels: [
             {
               id: 1,
-              name: "Fundamentals",
+              name: "Level 1-Fundamentals",
               icon:"../public/images/level 1 icone.png",
               questions: [
                 Question.questionsDoc[0],
@@ -75,7 +74,7 @@ export function init() {
             },
             {
               id: 2,
-              name: "Conditionals",
+              name: "Level 2-Conditionals",
               icon:"../public/images/level 2 icone.png",
               questions: [
                 Question.questionsDoc[6],
@@ -101,7 +100,7 @@ export function init() {
           levels: [
             {
               id: 1,
-              name: "Loops",
+              name: "Level 3-Loops",
               icon:"../public/images/level 3 icone.png",
               questions: [
                 Question.questionsDoc[10],
@@ -111,11 +110,11 @@ export function init() {
                 Question.questionsDoc[14],
                 Question.questionsDoc[15],
               ],
-              coord: "440,220,500,275",
+              coord: "1220,171,1300,226",
             },
             {
               id: 2,
-              name: "Functions",
+              name: "Level 4-Functions",
               icon:"../public/images/level 4 icone.png",
               questions: [
                 Question.questionsDoc[16],
@@ -125,7 +124,7 @@ export function init() {
               ],
               coord: "450,180,513,225",
             },
-            { id: 3, url:"",coord: "700,330,800,370" },
+            { id: 3, url:"../public/pdfs/room 2 pdf.pdf",coord: "1300,260,1350,350" },
           ],
         },
         {
