@@ -457,7 +457,8 @@ function renderQuestionsTable() {
 
   const add = document.getElementById("add");
   add.addEventListener("click", function () {
-    modalContent.innerHTML = `<span class="close">&times;</span>
+    room.exportRooms().forEach((room) => {
+      modalContent.innerHTML = `<span class="close">&times;</span>
       <form method="get">
         <div class="form-input">
           <input
@@ -501,17 +502,17 @@ function renderQuestionsTable() {
             placeholder="Select Level"
             required
           >
-          <option value="">Level 1</option>
-          <option value="">Level 2</option>
-          <option value="">Level 3</option>
+          <option value="">${room.name}</option>
+          <option value="">${room.name}</option>
+          <option value="">${room.name}</option>
           </select>
         </div>
         <div class="form-input">
           <button type="submit" id="addQuestion">Add Question</button>
         </div>
       </form>`;
-    modal.style.display = "flex";
-
+      modal.style.display = "flex";
+    });
     const submit = document.querySelector(".form-input button");
     submit.addEventListener("click", function (event) {
       event.preventDefault();
