@@ -79,9 +79,9 @@ function checkAnswer(selectedOption, currentQuestion, loggedUser) {
 
         updateQuestions(loggedUser, correctAnswers);
       }
-    }, 500); // Atraso adicional de 1 segundo antes de prosseguir para a próxima pergunta
+    }, 250); // Atraso adicional de 1 segundo antes de prosseguir para a próxima pergunta
 
-  }, 1000);
+  }, 250);
 }
 
 
