@@ -45,14 +45,14 @@ function checkAnswer(selectedOption, currentQuestion, loggedUser) {
     correctAnswers++;
 
     const correctButton = optionButtons[currentQuestion.solution];
-    correctButton.classList.add("correct-option"); // Adiciona a classe CSS para destacar a opção correta
+    correctButton.classList.add("correct-option"); // Add class CSS for correct
     correctButton.style.backgroundColor = "green";
     correctButton.style.color="white"
   } else {
     Time.wrongAnswerTime();
     optionButtons.forEach((button) => {
       if (button.textContent === selectedOption) {
-        button.classList.add("incorrect-option"); // Adiciona a classe CSS para destacar a opção incorreta
+        button.classList.add("incorrect-option"); // Add class CSS for incorrect
         button.style.backgroundColor = "red";
         button.style.color="white"
       }
@@ -68,22 +68,20 @@ function checkAnswer(selectedOption, currentQuestion, loggedUser) {
       currentQuestionIndex++;
       if (currentQuestionIndex < questions.length) {
         requestAnimationFrame(() => renderLevel()); // Força uma nova renderização do DOM antes de prosseguir para a próxima pergunta
-      } else if (currentQuestionIndex === questions.length) {
+      } else if(parseInt(levelId)==room.levels.length-1 && currentQuestionIndex==questions.length){
         modal.style.display = "flex"
-        h2.innerHTML = `Level ${levelId} Finished!`;
+        h2.innerHTML = `${level.name} Finished!`;
         modalBody.innerHTML = `
           <div><p>You answered ${correctAnswers} questions correctly of ${questions.length}!</p></div>
           <div><p>Score: +${score * correctAnswers}</p></div>
-          <div><a href="./room.html?roomId=${roomId}">Back to Room</a></div>
+          <div><a href="./catalog.html">Back to Catalog</a></div>
         `;
-
-        updateQuestions(loggedUser, correctAnswers);
+        updateQuestions(loggedUser,correctAnswers)
       }
     }, 250);
 
   }, 250);
 }
-
 
 
 
@@ -137,10 +135,6 @@ function updateQuestions(loggedUser,correctAnswers){
     localStorage.setItem("userDoc", JSON.stringify(User.userDoc));
     sessionStorage.setItem("userInSession", JSON.stringify(User.userDoc[userIndex]));
   }
-}
-
-function lastQuestion(currentQuestion){
-  
 }
 
 renderLevel();
