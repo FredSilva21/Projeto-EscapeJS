@@ -28,7 +28,7 @@ function renderRoom() {
       icons.innerHTML+=`<img src="${level.icon}" width=100px heigth=80px>`
     }
     if (isLastLevel) {
-      template += `<area href="('${level.url}')" coords=${level.coord} shape="rect">`;
+      template += `<area href='${level.url}' coords=${level.coord} shape="rect">`;
     } else {
       template += `<area target="" alt="" title="" href="./levels.html?levelId=${level.id}&roomId=${roomId}" coords=${level.coord} shape="rect">`;
     }
@@ -36,8 +36,4 @@ function renderRoom() {
 
   template += `</map>`;
   roomContainer.innerHTML = template;
-}
-
-function openPDF(url) {
-  window.open(url, "_blank");
 }
