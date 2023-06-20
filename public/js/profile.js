@@ -168,6 +168,8 @@ admin.addEventListener("click", function () {
   roomManage.addEventListener("click", renderRoomsTable);
   const questionManage = document.getElementById("questions")
   questionManage.addEventListener("click", renderQuestionsTable);
+  const scoreTime=document.getElementById("scoreTime")
+  scoreTime.addEventListener("click",renderScoreTime)
 });
 
 function renderUsersTable() {
@@ -504,4 +506,30 @@ function renderQuestionsTable() {
   });
 }
 
-function renderScoreTime() {}
+function renderScoreTime() {
+  modal.style.display="flex"
+  modalContent.innerHTML=`<span class="close">&times;</span>
+  <form method="get">
+    <div class="form-input">
+      <input
+        type="text"
+        name="time"
+        id="newTime"
+        placeholder="Time(in seconds)"
+        required
+      />
+    </div>
+    <div class="form-input">
+      <input
+        type="text"
+        name="score"
+        id="newScore"
+        placeholder="Score"
+        required
+      />
+    </div>
+    <div class="form-input">
+          <button type="submit" id="changeTimeScore">Save</button>
+      </div>
+    </form>`
+}
