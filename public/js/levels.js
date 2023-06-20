@@ -13,7 +13,6 @@ const score=localStorage.getItem("Score")
 //Get variable in url
 const urlParams = new URLSearchParams(window.location.search);
 const levelId = urlParams.get("levelId");
-console.log(levelId)
 const roomId=urlParams.get("roomId")
 
 //Find what level is
@@ -79,9 +78,6 @@ function checkAnswer(selectedOption, currentQuestion, loggedUser) {
         `;
 
         updateQuestions(loggedUser, correctAnswers);
-      }else if(levelId=="2" && currentQuestion==questions.length){
-          Time.stopTime()
-          console.log("TESTE")
       }
     }, 250);
 

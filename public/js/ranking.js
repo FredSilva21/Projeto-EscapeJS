@@ -2,6 +2,7 @@ import * as user from "../../models/user.js";
 
 renderTable();
 
+//Function to render Ranking Table
 function renderTable() {
   const table = document.querySelector(".rankingTable");
   let position = 1;

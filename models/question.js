@@ -88,7 +88,7 @@ export function init() {
           id: 8,
           name: "What is the result?",
           image: "../public/images/level2-question2.png",
-          options: ["Greater than 5", "Less than 5", "Equal to 5", "Error"],
+          options: ["Number is Even", "Number is odd", "NaN", "Error"],
           solution: 1,
           solved: 0,
         },
