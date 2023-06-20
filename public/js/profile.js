@@ -166,10 +166,10 @@ admin.addEventListener("click", function () {
   userManage.addEventListener("click", renderUsersTable);
   const roomManage = document.getElementById("rooms");
   roomManage.addEventListener("click", renderRoomsTable);
-  const questionManage = document.getElementById("questions")
+  const questionManage = document.getElementById("questions");
   questionManage.addEventListener("click", renderQuestionsTable);
-  const scoreTime=document.getElementById("scoreTime")
-  scoreTime.addEventListener("click",renderScoreTime)
+  const scoreTime = document.getElementById("scoreTime");
+  scoreTime.addEventListener("click", renderScoreTime);
 });
 
 function renderUsersTable() {
@@ -192,7 +192,8 @@ function renderUsersTable() {
     <td>${user.gender}</td>
     <td>${user.score}</td>
     <td>${user.type}</td>
-    <td><button type="button" id="rem">Remove</button></td>
+    <td><button type="button" id="rem">Remove</button>
+    <button type="button" id="options">Options</button></td>
     </tr>`;
   });
 
@@ -206,9 +207,10 @@ function renderUsersTable() {
 
   table.innerHTML = template;
 
+  // Remove User Button
   const rem = document.querySelectorAll("#rem");
   rem.forEach((button, index) => {
-    button.addEventListener("click", function () {
+    button.addEventListener("click", () => {
       user.userDoc.pop(index);
       localStorage.setItem("userDoc", JSON.stringify(user.userDoc));
       renderUsersTable();
@@ -216,7 +218,7 @@ function renderUsersTable() {
   });
 
   const add = document.getElementById("add");
-  add.addEventListener("click", function () {
+  add.addEventListener("click", () => {
     modalContent.innerHTML = `<span class="close">&times;</span>
     <form method="get">
     <div class="form-input">
@@ -306,15 +308,13 @@ function renderUsersTable() {
       modal.style.display = "none";
       renderUsersTable();
     });
-
-    const close = document.querySelector(".modal-content span");
-    close.addEventListener("click", () => (modal.style.display = "none"));
   });
+  const close = document.querySelector(".modal-content span");
+  close.addEventListener("click", () => (modal.style.display = "none"));
 }
 
 // Call the Class Room
 room.init();
-renderRoomsTable();
 
 // Add Rooms
 function renderRoomsTable() {
@@ -347,10 +347,12 @@ function renderRoomsTable() {
   table.innerHTML = template;
 
   const rem = document.querySelectorAll(".rem");
-  rem.forEach((button) => {
+  rem.forEach((button, index) => {
     button.addEventListener("click", function () {
-      const roomId = parseInt(button.getAttribute("data-id"));
-      deleteRoom(roomId);
+      room.roomDoc.pop(index);
+      localStorage.setItem("roomDoc", JSON.stringify(room.roomDoc));
+      // const roomId = parseInt(button.getAttribute("data-id"));
+      // deleteRoom(roomId);
       renderRoomsTable();
     });
   });
@@ -491,8 +493,7 @@ function renderQuestionsTable() {
       event.preventDefault();
       const addName = document.getElementById("newQuestionName").value;
       const addPhoto = document.getElementById("newQuestionPhoto").value;
-      const addOption =
-        document.getElementById("newQuestionOption").value;
+      const addOption = document.getElementById("newQuestionOption").value;
 
       addRoom(addName, addOption, addPhoto);
       modal.style.display = "none";
@@ -505,10 +506,10 @@ function renderQuestionsTable() {
 }
 
 function renderScoreTime() {
-  const actualScore=localStorage.getItem("Score")
-  const actualTime=localStorage.getItem("Time")
-  modal.style.display="flex"
-  modalContent.innerHTML=`<span class="close">&times;</span>
+  const actualScore = localStorage.getItem("Score");
+  const actualTime = localStorage.getItem("Time");
+  modal.style.display = "flex";
+  modalContent.innerHTML = `<span class="close">&times;</span>
   <form method="get" id="scoreTimeForm">
     <div class="form-input">
       <input
@@ -533,18 +534,18 @@ function renderScoreTime() {
     <div class="form-input">
           <button type="submit" id="changeTimeScore">Save</button>
       </div>
-    </form>`
+    </form>`;
 
-    const button=document.querySelector("#changeTimeScore")
-    button.addEventListener("click",function(event){
-      event.preventDefault()
-      const newScore=document.getElementById("newScore").value
-      const newTime=document.getElementById("newTime").value
-      localStorage.setItem("Score",JSON.parse(newScore))
-      localStorage.setItem("Time",JSON.parse(newTime))
-      modal.style.display="none"
-    })
+  const button = document.querySelector("#changeTimeScore");
+  button.addEventListener("click", function (event) {
+    event.preventDefault();
+    const newScore = document.getElementById("newScore").value;
+    const newTime = document.getElementById("newTime").value;
+    localStorage.setItem("Score", JSON.parse(newScore));
+    localStorage.setItem("Time", JSON.parse(newTime));
+    modal.style.display = "none";
+  });
 
-    const close = document.querySelector(".modal-content span");
-    close.addEventListener("click", () => (modal.style.display = "none"));
+  const close = document.querySelector(".modal-content span");
+  close.addEventListener("click", () => (modal.style.display = "none"));
 }
